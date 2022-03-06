@@ -1,0 +1,41 @@
+#main{
+    margin: 10px auto;
+    width: 520px;
+    background-color: #f1f1f1;
+}
+#wrapper{
+
+}
+#header{
+    background-color: firebrick;
+}
+h1{
+    text-align: center;
+    color: white;
+}
+#body-content{
+    padding-left: 80px;
+}
+.name{
+    margin-right: 20px;
+    color: blue;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.email{
+    margin-right: 40px;
+    color: blue;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.title-hobby{
+    color: blue;
+    margin-right: 20px;
+}
+.hobby-text{
+    color: orange;
+}
+#button{
+    margin-left: 80px;
+    padding-bottom: 20px;
+}

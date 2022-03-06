@@ -1,0 +1,16 @@
+#main{
+    width: 500px;
+    margin: 0 auto;
+    background-color: burlywood;
+}
+#header{
+    color: blue;
+    background-color: aquamarine;
+    margin: 10px;
+}
+.detail{
+    color: blue;
+}
+.col-right{
+
+}
