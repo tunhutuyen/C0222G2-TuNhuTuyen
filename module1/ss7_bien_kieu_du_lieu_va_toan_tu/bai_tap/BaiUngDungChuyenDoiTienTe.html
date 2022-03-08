@@ -29,7 +29,7 @@
                 </select>
             </td>
             <td>
-                    <button id="button" onclick="convert()">Convert</button>
+                    <button type="button" onclick="convert()">Convert</button>
             </td>
         </tr>
         <tr>
@@ -39,11 +39,11 @@
         </tr>
     </table>
     <script>
-        let amount = Number(document.getElementById("money").value);
-        let currency1 = document.getElementById("fromCurrency");
-        let currency2 = document.getElementById("toCurrency");
         function convert() {
-            alert(amount);
+            let amount = Number(document.getElementById("money").value);
+            let currency1 = document.getElementById("fromCurrency").innerText;
+            let currency2 = document.getElementById("toCurrency").innerText;
+            alert(amount+currency1+currency2);
         }
     </script>
 </body>
