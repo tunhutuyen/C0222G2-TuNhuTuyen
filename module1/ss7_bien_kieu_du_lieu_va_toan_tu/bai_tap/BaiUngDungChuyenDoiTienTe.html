@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                <input id="money" type="number" >
+            </td>
+            <td>
+                <select id="fromCurrency">
+                    <option>Việt Nam</option>
+                    <option>USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="toCurrency">
+                    <option>USD</option>
+                    <option>Việt Nam</option>
+                </select>
+            </td>
+            <td>
+                    <button id="button" onclick="convert()">Convert</button>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: blue">
+                <label>Result: </label> <label id="result"> </label>
+            </td>
+        </tr>
+    </table>
+    <script>
+        let amount = Number(document.getElementById("money").value);
+        let currency1 = document.getElementById("fromCurrency");
+        let currency2 = document.getElementById("toCurrency");
+        function convert() {
+            alert(amount);
+        }
+    </script>
+</body>
+</html>

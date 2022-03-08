@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm trung bình và tổng điểm</title>
+</head>
+<body>
+    <script>
+        let pointPhysical = Number(prompt("Nhập điểm môn lý: "));
+        let pointChemistry = Number(prompt("Nhập điểm môn hóa: "));
+        let pointBiology = Number(prompt("Nhập điểm môn sinh: "));
+        let pointMedium = ( pointBiology + pointChemistry + pointPhysical )/ 3;
+        let pointTotal = pointPhysical + pointChemistry + pointBiology;
+        alert("Điểm trung bình 3 môn là: " + pointMedium);
+        alert("Tổng điểm 3 môn là: "+ pointTotal);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="18bfb5fa-b7e1-4bda-a47a-728c4c456cd7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/BaiTap.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai1BienKieuDuLieuVaToanTu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai2KieuDuLieuVaToanTu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai3KieuDuLieuVaToanTu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BaiUngDungChuyenDoiTienTe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UngDungMayTinh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/.idea/ss8_cau_truc_dieu_kien_1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/thuc_hanh/CauTrucIfElse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/thuc_hanh/CauTrucIfElseIf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/thuc_hanh/KiemTraNamNhuan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2_nhap_mon_tu_duy_lap_trinh/BaiTap/ChungChi1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2_nhap_mon_tu_duy_lap_trinh/BaiTap/ChungChi2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_pseudo_va_flowchart/BaiTap/BaiTapThuatToanCauTrucDieuKien.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_pseudo_va_flowchart/BaiTap/BaiTapThuatToanChuyenDoiTienTe.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_pseudo_va_flowchart/BaiTap/BaiTapThuatToanTimGiaTriLonNhat.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_pseudo_va_flowchart/BaiTap/BaiTapThuatToanTimSoLonNhatTrongDaySo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_pseudo_va_flowchart/BaiTap/BaiTapThuatToanTinhDiemTrungBinh.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_pseudo_va_flowchart/ThucHanh/BaiTapThucHanhChuyenDoiNhietDo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_pseudo_va_flowchart/ThucHanh/BaiTapThucHanhThuatToanGameDoanSo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/BaiTap/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/BaiTap/.idea/BaiTap.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/BaiTap/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/BaiTap/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/BaiTap/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/BaiTap/CvCaNhan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/BaiTap/TaoDanhSach.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/.idea/ThucHanh.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/SuDungTheHtmlCoBan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/SuDungTheHtmlCoBan/.idea/SuDungTheHtmlCoBan.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/SuDungTheHtmlCoBan/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/SuDungTheHtmlCoBan/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/SuDungTheHtmlCoBan/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_va_html/ThucHanh/SuDungTheHtmlCoBan/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/.idea/BaiTap.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/Bai1TaoBangDonGian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/Bai2TaoFormDonGian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/MyCss1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/Table1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/TaoFormDangKyNguoiDung.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/TaoFormDonGian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/BaiTap/mycss.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/.idea/ThucHanh.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/FormTimKiemGoogle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/TaoBangCoBan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/TaoBangNangCao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/TaoFormCoBan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/mycss.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_html_form_va_table/ThucHanh/mycss1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/.idea/ThucHanh.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/Bai1HienThiDauRa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/Bai1NhungJavaScript.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/Bai2HienThiDauRa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/Bai2NhungJavaScript.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/Bai3HienThiDauRa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/Bai3NhungJavaScript.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/Bai4HienThiDauRa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_tong_quan_javascrip/ThucHanh/nhung.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="263R3pVSLojwYJ2mjRN2vJGRmi3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="18bfb5fa-b7e1-4bda-a47a-728c4c456cd7" name="Default Changelist" comment="" />
+      <created>1646650086320</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646650086320</updated>
+      <workItem from="1646650087638" duration="136000" />
+      <workItem from="1646650380047" duration="5448000" />
+      <workItem from="1646712577589" duration="8166000" />
+      <workItem from="1646736590177" duration="3021000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1646728340870">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1646728340870" />
+  </component>
+</project>
