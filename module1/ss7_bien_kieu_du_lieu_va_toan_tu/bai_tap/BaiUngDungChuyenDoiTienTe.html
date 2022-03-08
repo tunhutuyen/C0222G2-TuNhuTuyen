@@ -18,14 +18,14 @@
             </td>
             <td>
                 <select id="fromCurrency">
-                    <option>Việt Nam</option>
-                    <option>USD</option>
+                    <option value="vn">Việt Nam</option>
+                    <option value="usd">USD</option>
                 </select>
             </td>
             <td>
                 <select id="toCurrency">
-                    <option>USD</option>
-                    <option>Việt Nam</option>
+                    <option value="usd">USD</option>
+                    <option value="vn">Việt Nam</option>
                 </select>
             </td>
             <td>
@@ -41,9 +41,21 @@
     <script>
         function convert() {
             let amount = Number(document.getElementById("money").value);
-            let currency1 = document.getElementById("fromCurrency").innerText;
-            let currency2 = document.getElementById("toCurrency").innerText;
-            alert(amount+currency1+currency2);
+            let currency1 = document.getElementById("fromCurrency").value;
+            let currency2 = document.getElementById("toCurrency").value;
+            let total = 0;
+            if(currency1=="vn" && currency2=="vn"){
+                alert("Cùng đồng tiền!!!");
+            }
+            if(currency1=="usd" && currency2=="usd"){
+                alert("Cùng đồng tiền!!!");
+            }if(currency1=="usd" && currency2=="vn"){
+                total = amount/23000;
+                document.getElementById("result").innerHTML=total;
+            }if(currency1=="vn" && currency2=="usd"){
+                total = amount*23000;
+                document.getElementById("result").innerHTML= total;
+            }
         }
     </script>
 </body>
