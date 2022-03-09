@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cước điện thoai</title>
+</head>
+<body>
+    <h1>Bảng cước cuộc gọi</h1>
+    <ul>
+        <li>Gọi nội mạng(cuộc gọi)</li>
+            <ul>
+                <li>Gọi dưới 30p: 500đ/p</li>
+                <li>Gọi dưới 50p: 600đ/p</li>
+                <li>Gọi trên 50p: 800đ/p</li>
+            </ul>
+        <br>
+        <li>Gọi ngoại mạng(cuộc gọi)</li>
+            <ul>
+                <li>Gọi dưới 30p: 1000đ/p</li>
+                <li>Gọi dưới 50p: 1500đ/p</li>
+                <li>Gọi trên 50p: 2000đ/p</li>
+            </ul>
+    </ul>
+    <p>Số phút gọi nội mạng</p>
+    <input type="number" id="inputNum1" >
+    <button type="button" onclick="call1()">Tính</button>
+    <p id="result1"></p>
+    <br>
+    <br>
+    <p>Số phút gọi ngoại mạng</p>
+    <input type="number" id="inputNum2" >
+    <button type="button" onclick="call2()">Tính</button>
+    <p id="result2"></p>
+    <script>
+        function call1() {
+            let minute1 = parseInt(document.getElementById("inputNum1").value);
+            let money1 = 0;
+            if (minute1>50){
+                money1= 500*30 + 20*600 + (minute1 - 50)*800;
+                document.getElementById("result1").innerHTML="<label>Cước gọi nội mạng là: "+ money1 + " VND</label>";
+            }else if (minute1>30){
+                money1= 500*30 + (minute1 - 30)*600;
+                document.getElementById("result1").innerHTML="<label>Cước gọi nội mạng là: "+ money1 + " VND</label>";
+            }else {
+                money1 = minute1*500;
+                document.getElementById("result1").innerHTML="<label>Cước gọi nội mạng là: "+ money1 + " VND</label>";
+            }
+        }
+        function call2() {
+            let minute2 = parseInt(document.getElementById("inputNum2").value);
+            let money2 = 0;
+            if (minute2>50){
+                money2= 30*1000 + 20*1500 + (minute2 - 50)*2000;
+                document.getElementById("result2").innerHTML="<label>Cước gọi nội mạng là: "+ money2 + " VND</label>";
+            }else if (minute2>30){
+                money2= 500*30 + (minute2 - 30)*600;
+                document.getElementById("result2").innerHTML="<label>Cước gọi nội mạng là: "+ money2 + " VND</label>";
+            }else {
+                money2 = minute2*500;
+                document.getElementById("result2").innerHTML="<label>Cước gọi nội mạng là: "+ money2 + " VND</label>";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

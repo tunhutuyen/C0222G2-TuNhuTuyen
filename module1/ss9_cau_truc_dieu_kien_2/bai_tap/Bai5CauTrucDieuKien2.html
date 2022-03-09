@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        let sideA = parseFloat(prompt("nhập a "));
+        let sideB = parseFloat(prompt("nhập b "));
+        let area =0;
+        if (sideA!=sideB){
+            area = sideA*sideB/2;
+           // alert("Diện tích tam giác vuông là: "+ area);
+        }else {
+            area = Math.pow(sideA,2)/2;
+           // alert("Diện tích tam giác vuông là: "+ area);
+        }
+        alert("Diện tích tam giác vuông là: "+ area);
+    </script>
+</body>
+</html>

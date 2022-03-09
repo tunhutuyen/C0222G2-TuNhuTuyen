@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Mức chia hoa hồng cho 1 đơn hàng</h1>
+    <ul>
+        <li>Từ 0 - 200k => Mức hoa hồng 3%</li>
+        <li>Từ 200k - 500k => Mức hoa hồng 5%</li>
+        <li>Trên 500k => Mức hoa hồng 10%</li>
+    </ul>
+    <input type="number" name="" id="inputMoney">
+    <button type="button" onclick="btn()">Tính hoa hồng</button>
+    <p id="result"></p>
+
+    <script>
+        function btn() {
+            let money = parseInt(document.getElementById("inputMoney").value);
+            let percent = 0;
+            if (money>500000){
+                percent = 200000*0.03 + 300000*0.05 + (money-500000)*0.1;
+                document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+            }else if (money>200000){
+                percent = 200000*0.03 + (money-200000)*0.05;
+                document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+            }else {
+                percent = money*0.03;
+                document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+            }
+        }
+        function btn() {
+            let money = parseInt(document.getElementById("inputMoney").value);
+            let percent = 0;
+            if (money>500000){
+                percent = 200000*0.03 + 300000*0.05 + (money-500000)*0.1;
+                document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+            }else if (money>200000){
+                percent = 200000*0.03 + (money-200000)*0.05;
+                document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+            }else {
+                percent = money*0.03;
+                document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+    <script>
+        let numberA = parseFloat(prompt("nhập a "));
+        let numberB = parseFloat(prompt("nhập b "));
+        let numberC = parseFloat(prompt("nhập c "));
+        if (numberA>0 && numberB>0 && numberC>0){
+            if (numberA + numberB > numberC){
+                if (numberB + numberC > numberA){
+                    if (numberA + numberC > numberB){
+                        alert("3 số vừa nhập là canh của 1 tam giác!!!");
+                    }else {
+                        alert("không phải 3 cạnh của tam giác.");
+                    }
+                }else {
+                    alert("không phải 3 cạnh của tam giác.");
+                }
+            }else {
+                alert("không phải 3 cạnh của tam giác.");
+            }
+        }else {
+            alert("không phải 3 cạnh của tam giác.");
+        }
+    </script>
+</body>
+</html>

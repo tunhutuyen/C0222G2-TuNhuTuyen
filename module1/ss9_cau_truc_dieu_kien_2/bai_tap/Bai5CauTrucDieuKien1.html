@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp học lực</title>
+</head>
+<body>
+    <script>
+        let firstPoint = parseFloat(prompt("Xin nhập điểm kiểm tra: "));
+        let secondPoint = parseFloat(prompt("Xin nhập điểm giữa kỳ: "));
+        let threePoint = parseFloat(prompt("Xin nhập điểm cuối kỳ: "));
+        let summary = (firstPoint + secondPoint*2 + threePoint*3) / 6;
+        if (summary<=10) {
+            if (summary >= 8) {
+                alert("Học lực: Giỏi");
+            } else if (summary >= 6.5) {
+                alert("Học lực: khá");
+            } else if (summary >= 5.5) {
+                alert("Học lực: Trung Bình");
+            } else {
+                alert("Học lực: Yếu");
+            }
+        }
+    </script>
+</body>
+</html>

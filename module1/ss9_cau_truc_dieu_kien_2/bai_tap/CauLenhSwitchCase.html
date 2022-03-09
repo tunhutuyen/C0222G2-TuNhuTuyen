@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính số ngày trong tháng</title>
+</head>
+<body>
+    <input type="number" name="" id="month1">
+    <button type="button" onclick="btn1()" >Tính số ngày</button>
+    <p id="result1"></p>
+    <br>
+    <p>Và</p>
+    <br>
+    <input type="number" name="" id="month2">
+    <button type="button" onclick="btn2()" >Tính số ngày</button>
+    <p id="result2"></p>
+    <script>
+        function btn1() {
+            let month1 = parseInt(document.getElementById("month1").value);
+            switch (month1) {
+                case(4):
+                case (6):
+                case (9):
+                case (11):
+                    document.getElementById("result1").innerHTML="<label>Tháng "+ month1 +" có 30 ngày</label>";
+                    break;
+                case (2):
+                    document.getElementById("result1").innerHTML="<label>Tháng "+ month1 +" có 28 - 29 ngày</label>";
+                    break;
+                 default:
+                     document.getElementById("result1").innerHTML="<label>Tháng "+ month1 +" có 31 ngày</label>";
+                     break;
+            }
+        }
+        function btn2() {
+            let month2 = parseInt(document.getElementById("month2").value);
+            switch (month2) {
+                case(4):
+                case (6):
+                case (9):
+                case (11):
+                    document.getElementById("result2").innerHTML="<label>Tháng "+ month2 +" có 30 ngày</label>";
+                    break;
+                case (2):
+                    document.getElementById("result2").innerHTML="<label>Tháng "+ month2 +" có 28 - 29 ngày</label>";
+                    break;
+                default:
+                    document.getElementById("result2").innerHTML="<label>Tháng "+ month2 +" có 31 ngày</label>";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

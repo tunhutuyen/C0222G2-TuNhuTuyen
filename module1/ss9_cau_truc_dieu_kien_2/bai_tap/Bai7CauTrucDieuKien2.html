@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phương trình bậc 2</title>
+</head>
+<body>
+    <script>
+        let constA = parseInt(prompt("Xin nhập a "));
+        let constB = parseInt(prompt("Xin nhập b "));
+        let constC = parseInt(prompt("Xin nhập c "));
+        let triangle = Math.pow(constB,2) - 4*constA*constC;
+
+        let resultEquation1 =0;
+        let resultEquation2 =0;
+        if (triangle < 0){
+            alert("Phương trình vô nghiệm!!!");
+        }else if (triangle==0){
+            resultEquation1 = resultEquation2 =(-constB)/(2*constA);
+            alert("Phương trình có nghiệm kép là: "+ resultEquation1);
+        }else {
+            resultEquation1 = ((-constB)+Math.sqrt(triangle))/(2*constA);
+            resultEquation2 = -(constB+Math.sqrt(triangle))/(2*constA);
+            alert("Phương trình có 2 nghiệm phân biệt x1= "+resultEquation1+ ", x2 = "+resultEquation2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+    <script>
+        let constA = parseInt(prompt("Xin nhập a "));
+        let constB = parseInt(prompt("Xin nhập b "));
+        let resultEquation =0;
+        if (constA==0){
+            if (constB==0){
+                alert("Phương trình vô số nghiệm");
+            }else {
+                alert("Phương trình vô nghiệm")
+            }
+        }else {
+            resultEquation= (-constB)/constA;
+            alert("Nghiệm phương trình là: "+ resultEquation);
+        }
+    </script>
+</body>
+</html>
