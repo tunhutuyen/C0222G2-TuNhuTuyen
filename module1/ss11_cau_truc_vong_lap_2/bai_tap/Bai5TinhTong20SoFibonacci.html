@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <script>
+        let fibonacci = parseInt(prompt("Nhập số lượng bạn muốn tính tổng: "));
+        let firstNumber = 0;
+        let secondNumber = 1;
+        let nextNumber = 0;
+        let total =0;
+        for (let i = 1; i<= fibonacci; i++){
+            document.write(firstNumber + " , ");
+            total = total + firstNumber;
+            nextNumber = firstNumber + secondNumber;
+            firstNumber = secondNumber;
+            secondNumber = nextNumber;
+        }
+        document.getElementById("result2").innerHTML="<label>Tổng của các số fibonacci là: "+total+"</label>";
+    </script>
+</body>
+</html>

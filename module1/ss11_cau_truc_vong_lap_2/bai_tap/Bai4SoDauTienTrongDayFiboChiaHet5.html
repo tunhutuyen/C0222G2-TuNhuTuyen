@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <script>
+        let fibonacci = parseInt(prompt("Nhập số lượng bạn muốn: "));
+        let firstNumber = 0;
+        let secondNumber = 1;
+        let nextNumber=0;
+        for (let i =1;i<= fibonacci;i++){
+            document.write(firstNumber + " , ");
+           if (firstNumber%5==0 && firstNumber!=0){
+                 document.getElementById("result2").innerHTML="<label>Số đầu chia hết cho 5 là: "+firstNumber+ "</label>";
+                break;
+           }
+            nextNumber = firstNumber + secondNumber;
+            firstNumber = secondNumber;
+            secondNumber = nextNumber;
+
+        }
+    </script>
+</body>
+</html>

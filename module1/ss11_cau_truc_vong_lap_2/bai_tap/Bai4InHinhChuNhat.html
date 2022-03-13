@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let width = parseInt(prompt("Nhập chiều cao: "));
+        let height = parseInt(prompt("Nhập chiều rộng: "));
+        for (let i =0; i<width;i++){
+            for (let j=0;j<height;j++){
+                if (i===0 || i===width-1 || j===0 || j===height-1 ){
+                    document.write("*");
+                }else {
+                    document.write("&nbsp&nbsp");
+                }
+            }
+            document.writeln("<br>");
+        }
+    </script>
+</body>
+</html>

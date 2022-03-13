@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Giá điện</title>
+    <title>Title</title>
 </head>
 <body>
+<h1>Bảng giá điện</h1>
+<ul>
+    <li>Từ 0 - 100 số => 500đ/số</li>
+    <li>Từ 100 - 200 số=> 1000đ/số</li>
+    <li>Trên 200 => 1500đ/số </li>
+</ul>
+<input type="number" name="" id="inputMoney">
+<button type="button" onclick="total()">Tính giá điện</button>
+<p id="result"></p>
 
+<script>
+    function total() {
+        let money = parseInt(document.getElementById("inputMoney").value);
+        let percent = 0;
+        if (money>200){
+            percent = 500*100+ 1000*100 + (money-200)*1500;
+            document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+        }else if (money>100){
+            percent = 500*100 + (money-100)*1000;
+            document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+        }else {
+            percent = money*500;
+            document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
+        }
+    }
+
+</script>
 </body>
 </html>

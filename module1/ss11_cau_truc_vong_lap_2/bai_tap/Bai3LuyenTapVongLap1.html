@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+    <p id="result"></p>
+    <script>
+        let fibonacci = parseInt(prompt("Nhập số bạn muốn: "));
+        let firstNumber = 0;
+        let secondNumber = 1;
+        let nextNumber =0;
+        for (let i=1;i<=fibonacci;i++){
+            document.write(firstNumber + " , ");
+            nextNumber = firstNumber + secondNumber;
+            firstNumber = secondNumber;
+            secondNumber = nextNumber;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tổng các số %7</title>
+</head>
+<body>
+    <script>
+        let number= parseInt(prompt("Nhập số lượng: "));
+        let total=0;
+        for (let i=1;i <= number;i++){
+            if (i%7==0){
+                total = total + i;
+            }
+        }
+        alert("Tổng các số chia hết cho 7 = " + total);
+    </script>
+</body>
+</html>

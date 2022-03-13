@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let temperature = parseFloat(prompt("Nhập nhiệt độ hiện tai: "));
+        for (let i=0; i<200;i++){
+            if (i ==temperature && temperature <20){
+                alert("Bạn nên tăng nhiệt độ!");
+                break;
+            }else if (i==temperature && temperature>100){
+                alert("Nhiệt độ đang quá cao, xin giảm nhiệt độ");
+                break;
+            }
+
+
+        }
+    </script>
+</body>
+</html>

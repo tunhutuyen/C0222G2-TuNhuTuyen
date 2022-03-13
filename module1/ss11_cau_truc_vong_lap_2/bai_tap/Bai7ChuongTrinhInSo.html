@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương trình in số</title>
+</head>
+<body>
+    <p id="result"></p>
+    <script>
+        let number = parseInt(prompt("Nhập số lượng: "));
+        for (let i =1;i <= number; i++){
+            if (i % 3===0 && i % 5===0){
+                document.write("FizzBuzz");
+            }else if (i % 3===0){
+                document.write("Fizz");
+            }else if (i%5===0){
+                document.write("buzz");
+            }else {
+                document.write(i);
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

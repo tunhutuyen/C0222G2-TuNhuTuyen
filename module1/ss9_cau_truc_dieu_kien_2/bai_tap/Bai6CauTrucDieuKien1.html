@@ -12,11 +12,11 @@
         <li>Trên 500k => Mức hoa hồng 10%</li>
     </ul>
     <input type="number" name="" id="inputMoney">
-    <button type="button" onclick="btn()">Tính hoa hồng</button>
+    <button type="button" onclick="total()">Tính hoa hồng</button>
     <p id="result"></p>
 
     <script>
-        function btn() {
+        function total() {
             let money = parseInt(document.getElementById("inputMoney").value);
             let percent = 0;
             if (money>500000){
@@ -30,7 +30,7 @@
                 document.getElementById("result").innerHTML="<label>Mức hoa hồng là "+percent+" </label>";
             }
         }
-        function btn() {
+        function total() {
             let money = parseInt(document.getElementById("inputMoney").value);
             let percent = 0;
             if (money>500000){

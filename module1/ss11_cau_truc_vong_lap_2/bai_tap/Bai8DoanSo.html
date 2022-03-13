@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DoanSo</title>
+</head>
+<body>
+    <h1>Thử tài đoán số</h1>
+    <button type="button" onclick="divine()">Dự đoán</button>
+    <script>
+        function divine() {
+            let count=0;
+            while(count<3) {
+                let minNumber = parseInt(prompt("Chọn số nhỏ nhất: "));
+                let maxNumber = parseInt(prompt("Chọn số lớn nhất: "));
+                let number = parseInt(prompt("Chọn số bạn dự đoán: "));
+                let numberRandom = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+                if (number === numberRandom) {
+                    alert("Bạn đã đoán đúng - " + numberRandom);
+                    break;
+                } else {
+                    alert("Bạn đã sai. Số đúng là: " + numberRandom+ " Hãy thử lại");
+                    count ++;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
