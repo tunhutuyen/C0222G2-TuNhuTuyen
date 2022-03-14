@@ -8,10 +8,16 @@
     <script>
         let number= parseInt(prompt("Nhập số lượng: "));
         let total=0;
-        for (let i=1;i <= number;i++){
-            if (i%7==0){
-                total = total + i;
-            }
+        let n =0;
+        let i =0;
+        while (n<number) {
+            i++
+            {
+                if (i % 7 == 0) {
+                    total = total + i;
+                    n++;
+                }
+            }console.log(total);
         }
         alert("Tổng các số chia hết cho 7 = " + total);
     </script>
