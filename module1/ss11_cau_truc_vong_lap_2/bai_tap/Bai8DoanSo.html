@@ -10,11 +10,11 @@
     <script>
         function divine() {
             let count=0;
+            let minNumber = parseInt(prompt("Chọn số nhỏ nhất: "));
+            let maxNumber = parseInt(prompt("Chọn số lớn nhất: "));
+            let numberRandom = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
             while(count<3) {
-                let minNumber = parseInt(prompt("Chọn số nhỏ nhất: "));
-                let maxNumber = parseInt(prompt("Chọn số lớn nhất: "));
                 let number = parseInt(prompt("Chọn số bạn dự đoán: "));
-                let numberRandom = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
                 if (number === numberRandom) {
                     alert("Bạn đã đoán đúng - " + numberRandom);
                     break;

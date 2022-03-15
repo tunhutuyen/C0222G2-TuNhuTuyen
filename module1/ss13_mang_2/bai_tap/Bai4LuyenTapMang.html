@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let array = ["xin chào",2,"màu sắc",5,9,"năm mới"];
+        let firstNum = 0 ;
+        let lastNum= array.length-1;
+        while (firstNum<lastNum){
+            let change = array[firstNum];
+            array[firstNum] = array[lastNum];
+            array[lastNum] = change;
+            firstNum++;
+            lastNum--;
+        }
+        document.writeln(array);
+    </script>
+</body>
+</html>

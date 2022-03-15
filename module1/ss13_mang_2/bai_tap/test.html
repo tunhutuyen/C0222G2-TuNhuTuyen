@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let array = [];
+        let flag;
+        for(let i = 0; i<10;i++){
+            array[i] = prompt("Nhập 10 số: ");
+        }
+        let number = parseFloat(prompt("Nhập 1 số: "));
+        console.log(number);
+        for(let i =0;i<array.length;i++){
+            if (number==array[i]){
+                flag=true;
+            }else {
+                flag=flag;
+            }
+        }
+        if (flag){
+            alert("Tìm đc");
+        }else {
+            alert("ko thấy");
+        }
+    </script>
+</body>
+</html>

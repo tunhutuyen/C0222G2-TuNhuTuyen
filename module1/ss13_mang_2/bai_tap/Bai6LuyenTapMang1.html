@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+    <script>
+        let string1 = prompt("nhập số lượng của mảng: ");
+        let array1 = string1.split(",");
+        let numberV = prompt("Nhập v: ");
+        if(array1.includes(numberV,0)){
+            alert("V is in the array 1");
+        }else {
+            alert("V is not the array 2");
+        }
+
+        //Cách 2:
+        // let array = [];
+        // let flag;
+        // for(let i = 0; i<10;i++){
+        //     array[i] = prompt("Nhập 10 số: ");
+        // }
+        // let number = parseFloat(prompt("Nhập 1 số: "));
+        // console.log(number);
+        // for(let i =0;i<array.length;i++){
+        //     if (number==array[i]){
+        //         flag=true;
+        //     }else {
+        //         flag=flag;
+        //     }
+        // }
+        // if (flag){
+        //     alert("Tìm đc");
+        // }else {
+        //     alert("ko thấy");
+        // }
+    </script>
+</body>
+</html>

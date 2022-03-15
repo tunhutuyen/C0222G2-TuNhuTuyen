@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kiếm</title>
+</head>
+<body>
+    <input type="text" value="" name="" id="inputString"/>
+    <input type="button" value="Tìm kiếm" onclick="findInform()">
+    <p id="outputString" ></p>
+    <script>
+        function findInform() {
+            let string = document.getElementById("inputString").value;
+            let arrayViet = ["chó","mèo","gà","thể thao","nghe nhạc","sự kiện"];
+            let arrayEnglish = ["dog","cat","chicken","sports","music","event"];
+            for (let i= 0; i<arrayEnglish.length;i++){
+                if (arrayEnglish[i] === string){
+                   document.getElementById("outputString").innerHTML="Nghĩa của từ "+string+ " là: "+arrayViet[i];
+                }
+            }
+        }
+    </script>
+</body>
+</html>

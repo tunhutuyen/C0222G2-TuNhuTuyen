@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {padding-top:50px}
+    </style>
+</head>
+<body>
+    <input type="text" id="inputValue">
+    <input type="button" id="btnAdd" value="Add" onclick="addElement()"/>
+    <input type="button" id="btnDisplay" value="Display" onclick="disElement()"/>
+    <div id="result"></div>
+    <script>
+        let x = 0;
+        let array = Array();
+        function addElement() {
+            array[x]= document.getElementById("inputValue").value;
+            alert("Element: " + array[x] + " add at index " + x );
+            x++;
+            document.getElementById("inputValue").value="";
+        }
+        // function disElement() {
+        //     let s = "<hr/>";
+        //     for (let i = 0; i < array.length; i++) {
+        //         s += "Element " + i + " = " + array[i] + "</br";
+        //     }
+        //     document.getElementById("result").innerHTML=s;
+        // }
+        function disElement() {
+            let s = "<hr/>";
+            for (let i = 0; i < array.length; i++) {
+                s += "Element " + i + " = " + array[i] + "<br>";
+            }
+            document.getElementById("result").innerHTML=s;
+        }
+    </script>
+</body>
+</html>

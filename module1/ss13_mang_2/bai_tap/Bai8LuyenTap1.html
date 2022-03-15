@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+    <input type="text" value="" id="input">
+    <input type="button" value="click" onclick="clickMouse()">
+    <p id="result"></p>
+    <script>
+        function clickMouse() {
+            let string = document.getElementById("input").value;
+            let array = string.split(",");
+            let arrayNum =[];
+            let arrayString =[];
+            for (let i=0;i<array.length;i++){
+                if(isNaN(array[i])){
+                    arrayString.push(array[i]);
+                }else {
+                    arrayNum.push(array[i]);
+                }
+            }
+            arrayNum.sort((a,b)=> b-a);
+            arrayString.sort((a,b)=>b-a);
+            let total =arrayString.concat(arrayNum);
+            document.getElementById("result").innerHTML=total;
+        }
+    </script>
+</body>
+</html>

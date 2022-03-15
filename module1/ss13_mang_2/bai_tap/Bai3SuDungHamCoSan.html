@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi chữ</title>
+</head>
+<body>
+    <script>
+        let string = prompt("nhập chuỗi: ");
+        let result = [];
+        let upper = "QWERTYUIOPASDFGHJKLZXCVBNM";
+        let lower = "qwertyuiopasdfghjklzxcvbnm";
+        for(let i=0;i<string.length;i++){
+            if(upper.indexOf(string[i]) !== -1){
+                result.push(string[i].toLocaleLowerCase());
+            }else if (lower.indexOf(string[i]) !== -1){
+                result.push(string[i].toLocaleUpperCase());
+            }else {
+                result.push(string[i]);
+            }
+        }
+        alert("kết quả là: "+ result.join(""));
+    </script>
+</body>
+</html>

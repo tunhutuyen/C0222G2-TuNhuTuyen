@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        let array = [11,4,6,8,10,2,5,7,9,14];
+        let total=0;
+        let result = [];
+        for(let i=0;i<array.length;i++){
+            if (array[i]>=10){
+                total += array[i];
+                result.push(array[i]);
+            }
+        }
+        document.writeln("Những số lớn hơn hoặc bằng 10 là " +result +"<br>");
+        document.writeln("Tổng các số = "+total);
+    </script>
+</body>
+</html>
