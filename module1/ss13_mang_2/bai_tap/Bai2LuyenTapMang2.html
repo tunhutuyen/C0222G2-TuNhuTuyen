@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("nhập độ lớn mảng"));
+        let array =[];
+        for (let i =0;i<n;i++){
+            array[i] = prompt("Nhập phần tử của mảng: ");
+        }
+        let first = 0;
+        let finish = array.length-1;
+        while (first<finish){
+            let change = array[first];
+            array[first] = array[finish];
+            array[finish] = change;
+            first++;
+            finish--;
+        }
+        document.write(array);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let n =parseInt(prompt("Nhập độ dài: "));
+        let string = [];
+        let count = 0;
+        for (let i=0;i<n;i++){
+            string[i] = prompt("nhập phần tử mảng: ");
+        }
+        document.write("Mảng= "+string);
+        for(let i=0;i<string.length;i++){
+           if (!isNaN(string[i])){
+               count ++;
+           }
+        }
+        document.write("Số ký tự số trong mảng là: "+count);
+    </script>
+</body>
+</html>

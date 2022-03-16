@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <p id="1"></p>
+    <p id="2"></p>
+    <p id="3"></p>
+    <script>
+        //nhập mảng--------------------
+        let number1 =parseInt(prompt("Nhập độ dài mảng 1: "));
+        let string1 = [];
+        for (let i=0;i<number1;i++){
+            string1[i] = prompt("nhập phần tử mảng: ");
+        }
+        document.getElementById("1").innerHTML="Mảng 1 là "+string1;
+        let number2 =parseInt(prompt("Nhập độ dài mảng 2: "));
+        let string2 = [];
+        for (let i=0;i<number2;i++){
+            string2[i] = prompt("nhập phần tử mảng 2: ");
+        }
+        console.log(string2)
+        document.getElementById("2").innerHTML="Mảng 2 là "+string2;
+        //code---------------------
+        let flag ;
+        if (string1.length !== string2.length){
+            document.getElementById("3").innerText="Không bằng nhau!!!!!";
+        }else {
+            for (let i = 0; i < string1.length; i++) {
+                if (string2[i] === string1[i]) {
+                    flag=true;
+                }else{
+                    flag= false;
+                }
+            }
+        }
+        if (flag){
+            document.getElementById("3").innerText=" bằng nhau";
+        }else {
+            document.getElementById("3").innerText="Không bằng nhau";
+        }
+    </script>
+</body>
+</html>
