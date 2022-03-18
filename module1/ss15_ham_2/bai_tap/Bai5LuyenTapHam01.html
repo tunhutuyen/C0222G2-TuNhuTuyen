@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        let string = prompt("Nhập từ cần tìm: ");
+        let star = ['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus']
+        let constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila","Ursa Major","Leo"]
+        function findStar(parameter) {
+            let result;
+            let flag = false;
+            for (let i=0;i<star.length;i++){
+                if (star[i]===parameter){
+                    result = constellation[i];
+                    flag = true;
+                }
+            }
+            if (flag){
+                return result;
+            }else {
+                alert("Không tìm thấy ");
+            }
+
+        }
+        console.log(findStar(string));
+    </script>
+</body>
+</html>

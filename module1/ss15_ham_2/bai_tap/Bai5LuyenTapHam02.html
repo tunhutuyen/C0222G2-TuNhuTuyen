@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        function checkMin(number1,number2,number3) {
+            let array =[number1,number2,number3];
+            let min = [array[0]];
+            for (let i=1;i<array.length;i++){
+                if (min>=array[i]){
+                    min = array[i];
+                }
+            }
+            alert("Số bé nhất là "+min);
+        }
+        checkMin(9,3,3);
+    </script>
+</body>
+</html>

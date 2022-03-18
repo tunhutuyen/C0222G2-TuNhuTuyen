@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+    <script>
+        function isChange(number1,number2) {
+            let array = [number1,number2];
+            let first = 0;
+            let second = 1;
+            let change = array[first];
+                array[first]=array[second];
+                array[second]= change;
+            document.writeln(array);
+        }
+        isChange(1,2)
+    </script>
+</body>
+</html>

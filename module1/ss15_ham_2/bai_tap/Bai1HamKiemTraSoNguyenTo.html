@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số nguyên tố</title>
+</head>
+<body>
+    <script>
+        function isPrime(number){
+            if(number<2){
+                return false;
+            }else {
+                for (let i=2;i<number;i++){
+                    if (number%i==0){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        document.writeln(isPrime(13));
+    </script>
+</body>
+</html>
