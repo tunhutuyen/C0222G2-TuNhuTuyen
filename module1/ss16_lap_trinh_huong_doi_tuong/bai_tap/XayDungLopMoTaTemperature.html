@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(temperature) {
+            this.temperature = temperature;
+        }
+        getTemperature (){
+            return this.temperature;
+        }
+        getTemToF(){
+            return this.temperature*9/5 + 32;
+        }
+        getTemToKenvin(){
+            return this.temperature+ 273.15
+        }
+    }
+    let inputTemperature = parseFloat(prompt("Nhập nhiệt độ: "));
+    let newTemperature = new Temperature(inputTemperature);
+    document.writeln(inputTemperature+ " độ C -> " + newTemperature.getTemToF()+" độ F <br>")
+    document.writeln(inputTemperature+ " độ C -> " + newTemperature.getTemToKenvin()+" độ Kenvin")
+
+</script>
+</body>
+</html>

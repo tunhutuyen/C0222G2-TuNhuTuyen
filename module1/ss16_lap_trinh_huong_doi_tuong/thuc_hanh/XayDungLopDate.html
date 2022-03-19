@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng data</title>
+</head>
+<body>
+    <script>
+        class MyData{
+            constructor(day,month,year) {
+                this.day = day;
+                this.month = month;
+                this.year = year;
+            }
+            getDay(){
+                return this.day;
+            }
+            getMonth(){
+                return this.month;
+            }
+            getYear(){
+                return this.year;
+            }
+            setDay(day){
+                this.day=day;
+            }
+            setMonth(month){
+                this.month=month;
+            }
+            setYear(year){
+                this.year=year;
+            }
+            setDate(day,month,year){
+                this.day=day;
+                this.month=month;
+                this.year=year;
+            }
+            toString(){
+                return  this.getDay()+"/"+this.getMonth()+"/"+this.getYear()
+            }
+        }
+        let date = new MyData(2,2,2007);
+        let day = date.getDay();
+        let month = date.getMonth();
+        let year = date.getYear();
+        alert(day+"/"+month+"/"+year)
+          date.setDay(20);
+          date.setMonth(10);
+          date.setYear(2008);
+        alert(date.toString());
+        date.setDate(30,10,2010);
+        alert(date.toString());
+        console.log(date)
+    </script>
+</body>
+</html>

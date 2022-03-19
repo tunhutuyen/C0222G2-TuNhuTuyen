@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình chữ nhật</title>
+</head>
+<body>
+    <div>
+        <label>Nhập chiều dài</label><input type="number" name="" placeholder="chiều dài" id="inputHeight"><br><br>
+        <label>Nhập chiều rộng</label><input type="number" name="" placeholder="chiều rộng" id="inputWidth"><br>
+        <button type="submit"  onclick="resultCalculate()">Tính</button>
+        <button type="submit"  onclick="resultDraw()">Vẽ</button><br><br>
+        <label>Diện tích hcn:  <span id="area" ></span></label><br>
+        <label>Chu vi hcn:  <span id="perimeter" ></span></label>
+    </div>
+    <canvas id="myCanvas" width="800" height="500" style="border:1px solid #c3c3c3;margin:50px;"></canvas>
+    <span id="sp1"></span>
+    <script>
+        class Rectangle{
+            constructor(width,height) {
+                this.width = width;
+                this.height = height;
+            }
+            getWidth(){
+                return this.width;
+            }
+            getHeight(){
+                return this.height;
+            }
+            getAre(){
+                return this.height*this.width;
+            }
+            getPerimeter(){
+                return (this.height+this.width)*2
+            }
+            setRectangle(width,height){
+                this.width=width;
+                this.height=height;
+            }
+        }
+        function resultCalculate() {
+            let newWidth = parseInt(document.getElementById("inputWidth").value);
+            let newHeight = parseInt(document.getElementById("inputHeight").value);
+            let newRectangle = new Rectangle(newWidth,newHeight);
+            document.getElementById("area").innerHTML=newRectangle.getAre();
+            document.getElementById("perimeter").innerHTML=newRectangle.getPerimeter()
+
+        }
+
+        function resultDraw() {
+            let newWidth = document.getElementById("inputWidth").value;
+            let newHeight = document.getElementById("inputHeight").value;
+            let newRectangle = new Rectangle(newWidth,newHeight);
+            let drawRectangle = document.getElementById('myCanvas').getContext('2d');
+            drawRectangle.fillStyle = "#DDDDD";
+            drawRectangle.fillRect(50,50,newRectangle.getWidth(),newRectangle.getHeight());
+        }
+
+
+
+
+        // let a = new Rectangle(20,30);
+        // console.log(a);
+        // //console.log(a.getAre());
+        // console.log(a.setRectangle(10,20));
+        // console.log(a.getAre());
+
+        // function drawRectangle(){
+        //     let sp=document.getElementById("sp1");
+        //     //let c=document.getElementById("myCanvas");
+        //     let ctx=document.getElementById("myCanvas").getContext("2d");
+        //     ctx.fillStyle="#DDDDD";
+        //
+        //     ctx.fillRect(20,20,50,150/2);
+        //     // sp.innerHTML=i+'x'+i/2;
+        //     setTimeout("drawRectangle();",50);
+
+        //drawRectangle();
+    </script>
+</body>
+</html>
