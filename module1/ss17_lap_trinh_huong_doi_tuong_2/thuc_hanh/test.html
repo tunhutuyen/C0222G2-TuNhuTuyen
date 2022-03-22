@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đèn pin</title>
+</head>
+<body>
+<script>
+    class Person{
+        constructor(firstName,lastName,age,eye) {
+            this.firstName =firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.eye =eye;
+        }
+        getName(){
+            return this.firstName,this.lastName,this.age,this.eye;
+        }
+        setChangeName (firstName,lastName,age,eye){
+            this.firstName=firstName;
+            this.lastName=lastName;
+            this.age=age;
+            this.eye=eye;
+        }
+        setChangeName1 (name) {
+
+            this.lastName = name;
+        }
+    }
+    let a = new Person("nguyễn","nam",18,"black");
+    a.setChangeName("hoa","long",20,"while");
+    a.setChangeName1("phong");
+    console.log(a);
+</script>
+</body>
+</html>

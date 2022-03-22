@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu chuyện</title>
+</head>
+<body>
+    <p>
+        <button onclick="eatAppleAdam()" >Adam ăn</button>
+        <button onclick="eatAppleEva()" >Eva ăn </button>
+    </p>
+    <p>
+        <button onclick="checkApple()">Kiểm tra táo</button>
+    </p>
+    <script>
+        class Apple {
+            constructor() {
+                this.weight =10;
+            }
+
+
+            getWeight(){
+                return this.weight;
+            }
+        }
+        class Human{
+            constructor(name,gender,weight,) {
+                this.name =name;
+                this.gender = gender;
+                this.weight1 = weight;
+                this.apple = null;
+            }
+            checkApple(apple){
+                console.log("Táo còn "+apple.getWeight());
+            }
+            eatApple(apple){
+                this.apple =apple;
+                if (this.apple.getWeight() > 0) {
+                    this.apple.weight--;
+                    this.weight1++;
+                }else {
+                    console.log("Đã hết táo");
+                }
+            }
+            say(message){
+                console.log(message);
+            }
+            getName(){
+                return this.name;
+            }
+            setName(name){
+                this.name=name;
+            }
+            getWeight1(){
+                return  this.weight1;
+            }
+            setWeight1(weight){
+                this.weight1=weight;
+            }
+            getGender(){
+                return this.gender;
+            }
+            setGender(gender){
+                this.gender =gender;
+            }
+
+        }
+        let apple1 = new Apple();
+        let human1 = new Human("adam","nam",58);
+        let human2 = new Human("Eva","nữ",49);
+
+        function eatAppleAdam() {
+            human2.say(human1.getName()+" đang ăn táo")
+            human1.eatApple(apple1);
+            console.log("Cân nặng "+human1.getWeight1())
+        }
+        function eatAppleEva() {
+            human2.say(human2.getName()+" đang ăn táo")
+            human2.eatApple(apple1);
+            console.log("Cân nặng "+Number(human2.getWeight1()))
+        }
+        function checkApple() {
+            human1.checkApple(apple1);
+        }
+
+    </script>
+</body>
+</html>

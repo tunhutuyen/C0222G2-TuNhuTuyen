@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điện thoại</title>
+</head>
+<body>
+    <script>
+        class Phone{
+            constructor() {
+                this.pin = 100;
+                this.vungNhoSoanThao = "";
+                this.vungNhoThuDen = [];
+                this.vungNhoThuDi = [];
+                this.status = true;
+            }
+            checkStatus(){
+                if (this.status){
+                    console.log("Đang bật");
+                }else {
+                    console.log("Đã tắt");
+                }
+            }
+            onOff(){
+                this.status = !this.status;
+            }
+            sacPin(){
+                this.pin = 100;
+            }
+            drafteeMessage(message){
+                this.vungNhoSoanThao =message;
+            }
+            receiveMessage(message){
+                this.vungNhoThuDen = message;
+            }
+            sendMessage(mobile,message){
+                this.drafteeMessage(message);
+                this.vungNhoThuDi.push(this.vungNhoSoanThao);
+                mobile.receiveMessage(this.vungNhoSoanThao);
+                this.vungNhoSoanThao = "";
+            }
+            xemTinDaGui(){
+                console.log(this.vungNhoThuDi);
+            }
+            xemTinDaNhan(){
+                console.log(this.vungNhoThuDen);
+            }
+        }
+        let samsung = new Phone();
+        let oppo = new Phone();
+        samsung.sendMessage(oppo,"hello");
+        oppo.xemTinDaNhan();
+        oppo.sendMessage(samsung,"hi");
+        oppo.xemTinDaGui();
+        samsung.xemTinDaNhan();
+    </script>
+</body>
+</html>
