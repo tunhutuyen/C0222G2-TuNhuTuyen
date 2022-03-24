@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        let m = parseInt(prompt("nhập m"))
+        let n = parseInt(prompt("nhập n"))
+        let array = Array(m);
+        let total=0 ;
+        for (let i=0;i<array.length;i++){
+            array[i] = Array(n);
+        }
+        for (let i=0;i<array.length;i++){
+            for (let j=0;j<array[i].length;j++){
+                array[i][j]= parseInt(prompt("nhập giá trị vào mảng: "+i+" vị trí thứ "+j));
+            }
+        }
+        console.log(array);
+        for (let i=0;i<array.length;i++){
+            for (let j=0;j<array[i].length;j++){
+                if (array[i][j]%2===0){
+                   total = total + array[i][j];
+                }
+            }
+        }
+        console.log(total);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        let salary;
+        let tax;
+        let inputsalary = parseInt(prompt("Nhập lương: "));
+        if (inputsalary>=15000000){
+            tax = inputsalary*0.2;
+            salary = inputsalary - tax;
+        }else if (inputsalary>=7000000){
+            tax = inputsalary*0.1;
+            salary = inputsalary - tax;
+        }else {
+            tax = inputsalary*0.05;
+            salary = inputsalary -tax;
+        }
+        document.write("thuế = "+ tax+"<br>");
+        document.write("lương = "+ salary+"<br>");
+
+    </script>
+</body>
+</html>

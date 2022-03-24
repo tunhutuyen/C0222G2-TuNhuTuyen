@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        let string = " tRuong   TaN       HAI  nam"
+        function titleCase() {
+            let array = string.toLowerCase().trim().split(' ');
+            let result = array.map(function(val) {
+                return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+            });
+
+            document.write(result.join(' '));
+        }
+        titleCase(string);
+
+    </script>
+</body>
+</html>

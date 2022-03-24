@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let vowel = "oOuUiIaAeE";
+        let consonant = "qQwWrRtTyYpPsSdDfFgGhHjJkKlLzZxXcCvVbBnNmM"
+        let findChart = prompt("nhập kí tự muốn tìm ");
+        if (!isNaN(findChart)){
+            alert("đây là số");
+        }else {
+            for (let i=0;i<vowel.length;i++){
+                if(findChart===vowel[i]){
+                    alert("kí tự "+ findChart +" là phụ âm");
+                }
+            }
+            for (let i=0;i<consonant.length;i++){
+                if (findChart===consonant[i]){
+                    alert("kí tự "+findChart+" là nguyên âm");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

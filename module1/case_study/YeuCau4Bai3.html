@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let s1 = "hello 1";
+        let s2 = "ollehe12";
+        function test() {
+            let s11 = s1.split("");
+            let s22 = s2.split("");
+            let count = 0;
+            for (let i = 0; i < s11.length; i++) {
+                for (let j = 0; j < s22.length; j++) {
+                    if (s11[i] === s22[j]) {
+                        count++;
+                        s11.splice(i,1);
+                        s22.splice(j,1);
+                        i--;
+                        j--;
+                    }
+                }
+            }
+            return count;
+        }
+    alert(test(s1,s2));
+</script>
+</body>
+</html>

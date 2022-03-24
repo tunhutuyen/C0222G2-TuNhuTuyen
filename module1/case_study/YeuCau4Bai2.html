@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let string = "asfgwaraad";
+        let array = string.split("");
+        for (let i=0;i<array.length;i++){
+            for (let j=i+1;j<array.length;j++){
+                if(array[i]===array[j]){
+                    array.splice(i,1);
+                    i--;
+                }
+            }
+        }
+        console.log("Số phần tử khác nhau trong chuỗi là "+array.length);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 snt</title>
+</head>
+<body>
+    <script>
+         let numB =[];
+         let numA = [[1,2,3,4],[5,7,9,3],[9,6,3,7],[11,13,15,21]]
+        function checkSNT(number) {
+            if (number<2){
+                return false;
+            }else {
+                for(let i=2;i<number;i++){
+                    if (number%i===0){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        for (let i=0;i<numA.length;i++){
+            for (let j=0;j<numA[i].length;j++){
+                if (checkSNT(numA[i][j])){
+                    numB.push(numA[i][j]);
+                }
+            }
+        }
+        document.write("Số nguyên tố có trong mảng là: "+numB);
+    </script>
+</body>
+</html>

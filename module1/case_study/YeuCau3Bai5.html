@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+
+    <input type="number" id="selectType" placeholder="Chọn thức uống">
+    <button type="button" onclick="buttonType1()">Chọn</button>
+
+    <input type="number" id="selectNum" placeholder="Chọn số lượng">
+    <button type="button" onclick="buttonNum()">Chọn</button>
+    <div> <h3>Menu</h3></div>
+    <div id="viewList" ></div>
+    <div id="viewPrice"></div>
+    <div id="totalPrice"></div>
+    <script>
+        let name = ["1 - cafe","2 - cam vắt","3 - nước ép cà rốt","4 - nước ép cà chua","5 - nước lọc","6 - nước dừa","7 -thoát"]
+        let name1 = ["cafe","cam vắt","nước ép cà rốt","nước ép cà chua","nước lọc","nước dừa","thoát"]
+        let number=[1,2,3,4,5,6,7];
+        let price=[10000,20000,30000,40000,50000,60000,"Chào mừng quý khách"]
+        document.getElementById("viewList").innerHTML=name.join("<br>");
+        function buttonType1() {
+            let inputType = document.getElementById("selectType").value;
+            for (let i= 0;i<number.length;i++){
+                if (inputType == number[i]){
+                    document.getElementById("viewPrice").innerHTML="Giá của " + name1[i]+" là "+ price[i]+ " VND";
+                    if(inputType== 7){
+                        document.getElementById("viewPrice").innerText=price[i];
+                    }
+                }
+            }
+        }
+        function buttonNum() {
+            let name = document.getElementById("selectType").value;
+            let selectNumber = document.getElementById("selectNum").value;
+            let total;
+            for (let i =0;i <number.length;i++){
+                if (name == number[i] && selectNumber>0){
+                    total= (price[i]*selectNumber).toLocaleString();
+                    document.getElementById("totalPrice").innerHTML="Bạn cần thanh toán cho "+name1[i]+" "+selectNumber +" x "+price[i]+" = "+total;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

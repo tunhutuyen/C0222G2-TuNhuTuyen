@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let h=5;
+        for (let i=0;i<=h;i++){
+            document.write("<br>");
+            for (let j=0;j<=h*2;j++){
+                if (j===(h-i) || j===(h+i)||i===h){
+                    document.write("*")
+                }else {
+                    document.write("&nbsp&nbsp");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

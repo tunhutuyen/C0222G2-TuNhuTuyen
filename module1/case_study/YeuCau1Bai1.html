@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hcn</title>
+</head>
+<body>
+    <script>
+        n=4;
+        m=5
+        for(let i =0;i<n;i++){
+            for(let j=0;j<m;j++){
+                if (i===0 || i === n-1 || j===0 || j===m-1){
+                    document.write("*");
+                }else {
+                    document.write("&nbsp&nbsp");
+                }
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>
