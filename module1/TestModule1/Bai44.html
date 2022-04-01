@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lí máy tính OOP</title>
+</head>
+<body>
+<input type="text" id="maMay" placeholder="Mã máy">
+<input type="text" id="tenMay" placeholder="Tên máy">
+<input type="text" id="tenHangSanXuat" placeholder="Tên hãng sản xuất">
+<input type="text" id="giaBan" placeholder="Giá bán">
+<input type="button" onclick="themMoi()" value="Thêm Mới">
+<input type="button" onclick="sapXep()" value="Sắp xếp">
+<p id="tongSanPham"></p>
+<p id="ketQua"></p>
+    <script>
+        class MayTinh {
+            constructor(maMay, tenMay, tenHangSanXuat, giaBan) {
+                this.maMay = maMay;
+                this.tenMay = tenMay;
+                this.tenHangSanXuat = tenHangSanXuat;
+                this.giaBan = giaBan;
+            }
+
+            setMaMay(maMay) {
+                this.maMay = maMay;
+            }
+
+            getMaMay() {
+                return this.maMay;
+            }
+
+            setTenMay(tenMay) {
+                this.tenMay = tenMay;
+            }
+
+            getTenMay() {
+                return this.tenMay;
+            }
+
+            setTenHangSanXuat(tenHangSanXuat) {
+                this.tenHangSanXuat = tenHangSanXuat;
+            }
+
+            getTenHangSanXuat() {
+                return this.tenHangSanXuat;
+            }
+            setGiaBan(giaBan) {
+                this.giaBan = giaBan;
+            }
+
+            getGiaBan() {
+                return this.giaBan;
+            }
+        }
+        let mayTinh1 = new MayTinh("F111","i7","dell",400000);
+        let mayTinh2 = new MayTinh("F222","i7","mac",200000);
+        let mayTinh3 = new MayTinh("F333","i7","vaio",300000);
+        let danhSachMayTinh = [mayTinh1,mayTinh2,mayTinh3];
+        hienThiDanhSach(danhSachMayTinh);
+
+        function hienThiDanhSach(danhSach) {
+            let tableString = '<table border="1">\n' +
+                '    <tr>\n' +
+                '        <th>STT</th>\n' +
+                '        <th>Mã máy</th>\n' +
+                '        <th>Tên máy</th>\n' +
+                '        <th>Tên hãng sản xuất</th>\n' +
+                '        <th>Giá bán</th>\n' +
+                '        <th>Sửa</th>\n' +
+                '        <th>Xóa</th>\n' +
+                '    </tr>';
+            for (let i = 0; i < danhSach.length; i++) {
+                tableString += ' <tr>\n' +
+                    '        <td>' + (i + 1) + '</td>\n' +
+                    '        <td>' + danhSach[i].getMaMay() + '</td>\n' +
+                    '        <td>' + danhSach[i].getTenMay() + '</td>\n' +
+                    '        <td>' + danhSach[i].getTenHangSanXuat() + '</td>\n' +
+                    '        <td>' + danhSach[i].getGiaBan() + '</td>\n' +
+                    '        <td><input type="button" value="Edit" onclick="sua('+i+')"></td>\n' +
+                    '        <td><input type="button" value="Xóa" onclick="xoa('+i+')"></td>\n' +
+                    '    </tr>';
+            }
+            tableString += '</table>';
+            document.getElementById("ketQua").innerHTML = tableString;
+            document.getElementById("tongSanPham").innerHTML ="Số lượng sản phẩm: " +danhSachMayTinh.length;
+        }
+        function themMoi() {
+            let maMay = document.getElementById("maMay").value;
+            let tenMay = document.getElementById("tenMay").value;
+            let tenHangSanXuat = document.getElementById("tenHangSanXuat").value;
+            let giaBan = document.getElementById("giaBan").value;
+            let mayTinh = new MayTinh(maMay,tenMay,tenHangSanXuat,giaBan);
+            if (maMay !== "" && tenMay !=="" && tenHangSanXuat !=="" && giaBan !==""){
+                danhSachMayTinh.push(mayTinh);
+            }else {
+                alert("Đề nghị nhập đủ")
+            }
+            hienThiDanhSach(danhSachMayTinh);
+            document.getElementById("maMay").value = "";
+            document.getElementById("tenMay").value = "";
+            document.getElementById("tenHangSanXuat").value = "";
+            document.getElementById("giaBan").value = "";
+        }
+        function sua(index) {
+            let tenMay = prompt("Nhập tên sản phẩm cần sửa");
+            let tenHangSanXuat = prompt("Nhập tên hãng sản phẩm cần sửa");
+            let giaBan = prompt("Nhập giá sản phẩm cần sửa");
+            danhSachMayTinh[index].setGiaBan(giaBan);
+            danhSachMayTinh[index].setTenHangSanXuat(tenHangSanXuat);
+            danhSachMayTinh[index].setTenMay(tenMay);
+            hienThiDanhSach(danhSachMayTinh);
+        }
+        function xoa(index) {
+            let conf = confirm("bạn muốn xóa máy tính có mã máy là : "+ danhSachMayTinh[index].getMaMay());
+            if (conf){
+                danhSachMayTinh.splice(index,1);
+            }else {
+                alert("Bạn đã không xóa")
+            }
+            hienThiDanhSach(danhSachMayTinh);
+        }
+        function sapXep() {
+            let change;
+            for (let i=0;i<danhSachMayTinh.length-1;i++){
+                for (let j=i+1;j<danhSachMayTinh.length;j++){
+                    if (danhSachMayTinh[i].getGiaBan()>danhSachMayTinh[j].getGiaBan()){
+                        change = danhSachMayTinh[i];
+                        danhSachMayTinh[i]=danhSachMayTinh[j];
+                        danhSachMayTinh[j]=change;
+                    }
+                }
+            }
+            hienThiDanhSach(danhSachMayTinh);
+        }
+        //Cách 2: Phải thêm tham số cho sự kiện( thêm danhSachMayTinh lên sự kiện onclick trên input)
+        // function sapXep(array) {
+        //     array.sort((a,b)=>a.getGiaBan()-b.getGiaBan());
+        //     hienThiDanhSach(danhSachMayTinh);
+        // }
+    </script>
+</body>
+</html>

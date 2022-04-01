@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm fibonaci trong mảng và sắp xếp</title>
+</head>
+<body>
+    <script>
+        let array = [1,5,6,13,9,12,8,0,5,1];
+        //Nên tìm số fibonaci lớn nhất
+        function timMax(array) {   //hàm này mới tìm số lớn nhất
+            let max =0;
+            for (let i=1;i<array.length;i++){
+                if (array[i]>max){
+                    max = array[i];
+                }
+            }
+            return max;
+        }
+        function isArrayFibonaci(arr) {
+            let arrayNew=[0,1];
+            let firstNumber = 0;
+            let secondNumber = 1;
+            let nextNumber =0;
+            let ketQua = [];
+            let max = timMax(array);
+            for (let i=1;i<max;i++){
+                nextNumber = firstNumber + secondNumber;
+                firstNumber = secondNumber;
+                secondNumber = nextNumber;
+                arrayNew.push(nextNumber);
+            }
+            for (let i=0;i<arr.length;i++){
+                if (arrayNew.indexOf(arr[i]) !== -1){
+                    ketQua.push(arr[i]);
+                }
+            }
+            return ketQua.sort((a,b)=>b-a);
+        }
+        document.write(isArrayFibonaci(array)+"<br>")
+    </script>
+</body>
+</html>

@@ -10,9 +10,9 @@
         let array = inputString.split(",");
         let stringV = prompt("Nhập V: ");
         let count = 0;
-            for (let i= 0;i<array.length;i++){
+        for (let i= 0;i<array.length;i++){
             if (stringV === array[i]){
-                array.splice(array[i-1],1)
+                array.splice(i,1)
                 i--;
             }
         }

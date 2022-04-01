@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("nhập số lượng mảng n: "));
+        let array = [];
+        for (let i=0;i<n;i++){
+            array[i] = parseInt(prompt("nhập giá trị của mảng n"))
+        }
+        document.write(array+"<br>");
+        let total=0;
+        let count =0;
+        for (let i =0;i<array.length;i++){
+            if(array[i]%5===0 && i%3===0){
+                total += array[i];
+                count++;
+            }
+        }
+        let avg = total/count;
+        document.write("Số trung bình là = "+avg);
+    </script>
+</body>
+</html>

@@ -6,17 +6,39 @@
 </head>
 <body>
     <script>
-        let string = " tRuong   TaN       HAI  nam"
-        function titleCase() {
+        function titleCase(string) {
             let array = string.toLowerCase().trim().split(' ');
-            let result = array.map(function(val) {
-                return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+            let arrayNew= [];
+            for (let i=0;i<array.length;i++){
+                //if (array[i]=== ""&& array[i+1]===""){
+                if (array[i]!==""){
+                    arrayNew.push(array[i]);
+                }
+            }
+            let result = arrayNew.map(function(val) {
+                 return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
             });
-
-            document.write(result.join(' '));
+            let stringNew = result.join(" ").toString();
+            return stringNew;
         }
-        titleCase(string);
-
+        function countChart(string) {
+            let array = string.toLowerCase().trim().split(' ');
+            console.log(array);
+            let maxChart = array[0].length;
+            for (let i=0;i<array.length;i++){
+                if (array[i].length>maxChart){
+                    maxChart=array[i];
+                }
+            }
+           return maxChart;
+        }
+        function main() {
+            let string = prompt("nhập chuỗi: ");
+            document.write("Trước: "+string+"<br>");
+            document.write(titleCase("Sau: "+string+"<br>"));
+            document.write("Từ dài nhất "+countChart(string));
+        }
+        main();
     </script>
 </body>
 </html>

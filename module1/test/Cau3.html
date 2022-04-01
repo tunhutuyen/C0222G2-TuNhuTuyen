@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 3</title>
+</head>
+<body>
+    <input type="text" id="maSo" placeholder="Mã sổ">
+    <input type="text" id="loaiTietKiem" placeholder="Loại tiết kiệm">
+    <input type="text" id="tenKhachHang" placeholder="Tên khách hàng">
+    <input type="number" id="chungMinh" placeholder="Chứng minh">
+    <input type="text" id="ngayMo" placeholder="Ngày mở">
+    <input type="number" id="soTien" placeholder="Số tiền">
+    <input type="button" onclick="themMoi()" value="Thêm Mới">
+    <input type="button" onclick="xoa()" value="Xóa">
+    <p id="tongSoTietKiem"></p>
+    <p id="ketQua"></p>
+    <script>
+        class SoTietKiem{
+            constructor(maSo,loaiTietKiem,hoTen,chungMinh,ngayMo,soTien) {
+                this.maSo=maSo;
+                this.loaiTietKiem=loaiTietKiem;
+                this.hoTen =hoTen;
+                this.chungMinh = chungMinh;
+                this.ngayMo= ngayMo;
+                this.soTien =soTien;
+            }
+            getMaSo(){
+                return this.maSo;
+            }
+            setMaSo(maSo){
+                this.maSo = maSo;
+            }
+            getLoaiTietKiem(){
+                return this.loaiTietKiem;
+            }
+            setLoaiTietKiem(loaiTietKiem){
+                this.loaiTietKiem=loaiTietKiem;
+            }
+            getHoTen(){
+                return this.hoTen;
+            }
+            setHoTen(hoTen){
+                this.hoTen=hoTen;
+            }
+            getChungMinh(){
+                return this.chungMinh;
+            }
+            setChungMinh(chungMinh){
+                this.chungMinh=chungMinh;
+            }
+            getNgayMo(){
+                return this.ngayMo;
+            }
+            setNgayMo(ngayMo){
+                this.ngayMo=ngayMo;
+            }
+            getSoTien(){
+                return this.soTien;
+            }
+            setSoTien(soTien){
+                this.soTien=soTien;
+            }
+        }
+        let so1 = new SoTietKiem("A11","Ngắn hạn","Nguyễn Văn A",333333333,"2/30/2000",20000000)
+        let so2 = new SoTietKiem("A12","Ngắn hạn","Nguyễn Văn B",444444444,"10/2/2020",20000000)
+        let so3 = new SoTietKiem("A13","Dài hạn","Trương Văn C",5555555,"10/2/2020",20000000)
+        let danhSachSo =[so1,so2,so3];
+        hienThiDanhSach(danhSachSo)
+        function hienThiDanhSach(danhSach) {
+            let tableString = '<table border="1">\n' +
+                '    <tr>\n' +
+                '        <th>STT</th>\n' +
+                '        <th>Mã sổ</th>\n' +
+                '        <th>Loại tiết kiệm</th>\n' +
+                '        <th>Tên khách hàng</th>\n' +
+                '        <th>Chứng minh nhân dân</th>\n' +
+                '        <th>Ngày mở sổ</th>\n' +
+                '        <th>Số tiền gửi</th>\n' +
+
+                '    </tr>';
+            for (let i = 0; i < danhSach.length; i++) {
+                tableString += ' <tr>\n' +
+                    '        <td>' + (i + 1) + '</td>\n' +
+                    '        <td>' + danhSach[i].getMaSo() + '</td>\n' +
+                    '        <td>' + danhSach[i].getLoaiTietKiem() + '</td>\n' +
+                    '        <td>' + danhSach[i].getHoTen() + '</td>\n' +
+                    '        <td>' + danhSach[i].getChungMinh() + '</td>\n' +
+                    '        <td>' + danhSach[i].getNgayMo() + '</td>\n' +
+                    '        <td>' + danhSach[i].getSoTien() + '</td>\n' +
+                    '    </tr>';
+            }
+            tableString += '</table>';
+            document.getElementById("ketQua").innerHTML = tableString;
+            document.getElementById("tongSoTietKiem").innerHTML ="Số lượng sản phẩm: " +danhSachSo.length;
+        }
+        function themMoi() {
+            let maSo = document.getElementById("maSo").value;
+            let loaiTietKiem = document.getElementById("loaiTietKiem").value;
+            let tenKhachHang = document.getElementById("tenKhachHang").value;
+            let chungMinh = document.getElementById("chungMinh").value;
+            let ngayMo = document.getElementById("ngayMo").value;
+            let soTien = document.getElementById("soTien").value;
+            console.log(loaiTietKiem)
+            let soNew = new SoTietKiem(maSo,loaiTietKiem,tenKhachHang,chungMinh,ngayMo,soTien);
+            let flag= false;
+            if (maSo !== "" && loaiTietKiem !=="" && tenKhachHang !=="" && chungMinh !==""&& ngayMo !==""&& soTien !==""){
+                if (loaiTietKiem.length>10 || maSo.length>5 || tenKhachHang.length>30){
+                    alert("Xin nhập đúng quy đinh: \n mã sổ <=5 \n loại tiết kiệm <=10 \n tên khách hàng <=30")
+                }else {
+                    for (let i=0;i<danhSachSo.length;i++){
+                        if (maSo === danhSachSo[i].getMaSo()){
+                            flag=true;
+                        }
+                    }
+                    if (!flag){
+                        danhSachSo.push(soNew);
+                    } else {
+                    alert("Đã tồn tại");
+                    }
+                }
+            }
+            else {
+                alert("Đề nghị nhập đúng");
+            }
+            hienThiDanhSach(danhSachSo);
+            document.getElementById("maSo").value = "";
+            document.getElementById("loaiTietKiem").value = "";
+            document.getElementById("tenKhachHang").value = "";
+            document.getElementById("chungMinh").value = "";
+            document.getElementById("ngayMo").value = "";
+            document.getElementById("soTien").value = "";
+        }
+        function xoa() {
+            let select = prompt("Nhập mã sổ tiết kiệm: ");
+            let flag =false;
+            let change;
+            for (let i=0;i<danhSachSo.length;i++){
+                if (select===danhSachSo[i].getMaSo()){
+                    flag=true;
+                    change=i;
+                }
+            }
+            if (flag){
+                let conf = confirm("bạn muốn xóa máy tính có mã máy là : "+ danhSachSo[change].getMaSo());
+                if (conf){
+                    danhSachSo.splice(change,1);
+                }else{
+                    alert("bạn không xóa");
+                }
+            }else {
+                alert("Không tìm thấy kết quả");
+            }
+            hienThiDanhSach(danhSachSo);
+        }
+    </script>
+
+</body>
+</html>

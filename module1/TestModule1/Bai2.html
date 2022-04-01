@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let string = "aa bbbbbbbbb "
+        function tomTat(string) {
+            let arrayNew = string.toLowerCase().trim().split(' ');
+            let array = [];
+            for (let i = 0; i < arrayNew.length; i++) {
+                if (arrayNew[i] !== "") {
+                    array.push(arrayNew[i]);
+                }
+            }
+
+            if (array.length === 0) {
+                return "Chuỗi rỗng";
+            } else if (array.length === 1) {
+               return "Chuỗi chỉ có 1 từ nên ko cần viết tắt";
+            } else {
+                //Cách 1:--------------
+                // let result = array.map(function (val) {
+                //     return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+                // })
+                // let arrayChart = [];
+                // for (let i = 0; i < result.length; i++) {
+                //     arrayChart.push(result[i].charAt(0));
+                // }
+                // let stringNew = arrayChart.join("").toString();
+
+                //Cách 2:--------------------
+                let array1=[];
+                for (let i=0;i<array.length;i++){
+                    array1.push(array[i][0].toUpperCase());
+                }
+                return array1.join("");
+            }
+        }
+        document.write(tomTat(string));
+    </script>
+</body>
+</html>

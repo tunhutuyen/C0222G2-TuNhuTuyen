@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 6</title>
+    <style>
+        input{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Xổ số</h3>
+    </div>
+    <div>
+        <input type="number" id="select1" min="0" max="99">
+        <input type="number" id="select2" min="0" max="99">
+        <input type="number" id="select3" min="0" max="99">
+        <input type="number" id="select4" min="0" max="99">
+        <input type="number" id="select5" min="0" max="99">
+        <input type="number" id="select6" min="0" max="99">
+    </div>
+    <div style="margin: 10px 0px 10px 0px ">
+        <input type="number" id="random1" disabled>
+        <input type="number" id="random2" disabled>
+        <input type="number" id="random3" disabled>
+        <input type="number" id="random4" disabled>
+        <input type="number" id="random5" disabled>
+        <input type="number" id="random6" disabled>
+    </div>
+    <div>
+        <button type="button" onclick="buyLottery()">Mua vé</button>
+        <button type="button"  onclick="randomLottery()">Xem kết quả</button>
+    </div>
+    <p id="result"></p>
+    <script>
+        class Lottery{
+            constructor(number) {
+                this.number =number;
+            }
+            getNumber(){
+                return this.number;
+            }
+            setNumber(number){
+                this.number = number;
+            }
+            setRanDom(){
+                let array=[];
+                for (let i=0;i<6;i++){
+                   array[i]= Math.floor(Math.random()*99-0+1)+0;
+                }
+                this.number =array;
+            }
+            checkResult(array1,array2) {
+                if (array1[5] == array2[5] && array1[4] == array2[4] && array1[3] == array2[3] && array1[2] == array2[2] && array1[1] == array2[1] && array1[0] === array2[0]) {
+                    document.getElementById("result").innerText = "Bạn đã giành giải nhất";
+                } else if (array1[5] == array2[5] && array1[4] == array2[4] && array1[3] == array2[3] && array1[2] == array2[2] && array1[1] == array2[1]) {
+                    document.getElementById("result").innerText = "Bạn đã giành giải nhì";
+                } else if (array1[3] == array2[3] && array1[4] == array2[4] && array1[5] == array2[5]) {
+                    document.getElementById("result").innerText = "Bạn đã giành giải ba";
+                } else {
+                    document.getElementById("result").innerText = "Chúc bạn may mắn lần sau";
+                }
+            }
+        }
+        let lottery = new Lottery();
+        let  index = prompt("Chọn cách bạn mua sổ số: \n 1 - Tự chọn số. \n 2 - Quay random")
+        function buyLottery() {
+            let array = [];
+            array[0]=document.getElementById("select1").value;
+            array[1]=document.getElementById("select2").value;
+            array[2]=document.getElementById("select3").value;
+            array[3]=document.getElementById("select4").value;
+            array[4]=document.getElementById("select5").value;
+            array[5]=document.getElementById("select6").value;
+            //let  index = prompt("Chọn cách bạn mua sổ số: \n 1 - Tự chọn số. \n 2 - Quay random")
+            if (index ===""|| array[0]===""|| array[1]===""|| array[2]===""|| array[3]===""|| array[4]===""|| array[5]===""){
+                alert("Nhập lại");
+            }else if (index ==="1"){
+                console.log(array)
+            }
+        }
+    </script>
+</body>
+</html>

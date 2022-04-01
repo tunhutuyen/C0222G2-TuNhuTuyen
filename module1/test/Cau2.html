@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<body>
+    <script>
+        function soSanh(tuSo1,mauSo1,tuSo2,mauSo2) {
+            //code
+            let quyDongSo1= tuSo2*mauSo1;
+            let quyDongSo2 = tuSo1*mauSo2;
+            if (quyDongSo1==quyDongSo2){
+                return "bằng nhau";
+            }else {
+               return "ko bằng";
+            }
+        }
+        let tuSo1 = parseInt(prompt("nhập tử số 1"));
+        let mauSo1 = parseInt(prompt("nhập mẫu số 1"));
+        let tuSo2 = parseInt(prompt("nhập tử số 2"));
+        let mauSo2 = parseInt(prompt("nhập mẫu số 2"));
+        document.write(soSanh(tuSo1,mauSo1,tuSo2,mauSo2));
+    </script>
+</body>
+</html>
