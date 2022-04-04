@@ -46,7 +46,7 @@ public class ThemPhanTuVaoMang {
                     array1[k+1] = array[k];
                 }
                 array1[j]=text;
-                j++;
+                break;
             }
         }
         System.out.println(Arrays.toString(array1));
