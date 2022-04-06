@@ -1,5 +1,7 @@
 package ss4_LopVaDoiTuongTrongJava.bai_tap;
 
+import java.util.Arrays;
+
 public class Fan {
     private final byte SLOW = 1;
     private final byte MEDIUM = 2;
@@ -73,5 +75,6 @@ public class Fan {
         fan2.getColor();
         fan2.getOn();
         System.out.println(fan2);
+
     }
 }
