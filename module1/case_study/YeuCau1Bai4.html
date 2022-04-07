@@ -10,13 +10,24 @@
         for (let i=0;i<=h;i++){
             document.write("<br>");
             for (let j=0;j<=h*2;j++){
-                if (j===(h-i) || j===(h+i)|| i==h){
+                if (j===(h-i) || j===(h+i)){
                     document.write("*")
                 }else {
                     document.write("&nbsp&nbsp");
                 }
             }
         }
+        for (let i=0;i<=h;i++){
+            document.write("<br>");
+            for (let j=0;j<=h*2;j++){
+                if (j===i || j===h*2-i){
+                    document.write("*")
+                }else {
+                    document.write("&nbsp&nbsp");
+                }
+            }
+        }
+
     </script>
 </body>
 </html>
