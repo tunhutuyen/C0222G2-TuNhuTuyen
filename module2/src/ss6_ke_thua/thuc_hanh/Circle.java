@@ -1,7 +1,7 @@
 package ss6_ke_thua.thuc_hanh;
 
 public class Circle extends Shape {
-    private double radius = 1.0;
+    private double radius = 2.0;
 
     public Circle() {
 

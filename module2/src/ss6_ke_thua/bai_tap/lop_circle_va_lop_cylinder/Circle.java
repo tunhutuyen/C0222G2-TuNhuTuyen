@@ -1,8 +1,8 @@
 package ss6_ke_thua.bai_tap.lop_circle_va_lop_cylinder;
 
 public class Circle {
-    protected double radius;
-    protected String color;
+    protected double radius = 2.0;
+    protected String color = "blue";
 
     public Circle() {
     }

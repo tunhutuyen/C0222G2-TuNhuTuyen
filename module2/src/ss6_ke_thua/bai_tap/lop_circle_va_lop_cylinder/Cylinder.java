@@ -1,7 +1,7 @@
 package ss6_ke_thua.bai_tap.lop_circle_va_lop_cylinder;
 
 public class Cylinder extends Circle{
-    protected double height;
+    protected double height = 5.0;
 
     public Cylinder() {
     }
@@ -19,7 +19,7 @@ public class Cylinder extends Circle{
         this.height = height;
     }
     public double getVolume(){
-        return Math.pow(radius,2)*this.height*Math.PI;
+        return Math.pow(radius,2)*height*Math.PI;
     }
 
     @Override
