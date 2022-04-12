@@ -24,6 +24,7 @@ public class Shape implements Resizeable{
         return filled;
     }
 
+
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
