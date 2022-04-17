@@ -1,5 +1,7 @@
 package quan_ly_phuong_tien_giao_thong.model;
 
+import java.util.Scanner;
+
 public class Car extends Vehicle{
     private int soChoNgoi;
     private String kieuXe;
@@ -32,6 +34,15 @@ public class Car extends Vehicle{
 
     public void setKieuXe(String kieuXe) {
         this.kieuXe = kieuXe;
+    }
+    @Override
+    public void nhapVao(){
+        Scanner scanner =new Scanner(System.in);
+        super.nhapVao();
+        System.out.println("Nhập số chỗ ngồi");
+        this.soChoNgoi = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập kiểu xe: ");
+        this.kieuXe = scanner.nextLine();
     }
 
     @Override

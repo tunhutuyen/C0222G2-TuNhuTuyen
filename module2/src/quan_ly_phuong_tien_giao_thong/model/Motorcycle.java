@@ -1,5 +1,7 @@
 package quan_ly_phuong_tien_giao_thong.model;
 
+import java.util.Scanner;
+
 public class Motorcycle extends Vehicle{
     private int congSuat;
 
@@ -17,6 +19,14 @@ public class Motorcycle extends Vehicle{
 
     public void setCongSuat(int congSuat) {
         this.congSuat = congSuat;
+    }
+
+    @Override
+    public void nhapVao() {
+        super.nhapVao();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("nhập vào công suất: ");
+        this.congSuat = Integer.parseInt(scanner.nextLine());
     }
 
     @Override

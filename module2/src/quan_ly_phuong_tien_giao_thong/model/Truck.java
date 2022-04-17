@@ -1,5 +1,7 @@
 package quan_ly_phuong_tien_giao_thong.model;
 
+import java.util.Scanner;
+
 public class Truck extends Vehicle{
     private double trongTai;
 
@@ -17,6 +19,14 @@ public class Truck extends Vehicle{
 
     public void setTrongTai(double trongTai) {
         this.trongTai = trongTai;
+    }
+
+    @Override
+    public void nhapVao() {
+        super.nhapVao();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("nhập trọng tải: ");
+        this.trongTai = Double.parseDouble(scanner.nextLine());
     }
 
     @Override

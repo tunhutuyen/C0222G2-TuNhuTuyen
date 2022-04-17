@@ -55,7 +55,10 @@ public abstract class Vehicle {
         System.out.print("nhập biển kiểm soát: ");
         this.bienKiemSoat = scanner.nextLine();
         this.tenHangSanXuat = chonHangSanXuat();
-        System.out.print("\n Nhập");
+        System.out.print("\n Nhập năm sản xuất: ");
+        this.namSanXuat = Integer.parseInt(scanner.nextLine());
+        System.out.println("nhập vào chủ sở hữu: ");
+        this.chuSoHuu = scanner.nextLine();
     }
     public Manufacturer chonHangSanXuat(){
         Scanner scanner = new Scanner(System.in);
@@ -79,11 +82,9 @@ public abstract class Vehicle {
     }
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "bienKiemSoat='" + bienKiemSoat + '\'' +
-                ", tenHangSanXuat='" + tenHangSanXuat + '\'' +
-                ", namSanXuat=" + namSanXuat +
-                ", chuSoHuu='" + chuSoHuu + '\'' +
-                '}';
+        return "bks='" + bienKiemSoat + '\'' +
+                ", hangSX'=" + tenHangSanXuat + '\'' +
+                ", namSX=" + namSanXuat +
+                ", chuSoHuu='" + chuSoHuu + '\''+",";
     }
 }

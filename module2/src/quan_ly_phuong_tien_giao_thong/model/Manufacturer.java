@@ -40,10 +40,6 @@ public class Manufacturer {
 
     @Override
     public String toString() {
-        return "Manufacturer{" +
-                "maHangSanXuat='" + maHangSanXuat + '\'' +
-                ", hangSanXuat='" + hangSanXuat + '\'' +
-                ", quocGia='" + quocGia + '\'' +
-                '}';
+        return hangSanXuat  ;
     }
 }
