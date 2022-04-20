@@ -28,20 +28,32 @@ public class test {
 //            System.out.println("Từ '"+key+"' xuất hiện "+map.get(key)+" lần");
 //        }
             String str = "abcDefabcFQzclAcFa";
-            str = str.toUpperCase();
-
-            Map<Character, Integer> treeMap = new TreeMap<>();
-
-            for (int i = 0; i < str.length(); i++) {
-                if (!treeMap.containsKey(str.charAt(i))) {
-                    treeMap.put(str.charAt(i), 1);
-                } else {
-                    treeMap.put(str.charAt(i), (treeMap.get(str.charAt(i))+1));
-                }
-            }
-
-            for (Map.Entry<Character,Integer> entry : treeMap.entrySet()) {
-                System.out.println(entry.getKey() + ": " + entry.getValue());
-            }
+//            str = str.toUpperCase();
+//
+//            Map<Character, Integer> treeMap = new TreeMap<>();
+//
+//            for (int i = 0; i < str.length(); i++) {
+//                if (!treeMap.containsKey(str.charAt(i))) {
+//                    treeMap.put(str.charAt(i), 1);
+//                } else {
+//                    treeMap.put(str.charAt(i), (treeMap.get(str.charAt(i))+1));
+//                }
+//            }
+        //--------------------------------------------------------------
+//            String[] arrString = str.split("");
+//            //List<String> arrList = arrString;
+//            List<Integer> arrIndex = new ArrayList<>();
+//        System.out.println(Arrays.toString(arrString));
+//        for (int i = 0; i < arrString.length; i++) {
+//            if (Character.isUpperCase(str.charAt(i))){
+//                arrIndex.add(i);
+//            }
+//        }
+//        System.out.println(arrIndex);
+//        for (int i = 0; i < arrString.length; i++) {
+//            if (){
+//
+//            }
+//        }
     }
 }
