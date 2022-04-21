@@ -6,18 +6,6 @@ public class MoTaThuatToanInsertSort {
     private static int[] list = {1, 3, 7, 8, 5, 2, 0, 1, -9};
 
     public static void insertSort(int[] insertSort){
-//        int position;
-//        int temp;
-//        for (int i = 1; i < insertSort.length; i++) {
-//            position = i;
-//            temp = insertSort[i];
-//           while (position > 0 && temp<insertSort[i-1]){
-//               insertSort[position] = insertSort[position-1];
-//               position--;
-//           }
-//            insertSort[position] = temp;
-//            System.out.println("lần thứ "+i+": "+ Arrays.toString(insertSort));
-//        }
         int pos;
         int temp;
         for (int i = 1; i < insertSort.length; i++) {

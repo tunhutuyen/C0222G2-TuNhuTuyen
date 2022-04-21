@@ -4,14 +4,27 @@ import java.util.Scanner;
 
 public class SuDungLopIllegalTriangleException {
     public static void main(String[] args) {
+        TriangleExceptionCheck triangleExceptionCheck = new TriangleExceptionCheck();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Hãy nhập x: ");
-        int x = scanner.nextInt();
-        System.out.println("Hãy nhập y: ");
-        int y = scanner.nextInt();
+        boolean flag;
+        do {
+            System.out.println("Hãy nhập x: ");
+            int x = scanner.nextInt();
+            System.out.println("Hãy nhập y: ");
+            int y = scanner.nextInt();
+            System.out.println("Hãy nhập z: ");
+            int z = scanner.nextInt();
+            try {
+                triangleExceptionCheck.checkTriangleException(x, y, z);
+                flag = false;
+            } catch (MyTriangleException e) {
+                e.printStackTrace();
+                //System.out.println(e.getMessage());
+                flag = true;
+            }
 
-    }
-    public void triangleException(int x, int y, int z){
+        } while (flag);
+
 
 
     }
