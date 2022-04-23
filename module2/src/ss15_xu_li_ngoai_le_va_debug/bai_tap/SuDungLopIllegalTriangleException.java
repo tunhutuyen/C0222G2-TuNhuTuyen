@@ -18,8 +18,8 @@ public class SuDungLopIllegalTriangleException {
                 triangleExceptionCheck.checkTriangleException(x, y, z);
                 flag = false;
             } catch (MyTriangleException e) {
-                e.printStackTrace();
-                //System.out.println(e.getMessage());
+                //e.printStackTrace();
+                System.err.println(e.getMessage());
                 flag = true;
             }
 
