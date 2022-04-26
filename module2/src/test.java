@@ -1,8 +1,11 @@
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.TreeMap;
 import java.util.*;
+import java.io.IOException;
+import java.io.InputStream;
 public class test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 //        String str = "hello words hello people and hello words";
 //        str = str.replaceAll(",","");
 //        String[] arr = str.split(" ");
@@ -27,7 +30,7 @@ public class test {
 //            key=(String)i.next();
 //            System.out.println("Từ '"+key+"' xuất hiện "+map.get(key)+" lần");
 //        }
-            String str = "abcDefabcFQzclAcFa";
+           // String str = "abcDefabcFQzclAcFa";
 //            str = str.toUpperCase();
 //
 //            Map<Character, Integer> treeMap = new TreeMap<>();
@@ -55,5 +58,69 @@ public class test {
 //
 //            }
 //        }
+        //---------copy chuỗi ---------------------------------
+//        String str = new String("hello Java how are you?");
+//        char[] ch = new char[5];
+//        try {
+//            str.getChars(1, 5, ch, 0);
+//            System.out.println(ch);
+//        } catch (Exception ex) {
+//            System.out.println(ex);
+//        }
+
+
+      //  ------dọc noi dung nhập từ bàn phím-------
+//        InputStream is = System.in;
+//        while (true) {
+//            System.out.print("Nhập 1 ký tự: ");
+//            int ch1 = is.read();
+//            if (ch1 == 'q') {
+//                System.out.println("Finished!");
+//                break;
+//            }
+//            is.skip(3); // Loại bỏ 2 ký tự \r và \n
+//            System.out.println("Ký tự nhận được: " + (char) ch1);
+//        }
+
+
+        //--------đọc nội dung file sử dụng FileInputStream-----------
+//        InputStream is = new FileInputStream("data.txt");
+//
+//        int i = -1;
+//
+//        // Đọc lần lượt các byte (8bit) trong luồng và lưu vào biến i
+//        // Khi đọc ra giá trị -1 nghĩa là kết thúc luồng.
+//        while ((i = is.read()) != -1) {
+//            System.out.println((char) i);
+//        }
+//        is.close();
+
+        //-------dọc nhiều byte sử dụng FileInputStream------------
+
+//        InputStream in = new FileInputStream("data.txt");
+//
+//        // Mảng để mỗi lần đọc các byte từ luồng thì tạm thời để lên đó
+//        // Ta dùng mảng 10 byte
+//
+//        byte[] bytes = new byte[10];
+//        int i = -1;
+//        // Đọc các byte trong luồng và gán lên các phần tử của mảng.
+//        // Giá trị i là số đọc được của 1 lần. (i sẽ <= 10).
+//        // Khi không còn phần tử trong luồng i sẽ = -1
+//        while ((i = in.read(bytes)) != -1) {
+//            // Tạo String từ các byte đọc được
+//            String s = new String(bytes, 0, i);
+//            System.out.println(s);
+//        }
+//        in.close();
+
+        String str = "adc";
+        str = new StringBuilder(str).insert((str.length()-2),".").toString();
+        System.out.println(str);
+        String str1 = "abc 123 To anh";
+        StringBuilder str2 = new StringBuilder(str1);
+        str2.delete(3,8);
+        System.out.println(str2);
+
     }
 }
