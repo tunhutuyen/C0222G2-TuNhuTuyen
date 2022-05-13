@@ -113,14 +113,31 @@ public class test {
 //            System.out.println(s);
 //        }
 //        in.close();
+//----------------------------------------------------------------------------
+//        String str = "adc";
+//        str = new StringBuilder(str).insert((str.length()-2),".").toString();
+//        System.out.println(str);
+//        String str1 = "abc 123 To anh";
+//        StringBuilder str2 = new StringBuilder(str1);
+//        str2.delete(3,8);
+//        System.out.println(str2);
+        //------------String và stringbuilder
+//        String str = "namEm";
+//        StringBuilder stringBuilder =new StringBuilder("namEm");
+//        String str1 = new String("namEm");
+//        System.out.println(str.equals(str1));
+//
+//        System.out.println(str.equals(stringBuilder.toString()));
+//
+//        System.out.println(str==stringBuilder.toString());
+//
+//        System.out.println(str.equals(stringBuilder));
+//
+//        System.out.println(str1.equals(stringBuilder));
+//        System.out.println(str==str1);
+//        System.out.println(str1==stringBuilder.toString());
 
-        String str = "adc";
-        str = new StringBuilder(str).insert((str.length()-2),".").toString();
-        System.out.println(str);
-        String str1 = "abc 123 To anh";
-        StringBuilder str2 = new StringBuilder(str1);
-        str2.delete(3,8);
-        System.out.println(str2);
+
 
     }
 }

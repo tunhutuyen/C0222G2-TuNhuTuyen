@@ -1,7 +1,7 @@
 package ss14_thuat_toan_sap_xep.bai_tap;
 
 public class SettingAlgoRithmInsertSort {
-    private static int[] listInsertSort = {1, 3, 7, 8, 5, 2, 0, 1, -9};
+    private static int[] listInsertSort = {-1, 3, -1,7,8, 5, 2, -1, -1, 11};
 
     public static void insertSort(int[] list){
         int pos;

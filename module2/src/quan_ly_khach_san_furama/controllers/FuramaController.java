@@ -1,9 +1,19 @@
 package quan_ly_khach_san_furama.controllers;
 
+import quan_ly_khach_san_furama.services.ICustomerService;
+import quan_ly_khach_san_furama.services.IEmployeeService;
+import quan_ly_khach_san_furama.services.IFacilityService;
+import quan_ly_khach_san_furama.services.impl.CustomerServiceImpl;
+import quan_ly_khach_san_furama.services.impl.EmployeeServiceImpl;
+import quan_ly_khach_san_furama.services.impl.FacilityServiceImpl;
+
 import java.util.Scanner;
 
 public class FuramaController {
     private static Scanner scanner = new Scanner(System.in);
+    private static  IEmployeeService iEmployeeService = new EmployeeServiceImpl();
+    private static  ICustomerService iCustomerService = new CustomerServiceImpl();
+    private static  IFacilityService iFacilityService = new FacilityServiceImpl();
     public void displayMainMenu() {
         boolean flag = true;
         while (flag) {
@@ -38,6 +48,7 @@ public class FuramaController {
                     break;
                 default:
                     System.out.println("Xin nhập Chính xác!!!");
+                    break;
             }
         }
     }
@@ -54,19 +65,20 @@ public class FuramaController {
 
             switch (choice) {
                 case 1:
-                    System.out.println("display list");
+                    iEmployeeService.displayList();
                     break;
                 case 2:
-                    System.out.println("add employee");
+                    iEmployeeService.addNew();
                     break;
                 case 3:
-                    System.out.println("Edit employee");
+                    iEmployeeService.edit();
                     break;
                 case 4:
                     System.out.println("Trở lại menu chính!!!");
                     return;
                 default:
                     System.out.println("xin chọn lại");
+                    break;
             }
         }while (true);
     }
@@ -76,21 +88,26 @@ public class FuramaController {
                     "1\tDisplay list customer\n" +
                     "2\tAdd new customer\n" +
                     "3\tEdit customer\n" +
-                    "4\tReturn main menu\n");
+                    "4\tDelete customer\n" +
+                    "5\tReturn main menu\n");
+
             System.out.print("Xin lựa chọn: ");
             int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
                 case 1:
-                    System.out.println("display list customer");
+                    iCustomerService.displayList();
                     break;
                 case 2:
-                    System.out.println("add customer");
+                    iCustomerService.addNew();
                     break;
                 case 3:
-                    System.out.println("Edit customer");
+                    iCustomerService.edit();
                     break;
                 case 4:
+                    iCustomerService.deleteCustomer();
+                    break;
+                case 5:
                     System.out.println("Trở lại menu chính!!!");
                     return;
                 default:
@@ -104,26 +121,31 @@ public class FuramaController {
             System.out.println("Chọn chức năng: \n" +
                     "1\tDisplay list facility\n" +
                     "2\tAdd new facility\n" +
-                    "3\tEdit facility\n" +
-                    "4\tReturn main menu\n");
+                    "3\tDisplay list facility maintenance\n" +
+                    "4\tDisplay list facility map\n"+
+                    "5\tReturn main menu\n");
             System.out.print("Xin lựa chọn facility: ");
             int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
                 case 1:
-                    System.out.println("display list");
+                    iFacilityService.display();
                     break;
                 case 2:
-                    System.out.println("add employee");
+                    typeFacilityDisplay();
                     break;
                 case 3:
-                    System.out.println("Edit employee");
+                    iFacilityService.displayListMaintenance();
                     break;
                 case 4:
+                    iFacilityService.displayFacilityList();
+                    break;
+                case 5:
                     System.out.println("Trở lại menu chính!!!");
                     return;
                 default:
                     System.out.println("xin chọn lại");
+                    break;
             }
         }while (true);
     }
@@ -185,6 +207,34 @@ public class FuramaController {
                     return;
                 default:
                     System.out.println("xin chọn lại");
+                    break;
+            }
+        }while (true);
+    }
+    private void typeFacilityDisplay(){
+        do {
+            System.out.println("Chọn loại hình cơ sở cần thêm:\n" +
+                    "1.\tAdd New Villa\n" +
+                    "2.\tAdd New House\n" +
+                    "3.\tAdd New Room\n" +
+                    "4.\tBack to menu");
+            System.out.println("nhập lựa chọn");
+            int choice = Integer.parseInt(scanner.nextLine());
+            switch (choice){
+                case 1:
+                    iFacilityService.addVilla();
+                    break;
+                case 2:
+                    iFacilityService.addHouse();
+                    break;
+                case 3:
+                    iFacilityService.addRoom();
+                    break;
+                case 4:
+                    System.out.println("kêt thúc phiên!!!");
+                    return;
+                default:
+                    System.out.println("chọn ngu chọn lại!!!!!!");
                     break;
             }
         }while (true);
