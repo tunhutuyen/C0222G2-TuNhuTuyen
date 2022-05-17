@@ -21,8 +21,16 @@ join `order` O on C.c_id = O.c_id
 join order_detail Od on O.o_id = Od.o_id
 join product P on P.p_id = Od.p_id;
 
-select C.c_name, P.p_name from customer C
+select c_name from customer
+where c_name not in (
+select C.c_name from customer C
 join `order` O on C.c_id = O.c_id
-join order_detail Od on O.o_id = Od.o_id
-join product P on P.p_id = Od.p_id
-where Od.o_id is null;
+join order_detail OD on O.o_id = OD.o_id
+join product P on P.p_id = OD.p_id
+group by C.c_name);
+
+select O.o_id,O.o_date,sum(OD.od_qty*P.p_price) as gia_tien
+from `order` O
+inner join order_detail OD on O.o_id = OD.o_id
+inner join product P on P.p_id = OD.p_id
+group by OD.o_id;
