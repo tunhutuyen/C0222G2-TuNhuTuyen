@@ -1,3 +1,4 @@
+drop database if exists quan_li_ban_hang;
 create database quan_li_ban_hang;
 use quan_li_ban_hang;
 
@@ -11,11 +12,10 @@ o_id int primary key,
 c_id int,
 o_date datetime,
 o_total_price double,
-foreign key (c_id) references customer(c_id)
-);
+foreign key (c_id) references customer(c_id));
 
 create table product(
-p_id int primary key,
+p_id int primary key auto_increment,
 p_name varchar(50) not null,
 p_price double not null);
 

@@ -169,6 +169,8 @@ insert into khach_hang(ma_loai_khach,ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_
 values(5,"Nguyễn Mỹ Kim","1984-04-08",0,"67853224323i","088345341123","kimcuong84@gmail.com","K123/45 Lê Lợi, Hồ Chí Minh");
 insert into khach_hang(ma_loai_khach,ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi) 
 values(3,"Trần Đại Danh","1970-11-07",1,"457345234234","04574967065757","danhhai99@gmail.com","24 Lý Thường Kiệt, Quảng Ngãi");
+insert into khach_hang(ma_loai_khach,ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi) 
+values(1,"Trần Công Danh","1977-11-07",1,"457345234234","04574967065757","congdanh99@gmail.com","69 Lý Thường Kiệt, Hà Nam");
 
 insert into kieu_thue(ten_kieu_thue) values("year");
 insert into kieu_thue(ten_kieu_thue) values("month");
@@ -229,6 +231,8 @@ insert into hop_dong(ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc,ma_nhan_vien,m
 values("2020-11-19","2020-11-19",800000,3,4,3);
 insert into hop_dong(ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc,ma_nhan_vien,ma_khach_hang,ma_dich_vu) 
 values("2021-04-12","2021-04-14",100000,6,3,5);
+insert into hop_dong(ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc,ma_nhan_vien,ma_khach_hang,ma_dich_vu) 
+values("2021-04-12","2021-04-14",100000,6,9,5);
 
 insert into hop_dong_chi_tiet(ma_hop_dong,ma_dich_vu_di_kem,so_luong)
  values(5,2,4);
@@ -247,9 +251,26 @@ insert into hop_dong_chi_tiet(ma_hop_dong,ma_dich_vu_di_kem,so_luong)
 
 select * from nhan_vien where ho_ten like "N%" or ho_ten like "H%" or ho_ten like "c%" and length(ho_ten) <15;
 
-select * from khach_hang where dia_chi like "%đà nẵng" or dia_chi like "%Quảng Trị" and year(curdate()) -year(ngay_sinh) >18 and year(curdate())-year(ngay_sinh) <50;
-select * from khach_hang where dia_chi like "%đà nẵng" or dia_chi like "%Quảng Trị" and year(current_date()) -year(ngay_sinh) >18 and year(current_date())-year(ngay_sinh) <50;
+select * from khach_hang where (dia_chi like "%đà nẵng" or dia_chi like "%Quảng Trị") and year(curdate()) -year(ngay_sinh) >18 and year(curdate())-year(ngay_sinh) <50;
+select * from khach_hang where (dia_chi like "%đà nẵng" or dia_chi like "%Quảng Trị") and year(current_date()) -year(ngay_sinh) >18 and year(current_date())-year(ngay_sinh) <50;
 
+select khach_hang.ma_khach_hang,khach_hang.ho_ten, count(hop_dong.ma_khach_hang) as so_lan_dat_phong 
+from ((khach_hang join hop_dong on khach_hang.ma_khach_hang =hop_dong.ma_khach_hang)
+				join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach)
+where loai_khach.ten_loai_khach = "Diamond"
+group by ma_khach_hang
+order by so_lan_dat_phong;
 
-
+-- ma_khach_hang, ho_ten, ten_loai_khach, ma_hop_dong, ten_dich_vu,
+--  ngay_lam_hop_dong, ngay_ket_thuc, tong_tien
+select K.ma_khach_hang,K.ho_ten, L.ten_loai_khach,H.ma_hop_dong,D.ten_dich_vu,
+H.ngay_lam_hop_dong,H.ngay_ket_thuc,D.chi_phi_thue + ifnull((HD.so_luong*DV.gia),0) as tong_tien
+from khach_hang K 
+join loai_khach L on K.ma_loai_khach = L.ma_loai_khach
+join hop_dong H on K.ma_khach_hang = H.ma_khach_hang
+join dich_vu D on H.ma_dich_vu = D.ma_dich_vu
+join hop_dong_chi_tiet HD on H.ma_hop_dong = HD.ma_hop_dong
+join dich_vu_di_kem DV on HD.ma_dich_vu_di_kem = DV.ma_dich_vu_di_kem
+group by K.ma_khach_hang,D.ma_dich_vu,L.loa
+order by K.ma_khach_hang;
 
