@@ -267,10 +267,33 @@ select K.ma_khach_hang,K.ho_ten, L.ten_loai_khach,H.ma_hop_dong,D.ten_dich_vu,
 H.ngay_lam_hop_dong,H.ngay_ket_thuc,D.chi_phi_thue + ifnull((HD.so_luong*DV.gia),0) as tong_tien
 from khach_hang K 
 join loai_khach L on K.ma_loai_khach = L.ma_loai_khach
-join hop_dong H on K.ma_khach_hang = H.ma_khach_hang
-join dich_vu D on H.ma_dich_vu = D.ma_dich_vu
-join hop_dong_chi_tiet HD on H.ma_hop_dong = HD.ma_hop_dong
-join dich_vu_di_kem DV on HD.ma_dich_vu_di_kem = DV.ma_dich_vu_di_kem
-group by K.ma_khach_hang,D.ma_dich_vu,L.loa
+left join hop_dong H on K.ma_khach_hang = H.ma_khach_hang
+left join dich_vu D on H.ma_dich_vu = D.ma_dich_vu
+left join hop_dong_chi_tiet HD on H.ma_hop_dong = HD.ma_hop_dong
+left join dich_vu_di_kem DV on HD.ma_dich_vu_di_kem = DV.ma_dich_vu_di_kem
+group by K.ma_khach_hang
 order by K.ma_khach_hang;
 
+-- Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu của tất cả các loại dịch vụ chưa từng được khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3).
+select dich_vu.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu from dich_vu
+join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
+join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+where dich_vu.ma_dich_vu 
+not in (select dich_vu.ma_dich_vu from dich_vu
+		join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
+		join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+		where hop_dong.ngay_lam_hop_dong between '2021-01-01' and '2021-03-31'
+		group by ten_dich_vu)
+group by ten_dich_vu;
+
+select dich_vu.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu, hop_dong.ma_khach_hang, hop_dong.ngay_lam_hop_dong from dich_vu
+join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
+join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+where year(hop_dong.ngay_lam_hop_dong) = 2020 and hop_dong.ma_khach_hang 
+not in (select hop_dong.ma_khach_hang from dich_vu
+		join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
+		join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+		where year(hop_dong.ngay_lam_hop_dong) = 2021
+		group by ma_khach_hang
+		order by ma_khach_hang);
+        
