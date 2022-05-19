@@ -8,4 +8,4 @@ from `subject` join mark on mark.sub_id = subject.sub_id;
 select student.student_id,student.student_name,avg(mark.mark) as mark from student
 join mark on mark.student_id = student.student_id
 group by student_id
-order by mark desc;
+order by mark desc, student_name asc;
