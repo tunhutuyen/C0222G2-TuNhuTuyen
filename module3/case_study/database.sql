@@ -202,7 +202,7 @@ tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang)
 value("House Princess 01",15000,5000000,6,4,2,"vip","Có thêm bếp nướng",null,4);
 insert into dich_vu(ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,ma_kieu_thue,ma_loai_dich_vu,
 tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang)
-value("Room Twin 01",6000,6000000,4,2,2,"normal","Có tivi",null,null);
+value("Room Twin 01",6000,6000000,4,2,3,"normal","Có tivi",null,null);
 insert into dich_vu(ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,ma_kieu_thue,ma_loai_dich_vu,
 tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang)
 value("Villa No Beach Front",22000,4100000,3,4,1,"normal","có hồ bơi",300,3);
@@ -271,29 +271,57 @@ left join hop_dong H on K.ma_khach_hang = H.ma_khach_hang
 left join dich_vu D on H.ma_dich_vu = D.ma_dich_vu
 left join hop_dong_chi_tiet HD on H.ma_hop_dong = HD.ma_hop_dong
 left join dich_vu_di_kem DV on HD.ma_dich_vu_di_kem = DV.ma_dich_vu_di_kem
-group by K.ma_khach_hang
+group by K.ma_khach_hang,D.ma_dich_vu
 order by K.ma_khach_hang;
 
--- Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu của tất cả các loại dịch vụ chưa từng được khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3).
+-- Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu của tất cả các loại dịch 
+-- vụ chưa từng được khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3).
 select dich_vu.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu from dich_vu
 join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
 join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
-where dich_vu.ma_dich_vu 
-not in (select dich_vu.ma_dich_vu from dich_vu
-		join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
-		join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
-		where hop_dong.ngay_lam_hop_dong between '2021-01-01' and '2021-03-31'
-		group by ten_dich_vu)
+where dich_vu.ma_dich_vu not in (
+select dich_vu.ma_dich_vu from dich_vu
+join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
+join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+where hop_dong.ngay_lam_hop_dong between '2021-01-01' and '2021-03-31'
+group by ten_dich_vu)
 group by ten_dich_vu;
 
-select dich_vu.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu, hop_dong.ma_khach_hang, hop_dong.ngay_lam_hop_dong from dich_vu
+select dich_vu.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, 
+dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu, hop_dong.ma_khach_hang, hop_dong.ngay_lam_hop_dong from dich_vu
 join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
 join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
 where year(hop_dong.ngay_lam_hop_dong) = 2020 and hop_dong.ma_khach_hang 
-not in (select hop_dong.ma_khach_hang from dich_vu
-		join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
-		join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
-		where year(hop_dong.ngay_lam_hop_dong) = 2021
-		group by ma_khach_hang
-		order by ma_khach_hang);
-        
+not in (
+select hop_dong.ma_khach_hang from dich_vu
+join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+where year(hop_dong.ngay_lam_hop_dong) = 2021
+group by ma_khach_hang
+order by ma_khach_hang);
+
+select distinct ho_ten from khach_hang;
+
+select ho_ten from khach_hang 
+union
+select ho_ten from khach_hang ;
+
+select ho_ten from khach_hang
+group by ho_ten;
+
+select month(hop_dong.ngay_lam_hop_dong) as thang, count(hop_dong.ma_khach_hang) as so_luong_khach_hang from hop_dong
+where year(hop_dong.ngay_lam_hop_dong)= 2021
+group by thang
+order by thang;
+
+-- task 10 thông tin tương ứng với từng hợp đồng thì đã sử dụng bao nhiêu dịch vụ đi kèm.
+--  Kết quả hiển thị bao gồm ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, so_luong_dich_vu_di_kem (được tính dựa trên việc sum so_luong ở dich_vu_di_kem).
+select hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc,
+ hop_dong.tien_dat_coc, sum(hop_dong_chi_tiet.so_luong) as so_luong_dich_vu_di_kem
+ from hop_dong join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+ group by hop_dong_chi_tiet.ma_hop_dong
+ order by hop_dong_chi_tiet.ma_hop_dong;
+ 
+ -- task 11.	Hiển thị thông tin các dịch vụ đi kèm đã được sử dụng bởi những khách
+ 
+ 
+ 
