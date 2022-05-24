@@ -1,0 +1,18 @@
+span{
+    font-weight: bold;
+}
+p{
+    text-indent: 40px;
+    font-family: "Times New Roman" ;
+    font-size: 130%;
+    text-align: justify;
+    word-spacing: 2px;
+}
+label{
+    color: red;
+}
+p.key{
+    margin-top: 0px;
+    text-indent: 0px;
+    font-size:90%;
+}

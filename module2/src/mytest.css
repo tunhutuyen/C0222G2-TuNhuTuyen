@@ -1,0 +1,71 @@
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 80px;
+/*    Thuộc tính text-align thiết lập căn chỉnh theo chiều ngang (như trái, phải, hoặc giữa)*/
+/*cho nội dung bên trong <th> hoặc <td>.*/
+  text-align: right; /*  dùng để dịch chuyển qua trái/phải/giữa của 1 ô*/
+
+    letter-spacing: -3px; /*  dùng để quy định khoảng cách giữa các kí tự*/
+
+    line-height: 0.7;  /* dùng để quy định khoảng cách giữa các dòng trong 1 thẻ*/
+
+    word-spacing: 40px; /*  dùng để quy định khoảng cách giữa các từ*/
+}
+span {
+    /*vertical-align:super;*/
+    vertical-align:sub;
+    padding: 15px; /*  dùng để quy định khoảng cách giữa 2 phần tử html*/
+}
+td {
+    height: 50px;
+    vertical-align: middle; /*dùng để dịch chuyển line lên xuống trong 1 ô của bảng/*/
+}
+a{
+    text-decoration: none;/*dùng để bỏ gạch chân cho thẻ a */
+}
+p.lowercase{
+    text-transform: lowercase; /*dùng để bỏ viết hoa thẻ p */
+
+    direction: rtl; /*dùng để hướng dòng từ rigth to left */
+
+    font-weight: bold;  /*dùng để in đậm */
+
+}
+p.ident-thut-dong{
+    text-indent: 30px; /*dùng để thụt đầu dòng thẻ p */
+    font-variant: small-caps; /*dùng để viết hoa với kich cớ thường */
+}
+
+#example1 {
+    border: 2px solid black;
+    padding: 25px;
+    background: url("Thap-Eiffel-la-bieu-tuong-cua-nuoc-phap.jpg");
+    background-repeat: repeat;/*có thể mất tiếp theo nếu ko đủ */
+}
+
+#example2 {
+    border: 2px solid black;
+    padding: 25px;
+    width: 100%;
+    height: 700px;
+    background: url("Thap-Eiffel-la-bieu-tuong-cua-nuoc-phap.jpg");
+    background-repeat: space; /*dùng để cố định 2 đầu sau đó các hình ảnh phân đều  */
+}
+
+#example3 {
+    width: 1000px;
+    height: 700px;
+    border: 1px solid black;
+    padding: 25px;
+    background: url("Thap-Eiffel-la-bieu-tuong-cua-nuoc-phap.jpg");
+    background-repeat: no-repeat; /*round dùng để phân đều hình */
+    background-attachment: scroll;
+}
