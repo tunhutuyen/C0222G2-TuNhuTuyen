@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -27,12 +27,14 @@ li a:hover {
     cursor: pointer;
 }
 
-.main{
+.main {
 }
-a{
+
+a {
     text-decoration: none;
 }
-.content{
+
+.content {
     height: 90%;
     width: 90%;
     margin: 0px auto;
@@ -40,32 +42,35 @@ a{
     margin-top: 20px;
 }
 
-table{
-    margin:0px auto ;
+table {
+    margin: 0px auto;
 }
 
-td img{
+td img {
     width: 100%;
     height: 100%;
 }
 
-.sub-content{
+.sub-content {
     width: 100%;
 }
 
-.cover{
+.cover {
     width: 400px;
 }
-.td-img{
+
+.td-img {
 
     height: 250px;
     width: 400px;
 }
-.td-normal{
+
+.td-normal {
     width: 400px;
     height: 20px;
 }
-.td-normal a{
+
+.td-normal a {
     color: black;
 }
 

@@ -1,0 +1,150 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.col-1{
+    width: 8.33%;
+}
+.col-2{
+    width: 16.66%;
+}
+.col-3{
+    width: 25%;
+}
+.col-4{
+    width: 33.33%;
+}
+.col-5{
+    width: 41.66%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 58.33%;
+}
+.col-8{
+    width: 66.66%;
+}
+.col-9{
+    width: 75%;
+}
+.col-10{
+    width: 83.33%;
+}
+.col-11{
+    width: 91.66%;
+}
+.col-12{
+    width: 100%;
+}
+[class*=col-]{
+    float: left;
+}
+body{
+    font-family: Tahoma,sans-serif;
+    /*font-size: ;*/
+}
+#header{
+    height: 50px;
+    width: 100%;
+    display: flex;
+}
+
+#header div{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.header-nav{
+    display: flex;
+}
+#header .col-2{
+    height: 50px;
+    background: #cec8c8;
+    float: left;
+}
+#header .col-8{
+    height: 50px;
+    background: #cec8c8;
+    float: left;
+}
+#nav {
+    position: fixed;
+    overflow: auto;
+    height: 800px;
+}
+#nav .col-12{
+    background: #333333;
+    border: 4px solid blue;
+    height: 60px;
+}
+#nav .col-12 div a img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.logo-face{
+    width: 50px;
+}
+#id-logo-face{
+    width: 40px;
+    display: flex;
+    height: 40px;
+    padding: 5px 0;
+    color: blue;
+}
+.header-input{
+    height: 90%;
+    width: 98%;
+    border-radius: 50px;
+}.header-div-input{
+    padding-top: 5px;
+ }
+#header .col-8 ul{
+    display: flex;
+    /*position: absolute;*/
+    width: 60%;
+    height:50px;
+}
+#header .col-8 ul li{
+    list-style: none;
+    width: 20%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.li-logo{
+    width: 50%;
+    height: 80%;
+}
+#header .col-8 ul li:hover{
+    background: #CDCDCD;
+    color: blue;
+}
+.header-aside div{
+    width: 25%;
+    display: flex;
+}
+.header-aside div a{
+    color: black;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-aside-logo{
+    width: 40px;
+    height: 30px;
+}
+.header-aside div a:hover{
+    background: #333333;
+    border-radius: 50%;
+}
+
+
+
+
