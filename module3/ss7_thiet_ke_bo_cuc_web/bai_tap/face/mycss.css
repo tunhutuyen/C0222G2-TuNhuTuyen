@@ -1,0 +1,300 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*#facebook{*/
+/*    width: 100%;*/
+/*    padding: 0;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+.col-1{
+    width: 8.33%;
+}
+.col-2{
+    width: 16.66%;
+}
+.col-3{
+    width: 25%;
+}
+.col-4{
+    width: 33.33%;
+}
+.col-5{
+    width: 41.66%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 58.33%;
+}
+.col-8{
+    width: 66.66%;
+}
+.col-9{
+    width: 75%;
+}
+.col-10{
+    width: 83.33%;
+}
+.col-11{
+    width: 91.66%;
+}
+.col-12{
+    width: 100%;
+}
+[class*=col-]{
+    float: left;
+}
+/*#facebook{*/
+/*    position: relative;*/
+/*}*/
+body{
+    font-family: Tahoma,sans-serif;
+    /*font-size: ;*/
+}
+#header{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    /*position: fixed;*/
+}
+
+#header div{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.header-nav{
+    display: flex;
+}
+#header .col-2{
+    height: 50px;
+    background: #cec8c8;
+    float: left;
+}
+#header .col-8{
+    height: 50px;
+    background: #cec8c8;
+    float: left;
+}
+
+
+.logo-face{
+    width: 50px;
+}
+#id-logo-face{
+    width: 40px;
+    display: flex;
+    height: 40px;
+    padding: 5px 0;
+    color: blue;
+}
+.header-input{
+    height: 90%;
+    width: 98%;
+    border-radius: 50px;
+}.header-div-input{
+     padding-top: 5px;
+ }
+#header .col-8 ul{
+    display: flex;
+    /*position: absolute;*/
+    width: 60%;
+    height:50px;
+}
+#header .col-8 ul li{
+    list-style: none;
+    width: 20%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.li-logo{
+    width: 50%;
+    height: 80%;
+}
+#header .col-8 ul li:hover{
+    background: #CDCDCD;
+    color: blue;
+}
+.header-aside div{
+    width: 25%;
+    /*display: flex;*/
+}
+.header-aside div a{
+    color: black;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-aside-logo{
+    width: 40px;
+    height: 30px;
+}
+.header-aside div a:hover{
+    background: #333333;
+    border-radius: 50%;
+}
+.inputs{
+    width: 190px;
+    height: 22px;
+    border-radius: 10px;
+    padding-left: 40px;
+    margin-top: 10px;
+    align-items: center;
+    background-color: #3a3b3c;
+}
+
+#left{
+    border: none;
+    /*margin-top: 15px;*/
+    width: 16.66%;
+    min-height: 570px;
+    float:left;
+    /*margin-bottom: 5px;*/
+}
+.temp-left{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.icon-left{
+    width: 12%;
+    height: 30px;
+    padding: 4px;
+    border-radius: 50px;
+}
+#content{
+    border: none;
+    width: 66.66%;
+    min-height: 570px;
+    float:left;
+    /*margin-left: 80px;*/
+    /*margin-right: 20px;*/
+    /*margin-top: 15px;*/
+    padding-left: 180px;
+
+}
+.icon-content{
+    border: none;
+    width: 107px;
+    height: 80%;
+    border-radius: 10px;
+    padding: 2px;
+
+}
+.icon-content-1{
+    display: flex;
+}
+.icon-content-2{
+    width: 90%;
+    height: 45px;
+    padding: 2px;
+    border-radius: 60px;
+}
+.icon-content-3{
+    width: 40%;
+    height: 40px;
+    border-radius: 80px;
+}
+.icon-content-5{
+    display: flex;
+    align-items: center;
+    float: left;
+}
+.temp-content-4{
+    width: 100%;
+    padding: 5px 5px;
+}
+.temp-content-1{
+    display: flex;
+    align-items: center;
+    float: left;
+}
+.input-content{
+    border-radius: 10px;
+    width: 500px;
+    height: 28px;
+    background-color: #3a3b3c;
+}
+
+
+#right{
+    border: none;
+    width: 16.66%;
+    min-height: 500px;
+    float:right;
+    margin-top: 15px;
+
+}
+#right .loi-moi-ket-ban {
+    list-style-type: none;
+
+}
+
+#right .loi-moi-ket-ban-box {
+    width: 95%;
+    height: 60px;
+    border: 1px solid #dad9d9;
+    margin-bottom: 10px;
+    /*padding: 30px;*/
+}
+
+#right .loi-moi-ket-ban-box img {
+    width: 65px;
+    border-radius: 50%;
+}
+
+#right .loi-moi-ket-ban-box .box-left {
+    float: left;
+}
+
+#right .loi-moi-ket-ban-box .box-right {
+    float: left;
+    color: black;
+    font-size: 15px;
+    /*font-weight: bold;*/
+}
+
+.loi-moi-ket-ban-box .box-right .button-dong-y, .button-tu-choi {
+    padding: 7px;
+    border-radius: 30px;
+}
+
+.loi-moi-ket-ban-box .box-right .button-dong-y, .button-tu-choi {
+    background-color: #2374e1;
+    color: #d7d7d7;
+}
+.loi-moi{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.icon-right{
+    width: 12%;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50px;
+}
+.img{
+    width: 10px;
+    height: 50px;
+}
+#footer{
+    height: 35px;
+    clear: both;
+    border: 1px solid #CDCDCD;
+    background-color: black;
+}
+
+
+
+
+
