@@ -28,11 +28,48 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public Product findProduct(Integer id) {
-        return products.get(id);
+        for(Product product : products){
+            if(product.getIdProduct().equals(id)){
+                return product;
+            }
+        }
+        return null;
     }
 
     @Override
     public void update(Product product) {
-        products.add(product);
+
+    }
+
+    @Override
+    public void remove(Integer id) {
+        for(Product product : products){
+            if(product.getIdProduct().equals(id)){
+                products.remove(product);
+                break;
+            }
+        }
+    }
+
+    @Override
+    public List<Product>  searchNameProduct(String name) {
+        boolean flag = false;
+        List<Product> listProduct = new ArrayList<>();
+        for (Product product: products) {
+            if (product.getNameProduct().contains(name)){
+                flag=true;
+                break;
+            }
+        }
+        if (flag){
+            for (Product product: products) {
+                if (product.getNameProduct().contains(name)){
+                    listProduct.add(product);
+                }
+            }
+        }else {
+            listProduct = null;
+        }
+        return listProduct;
     }
 }

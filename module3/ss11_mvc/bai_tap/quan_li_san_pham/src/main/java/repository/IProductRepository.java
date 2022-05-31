@@ -13,4 +13,8 @@ public interface IProductRepository {
     Product findProduct(Integer id);
 
     void update(Product product);
+
+    void remove(Integer id);
+
+    List<Product> searchNameProduct(String name);
 }

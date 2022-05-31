@@ -25,13 +25,66 @@ public class ProductServlet extends HttpServlet {
                 request.getRequestDispatcher("create.jsp").forward(request, response);
                 break;
             case "delete":
+                showDeleteForm(request,response);
                 break;
             case "edit":
                 showEditForm(request,response);
                 break;
+            case "view":
+                viewProduct(request,response);
+                break;
+//            case "search":
+//                searchProduct(request,response);
+//                break;
             default:
                 showProductList(request, response);
                 break;
+        }
+        searchProduct(request,response);
+    }
+
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("search");
+        List<Product> product = this.iProductService.searchNameProduct(name);
+        RequestDispatcher dispatcher;
+        if (product == null){
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        }else {
+            request.setAttribute("product",product);
+            dispatcher = request.getRequestDispatcher("search.jsp");
+        }
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        Product product = this.iProductService.findProduct(id);
+        request.setAttribute("product",product);
+        try {
+            request.getRequestDispatcher("view.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        Product product = iProductService.findProduct(id);
+        request.setAttribute("product",product);
+        try {
+            request.getRequestDispatcher("delete.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -74,6 +127,29 @@ public class ProductServlet extends HttpServlet {
             case "edit":
                 editProduct(request,response);
                 break;
+            case  "delete":
+                deleteProduct(request,response);
+                break;
+        }
+    }
+
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        Product product = iProductService.findProduct(id);
+        RequestDispatcher dispatcher;
+        if (product == null){
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        }else {
+            this.iProductService.remove(id);
+            request.setAttribute("message","Delete success!");
+            dispatcher = request.getRequestDispatcher("delete.jsp");
+        }
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -92,9 +168,9 @@ public class ProductServlet extends HttpServlet {
             product.setPriceProduct(cost);
             product.setDetailProduct(detail);
             product.setProducer(producer);
-            this.iProductService.update(product);
+//            this.iProductService.update(product);
             request.setAttribute("product", product);
-            request.setAttribute("message", "Customer information was updated");
+            request.setAttribute("message", "Product information was updated");
             dispatcher = request.getRequestDispatcher("edit.jsp");
         }
         try {

@@ -29,4 +29,14 @@ public class ProductService implements IProductService {
     public void update(Product product) {
         this.iProductRepository.update(product);
     }
+
+    @Override
+    public void remove(Integer id) {
+        this.iProductRepository.remove(id);
+    }
+
+    @Override
+    public List<Product> searchNameProduct(String name) {
+        return this.iProductRepository.searchNameProduct(name);
+    }
 }
