@@ -10,9 +10,9 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="mynavbar">
-            <form class="d-flex" method="get" action="">
+            <form class="d-flex" method="get" action="/product">
                 <input class="form-control me-2" type="text" placeholder="Search" name="search">
-                <button class="btn btn-primary" type="submit"><a href="search.jsp" style="color: aliceblue; text-decoration: none">Search</a></button>
+                <input class="btn btn-primary" type="submit" name="action" value="search">
             </form>
         </div>
     </div>

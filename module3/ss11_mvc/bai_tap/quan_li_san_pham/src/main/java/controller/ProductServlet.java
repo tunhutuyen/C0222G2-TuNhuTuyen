@@ -33,14 +33,14 @@ public class ProductServlet extends HttpServlet {
             case "view":
                 viewProduct(request,response);
                 break;
-//            case "search":
-//                searchProduct(request,response);
-//                break;
+            case "search":
+                searchProduct(request,response);
+                break;
             default:
                 showProductList(request, response);
                 break;
         }
-        searchProduct(request,response);
+//        searchProduct(request,response);
     }
 
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
