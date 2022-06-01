@@ -46,7 +46,6 @@ public class UserRepository implements IUserRepository {
     @Override
     public void insertUser(User user) throws SQLException {
         System.out.println(INSERT_USERS_SQL);
-        // try-with-resource statement will auto close the connection.
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
             preparedStatement.setString(1, user.getName());
@@ -61,16 +60,13 @@ public class UserRepository implements IUserRepository {
 
     public User selectUser(int id) {
         User user = null;
-        // Step 1: Establishing a Connection
+
         try (Connection connection = getConnection();
-             // Step 2:Create a statement using connection object
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
             preparedStatement.setInt(1, id);
             System.out.println(preparedStatement);
-            // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
 
-            // Step 4: Process the ResultSet object.
             while (rs.next()) {
                 String name = rs.getString("name");
                 String email = rs.getString("email");
@@ -84,19 +80,11 @@ public class UserRepository implements IUserRepository {
     }
 
     public List<User> selectAllUsers() {
-
-        // using try-with-resources to avoid closing resources (boiler plate code)
         List<User> users = new ArrayList<>();
-        // Step 1: Establishing a Connection
         try (Connection connection = getConnection();
-
-             // Step 2:Create a statement using connection object
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
             System.out.println(preparedStatement);
-            // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
-
-            // Step 4: Process the ResultSet object.
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
@@ -138,13 +126,6 @@ public class UserRepository implements IUserRepository {
         boolean flag =false;
         List<User> userList = this.selectAllUsers();
         List<User> users = new ArrayList<>();
-//        for (User user: userList) {
-//            if (user.getCountry().contains(nameCountry)){
-//                flag = true;
-//                break;
-//            }
-//        }
-//        if(flag){
             for (User user: userList) {
                 if (user.getCountry().contains(nameCountry)){
                     users.add(user);
@@ -155,7 +136,22 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public List<User> sortNameUser() {
-        return null;
+        List<User> users = new ArrayList<>();
+        try(Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SORT_BY_NAME);) {
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String country = rs.getString("country");
+                users.add(new User(id,name,email,country));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return users;
+
     }
 
     private void printSQLException(SQLException ex) {
