@@ -3,9 +3,6 @@ package controller;
 import model.User;
 import repository.impl.UserRepository;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,9 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -70,6 +65,9 @@ public class UserServlet extends HttpServlet {
                 case "search":
                     searchUser(request, response);
                     break;
+                case "searchId":
+                    findUserById(request, response);
+                    break;
                 case "sort":
                     sortUser(request, response);
                     break;
@@ -80,6 +78,23 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void findUserById(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("find"));
+        List<User> users = userRepository.getUserById(id);
+        RequestDispatcher dispatcher;
+        request.setAttribute("listUser",users);
+        request.setAttribute("id",id);
+        dispatcher = request.getRequestDispatcher("list.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void sortUser(HttpServletRequest request, HttpServletResponse response) {

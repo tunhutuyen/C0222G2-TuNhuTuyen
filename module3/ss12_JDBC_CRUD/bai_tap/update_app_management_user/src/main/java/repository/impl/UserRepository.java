@@ -3,11 +3,7 @@ package repository.impl;
 import model.User;
 import repository.IUserRepository;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -115,7 +111,6 @@ public class UserRepository implements IUserRepository {
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getCountry());
             statement.setInt(4, user.getId());
-
             rowUpdated = statement.executeUpdate() > 0;
         }
         return rowUpdated;
@@ -151,6 +146,37 @@ public class UserRepository implements IUserRepository {
             throwables.printStackTrace();
         }
         return users;
+
+    }
+
+    @Override
+    public List<User> getUserById(int id) {
+        List<User> users = new ArrayList<>();
+        Connection connection = this.getConnection();
+        try {
+            CallableStatement callableStatement = connection.prepareCall("call get_user_by_id(?)");
+            callableStatement.setInt(1,id);
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()){
+                Integer idNew = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String country = resultSet.getString("country");
+                users.add(new User(idNew,name,email,country));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    @Override
+    public void insertUserStore(User user) throws SQLException {
 
     }
 

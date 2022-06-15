@@ -60,6 +60,7 @@ public class ProductServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     private void viewProduct(HttpServletRequest request, HttpServletResponse response) {

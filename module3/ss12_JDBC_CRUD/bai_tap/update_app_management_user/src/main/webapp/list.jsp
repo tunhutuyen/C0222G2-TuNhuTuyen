@@ -20,8 +20,12 @@
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
             <form class="d-flex" method="get" action="/users">
-                <input class="form-control me-2" type="text" placeholder="Search" name="search">
-                <input class="btn btn-primary" type="submit" value="search" name="action">
+
+                <%-- <input class="form-control me-2" type="text" placeholder="Search" name="find">--%>
+                <%-- <input class="btn btn-primary" type="submit" value="search" name="action">--%>
+                    <input type="hidden" name="action" value="searchId">
+                    <input class="form-control me-2" type="text" placeholder="Search" name="find" value="${id}">
+                <button>Search by id</button>
             </form>
         </div>
     </div>
