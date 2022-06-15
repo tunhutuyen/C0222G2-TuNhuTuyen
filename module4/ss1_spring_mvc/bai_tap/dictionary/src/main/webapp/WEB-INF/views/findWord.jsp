@@ -11,15 +11,13 @@
     <title>Từ điển</title>
 </head>
 <body>
-<%--    <h2>Tìm từ điển</h2>--%>
-<%--    <div>--%>
-<%--        <form action="/findWord" method="">--%>
-<%--            <label>Từ cần tìm:</label>--%>
-<%--            <input type="text" name="word" value=""><br>--%>
-<%--            <label> Kết quả:</label>--%>
-<%--            <input type="text" name="result" value="" readonly><br>--%>
-<%--            <button type="button"> Search</button>--%>
-<%--        </form>--%>
-<%--    </div>--%>
+    <h2>Tìm từ điển</h2>
+    <div>
+
+            <label>Từ cần tìm:</label>
+            <input type="text" name="word" value="${word}"><br><br>
+            <label> Kết quả:</label>
+            <input type="text" name="result" value="${result}" readonly><br>
+    </div>
 </body>
 </html>

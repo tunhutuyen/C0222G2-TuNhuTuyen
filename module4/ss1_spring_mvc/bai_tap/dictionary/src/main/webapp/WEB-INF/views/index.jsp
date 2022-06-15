@@ -16,9 +16,7 @@
     <form action="/findWord" method="">
       <label>Từ cần tìm:</label>
       <input type="text" name="word" value=""><br><br>
-      <label> Kết quả:</label>
-      <input type="text" name="result" value="" readonly><br><br>
-      <button type="button"> Search</button>
+      <button type="submit"> Search</button>
     </form>
   </div>
   </body>
