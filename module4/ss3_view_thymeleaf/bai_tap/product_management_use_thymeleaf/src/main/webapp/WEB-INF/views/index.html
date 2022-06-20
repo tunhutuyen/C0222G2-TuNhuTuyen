@@ -4,9 +4,9 @@
 </head>
 <body>
 <div>
-    <form th:action="@{/product}" action="#" method="">
-        <input type="text" placeholder="search by name" th:text="">
-        <button> Search</button>
+    <form th:action="@{/product/searchName}" action="#" method="">
+        <input type="text" placeholder="search by name" style="width: 25%" th:value="${nameKey}" name="byName">
+        <button > Search</button>
     </form>
 </div>
 <h3>Product</h3>

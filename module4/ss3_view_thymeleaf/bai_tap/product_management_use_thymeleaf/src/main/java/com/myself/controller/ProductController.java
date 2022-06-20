@@ -6,10 +6,7 @@ import com.myself.service.IProductService;
 import com.myself.service.impl.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -46,6 +43,13 @@ public class ProductController {
         model.addAttribute("product", iProductService.findById(id));
         return "/view";
     }
+    @GetMapping("/searchName")
+    public String searchName(@RequestParam String byName, Model model){
+        model.addAttribute("products",iProductService.searchName(byName));
+        model.addAttribute("nameKey",byName);
+        return "/index";
+    }
+
     @PostMapping("/save")
     public String save(Product product,RedirectAttributes redirectAttributes) {
         product.setId((int) (Math.random() * 10000));
