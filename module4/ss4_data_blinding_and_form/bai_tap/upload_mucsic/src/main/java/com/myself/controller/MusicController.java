@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/music")
 public class MusicController {
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "")
     public String home(Model model){
         model.addAttribute("music",new Music());
         return "index";

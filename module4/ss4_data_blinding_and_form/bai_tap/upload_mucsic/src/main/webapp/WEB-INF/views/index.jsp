@@ -12,7 +12,7 @@
   <title>UPLOAD MUSIC</title>
 </head>
 <body>
-  <form:form action="upload" method="post" modelAttribute="music">
+  <form:form action="/music/upload" method="post" modelAttribute="music">
   <h1>Upload</h1>
   <fieldset>
     <legend> Box Music</legend>

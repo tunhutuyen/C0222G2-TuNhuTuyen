@@ -20,6 +20,6 @@ public class MedicalDeclarationController {
     @PostMapping(value = "/create")
     public String createDeclaration(@ModelAttribute MedicalDeclaration declaration,Model model){
         model.addAttribute("declarationNew",declaration);
-        return "list";
+        return "/list";
     }
 }

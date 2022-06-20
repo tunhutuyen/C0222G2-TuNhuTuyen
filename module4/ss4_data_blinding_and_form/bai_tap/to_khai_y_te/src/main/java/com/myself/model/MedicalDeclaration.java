@@ -9,9 +9,9 @@ public class MedicalDeclaration {
     private String travelInformation;
     private String idTravel;
     private String seat;
-    private String DateOfDepartment;
-    private String DateOfArrival;
-    private String LocalPassed;
+    private String dateOfDepartment;
+    private String dateOfArrival;
+    private String localPassed;
 
     public MedicalDeclaration() {
     }
@@ -25,9 +25,9 @@ public class MedicalDeclaration {
         this.travelInformation = travelInformation;
         this.idTravel = idTravel;
         this.seat = seat;
-        DateOfDepartment = dateOfDepartment;
-        DateOfArrival = dateOfArrival;
-        LocalPassed = localPassed;
+        this.dateOfDepartment = dateOfDepartment;
+        this.dateOfArrival = dateOfArrival;
+        this.localPassed = localPassed;
     }
 
     public String getName() {
@@ -95,27 +95,27 @@ public class MedicalDeclaration {
     }
 
     public String getDateOfDepartment() {
-        return DateOfDepartment;
+        return dateOfDepartment;
     }
 
     public void setDateOfDepartment(String dateOfDepartment) {
-        DateOfDepartment = dateOfDepartment;
+        this.dateOfDepartment = dateOfDepartment;
     }
 
     public String getDateOfArrival() {
-        return DateOfArrival;
+        return dateOfArrival;
     }
 
     public void setDateOfArrival(String dateOfArrival) {
-        DateOfArrival = dateOfArrival;
+        this.dateOfArrival = dateOfArrival;
     }
 
     public String getLocalPassed() {
-        return LocalPassed;
+        return localPassed;
     }
 
     public void setLocalPassed(String localPassed) {
-        LocalPassed = localPassed;
+        this.localPassed = localPassed;
     }
 }
 
