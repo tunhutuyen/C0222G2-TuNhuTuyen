@@ -5,8 +5,8 @@ import com.myself.service.IMusicService;
 import com.myself.service.impl.MusicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -22,8 +22,32 @@ public class MusicController {
         return "/index";
     }
     @GetMapping("/create")
-    public  String create(Model model){
+    public  String showCreate(Model model){
         model.addAttribute("musicNew",new Music());
         return "/create";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable int id){
+        iMusicService.delete(id);
+        return "redirect:/music";
+    }
+    @GetMapping("/{id}/edit")
+    public String showEdit(@PathVariable int id,Model model){
+        model.addAttribute("musicShow",iMusicService.showEdit(id));
+
+        return "/edit";
+    }
+    @PostMapping("/save")
+    public String save(@ModelAttribute("musicNew") Music music, RedirectAttributes redirectAttributes){
+        iMusicService.save(music);
+        redirectAttributes.addFlashAttribute("message","Create successful");
+        return "redirect:/music";
+    }
+    @PostMapping("/edit")
+    public String edit(@ModelAttribute("musicShow") Music music, RedirectAttributes redirectAttributes){
+        iMusicService.edit(music);
+        redirectAttributes.addFlashAttribute("message","Edit successful");
+        return "redirect:/music";
     }
 }

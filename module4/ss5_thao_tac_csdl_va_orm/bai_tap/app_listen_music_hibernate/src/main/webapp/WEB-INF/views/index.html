@@ -29,8 +29,9 @@
             <th scope="col">Name</th>
             <th scope="col">Singer</th>
             <th scope="col">Type music</th>
-            <th scope="col">Delete</th>
+
             <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -40,8 +41,31 @@
             <td th:text="${item.getName()}"></td>
             <td th:text="${item.getSinger()}"></td>
             <td th:text="${item.getTypeMusic()}"></td>
-            <td><a th:href="@{/music/{id}/delete(id=${item.getId()})}">delete</a></td>
-            <td><a th:href="@{/music/{id}/edit(id=${item.getId()})}">edit</a></td>
+
+            <td><a th:href="@{/music/{id}/edit(id=${item.getId()})}" class="btn btn-primary">edit</a></td>
+            <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#exampleModal'+${item.getId()}">
+                Delete</button>
+                <!-- Modal -->
+                <div class="modal fade" th:id="exampleModal+${item.getId()}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are u sure u want to delete song music <span th:text="${item.name}"></span> có id là
+                                <span th:text="${item.getId()}"></span>?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <a th:href="@{/music/{id}/delete(id=${item.getId()})}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>

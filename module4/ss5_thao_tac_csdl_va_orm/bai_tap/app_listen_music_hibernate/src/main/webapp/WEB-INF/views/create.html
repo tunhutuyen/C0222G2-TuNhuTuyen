@@ -9,9 +9,7 @@
     </a>
 </p>
 <div id="form">
-    <form th:action="@{/music/save}" th:object="${musicNew}"
-          method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{id}"/>
+    <form th:action="@{/music/save}" th:object="${musicNew}" method="POST" novalidate="novalidate">
         <div>
             <label>Name</label>
             <input type="text" th:field="*{name}"/>

@@ -1,15 +1,11 @@
 package com.myself.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Music {
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String singer;
@@ -18,6 +14,13 @@ public class Music {
     private String link;
 
     public Music() {
+    }
+
+    public Music(String name, String singer, String typeMusic, String link) {
+        this.name = name;
+        this.singer = singer;
+        this.typeMusic = typeMusic;
+        this.link = link;
     }
 
     public Music(int id, String name, String singer, String typeMusic, String link) {
