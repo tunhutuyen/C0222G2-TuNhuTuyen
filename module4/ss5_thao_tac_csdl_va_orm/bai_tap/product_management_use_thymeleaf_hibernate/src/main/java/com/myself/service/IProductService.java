@@ -7,13 +7,15 @@ import java.util.List;
 public interface IProductService {
     List<Product> findAll();
 
-    void save(Product product);
+    void save(Product music);
 
-    Object findById(int id);
+    void delete(int id);
 
-    void update(int id, Product product);
+    Product showEdit(int id);
 
-    void remove(int id);
 
+    void edit(Product product);
     List<Product> searchName(String byName);
+
+    Product findById(int id);
 }

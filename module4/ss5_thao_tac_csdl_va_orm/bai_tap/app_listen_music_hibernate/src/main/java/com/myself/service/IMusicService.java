@@ -13,6 +13,5 @@ public interface IMusicService {
 
     Music showEdit(int id);
 
-
     void edit(Music music);
 }

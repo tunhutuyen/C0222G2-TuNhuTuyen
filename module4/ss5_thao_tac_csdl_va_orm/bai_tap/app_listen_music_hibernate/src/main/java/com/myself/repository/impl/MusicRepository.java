@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Repository

@@ -18,25 +18,26 @@ public class ProductController {
 
     @GetMapping(value = "")
     public String home(Model model){
-        List<Product> products = iProductService.findAll();
-        model.addAttribute("products",products);
+        List<Product> productList = iProductService.findAll();
+        model.addAttribute("productList",productList);
         return "/index";
     }
-
-    @GetMapping(value = "/create")
-    public String create(Model model){
-        model.addAttribute("product",new Product());
+    @GetMapping("/create")
+    public  String showCreate(Model model){
+        model.addAttribute("productList",new Product());
         return "/create";
     }
-    @GetMapping("/{id}/edit")
-    public String edit(@PathVariable int id, Model model) {
-        model.addAttribute("product", iProductService.findById(id));
-        return "/edit";
-    }
+
     @GetMapping("/{id}/delete")
-    public String delete(@PathVariable int id, Model model) {
-        model.addAttribute("product", iProductService.findById(id));
-        return "/delete";
+    public String delete(@PathVariable int id){
+        iProductService.delete(id);
+        return "redirect:/product";
+    }
+    @GetMapping("/{id}/edit")
+    public String showEdit(@PathVariable int id,Model model){
+        model.addAttribute("productShow",iProductService.showEdit(id));
+
+        return "/edit";
     }
     @GetMapping("/{id}/view")
     public String view(@PathVariable int id, Model model) {
@@ -45,27 +46,26 @@ public class ProductController {
     }
     @GetMapping("/searchName")
     public String searchName(@RequestParam String byName, Model model){
-        model.addAttribute("products",iProductService.searchName(byName));
+        model.addAttribute("productList",iProductService.searchName(byName));
         model.addAttribute("nameKey",byName);
         return "/index";
     }
 
     @PostMapping("/save")
     public String save(Product product,RedirectAttributes redirectAttributes) {
-        product.setId((int) (Math.random() * 10000));
         iProductService.save(product);
         redirectAttributes.addFlashAttribute("message","Create successful");
         return "redirect:/product";
     }
-    @PostMapping("/update")
+    @PostMapping("/edit")
     public String update(Product product, RedirectAttributes redirectAttributes) {
-        iProductService.update(product.getId(), product);
+        iProductService.edit(product);
         redirectAttributes.addFlashAttribute("message","Edit successful");
         return "redirect:/product";
     }
     @PostMapping("/delete")
     public String delete(Product product, RedirectAttributes redirect) {
-        iProductService.remove(product.getId());
+        iProductService.delete(product.getId());
         redirect.addFlashAttribute("message", "Removed product successfully!");
         return "redirect:/product";
     }
