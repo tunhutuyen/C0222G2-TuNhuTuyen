@@ -4,6 +4,7 @@ package com.myself.controller;
 import com.myself.model.Product;
 import com.myself.service.IProductService;
 import com.myself.service.impl.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,8 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/product")
 public class ProductController {
-    private final IProductService iProductService = new ProductService();
+    @Autowired
+    private IProductService iProductService;
 
     @GetMapping(value = "")
     public String home(Model model){

@@ -28,7 +28,7 @@ public class BlogController {
         model.addAttribute("blogNew",new Blog());
         return "/create";
     }
-    @GetMapping("{id}/edit")
+        @GetMapping("{id}/edit")
     public String findByIdBlog(@PathVariable Integer id,Model model){
         model.addAttribute("blogList",iBlogService.findByIdBlog(id));
         return "/edit";

@@ -4,16 +4,17 @@ import com.myself.model.Product;
 import com.myself.repository.IProductRepository;
 import com.myself.repository.impl.ProductRepository;
 import com.myself.service.IProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
+@Service
 public class ProductService implements IProductService {
 
-    private final IProductRepository iProductRepository = new ProductRepository();
+    @Autowired
+    private IProductRepository iProductRepository;
 
     @Override
     public List<Product> findAll() {
