@@ -22,6 +22,7 @@ public interface ICategoryRepository extends JpaRepository<Category,Integer> {
     @Query(value = " update category set status_category = 1 where id = :keyword ",nativeQuery = true)
     void deleteByIdCategory(@Param("keyword") Integer id);
 
+
 //    @Modifying
 //    @Transactional
 //    @Query(value = " delete from category  " +

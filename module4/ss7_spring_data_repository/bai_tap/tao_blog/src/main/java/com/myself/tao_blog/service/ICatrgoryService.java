@@ -12,4 +12,5 @@ public interface ICatrgoryService {
     void delete(Integer id);
 
     void save(Category categoryNew);
+
 }

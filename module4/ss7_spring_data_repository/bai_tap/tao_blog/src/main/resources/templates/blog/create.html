@@ -1,24 +1,39 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:replace="/layout :: head"></head>-->
-<!--<body>-->
-<!--<h3>Add Blog</h3>-->
-<!--<p>-->
-<!--    <a th:href="@{/blog}">-->
-<!--        Back to Blog list-->
-<!--    </a>-->
-<!--</p>-->
-<!--<div id="form">-->
-<!--    <form th:action="@{/blog/save}" th:object="${blogNew}"-->
-<!--          method="POST" novalidate="novalidate">-->
-<!--        <input type="hidden" th:field="*{id}"/>-->
-<!--        <div>-->
-<!--            <label>Name</label>-->
-<!--            <input type="text" th:field="*{namePost}"/>-->
-<!--        </div>-->
-<!--        <input type="submit" value="Save"/>-->
-<!--    </form>-->
-<!--</div>-->
-<!--<footer th:replace="/layout :: footer"></footer>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Add Blog</h3>
+<p>
+    <a th:href="@{/blog}">
+        Back to Blog list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/blog/save}" th:object="${blogNew}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{namePost}"/>
+        </div>
+        <div>
+            <label>Date create</label>
+            <input type="date" th:field="*{dateOfCreate}"/>
+        </div>
+        <div>
+            <label>Content</label>
+            <input type="text" th:field="*{contentPost}"/>
+        </div>
+        <div>
+            <label>Select list (select one):</label>
+            <select class="form-select" th:field="*{category}">
+                <option th:each="item,loop : ${categoryList}" th:text="${item.nameCategory}"
+                        th:value="${item.id}"></option>
+            </select>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
