@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="p-3 text-center bg-image"
+     style="height: 50px;">
+    <div class="mask">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-success">
+                <h1 class="mb-3">Form create music</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="notify">
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<div class="container">
+    <form th:object="${musicDto}" th:action="@{/music/create}" method="post">
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Name song:</label>
+            <input class="form-control" placeholder="Enter name" th:field="*{nameSong}">
+        </div>
+        <span style="color: red" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></span>
+
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Singer:</label>
+            <input type="text" class="form-control" placeholder="Enter title"  th:field="*{nameSinger}">
+        </div>
+        <span style="color: red" th:if="${#fields.hasErrors('nameSinger')}" th:errors="*{nameSinger}"></span>
+
+        <div class="mb-3 mt-3">
+            <label class="form-label h6">Type music:</label>
+            <input type="text" class="form-control" placeholder="Enter title"  th:field="*{typeMusic}">
+        </div>
+        <span style="color: red" th:if="${#fields.hasErrors('typeMusic')}" th:errors="*{typeMusic}"></span>
+        <div>
+            <button class="btn btn-outline-success">Submit</button>
+        </div>
+    </form>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>

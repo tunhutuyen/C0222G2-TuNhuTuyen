@@ -28,8 +28,8 @@ public class UserController {
        return "/index";
     }
     @PostMapping("/create")
-    public String createUser(@ModelAttribute("userDto") @Valid UserDto userDto,
-                             RedirectAttributes redirectAttributes, BindingResult bindingResult){
+    public String createUser(@Valid @ModelAttribute("userDto")UserDto userDto,BindingResult bindingResult,
+    RedirectAttributes redirectAttributes){
 
 //        new UserDto().validate(userDto,bindingResult);
         if (bindingResult.hasErrors()){
