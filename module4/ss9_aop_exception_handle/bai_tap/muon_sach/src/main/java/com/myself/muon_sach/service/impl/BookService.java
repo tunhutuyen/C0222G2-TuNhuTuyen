@@ -26,4 +26,9 @@ public class BookService implements IBookService {
     public Book findAllBookMax() {
         return iBookRepository.findAllBookMax();
     }
+
+    @Override
+    public Book findByIDBook(Integer id) {
+        return iBookRepository.findByIDBook(id);
+    }
 }

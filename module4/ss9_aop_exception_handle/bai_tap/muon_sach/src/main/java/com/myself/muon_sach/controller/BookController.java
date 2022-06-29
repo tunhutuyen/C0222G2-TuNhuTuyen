@@ -45,9 +45,22 @@ public class BookController {
         redirectAttributes.addFlashAttribute("message","Create successful");
         return "redirect:/book";
     }
-    @GetMapping("/borrow")
-    public String borrow(@PathVariable Integer id, Model model){
+    @GetMapping("{id}/borrow")
+    public String borrow(@PathVariable Integer id,RedirectAttributes redirectAttributes){
         List<DetailBook> detailBooks = iDetailBookService.findByIDDetail(id);
+
+        for (DetailBook detailBook:detailBooks) {
+            if (detailBook.getStatusBook() == 0){
+                detailBook.setStatusBook(1);
+                detailBook.setIdCode((int)(Math.random()*((99999-10000)+1)+10000));
+                iDetailBookService.save(detailBook);
+                Book book=iBookService.findByIDBook(id);
+                book.setAmount(book.getAmount()-1);
+                iBookService.save(book);
+                return "redirect:/book";
+            }
+        }
+        redirectAttributes.addFlashAttribute("message","Not borrow");
         return "redirect:/book";
     }
 

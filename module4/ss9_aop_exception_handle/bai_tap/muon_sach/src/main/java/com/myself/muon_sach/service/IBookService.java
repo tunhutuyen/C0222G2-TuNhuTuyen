@@ -10,4 +10,6 @@ public interface IBookService {
     void save(Book bookNew);
 
     Book findAllBookMax();
+
+    Book findByIDBook(Integer id);
 }

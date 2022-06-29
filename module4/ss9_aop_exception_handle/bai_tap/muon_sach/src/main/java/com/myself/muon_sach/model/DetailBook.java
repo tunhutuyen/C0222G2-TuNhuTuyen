@@ -3,10 +3,11 @@ package com.myself.muon_sach.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "detail_book")
 public class DetailBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_detai")
+    @Column(name = "id_detail")
     private Integer idDetail;
 
     @Column(name = "id_code",columnDefinition = "integer default 0")
