@@ -1,17 +1,19 @@
 package com.myself.model;
 
+import com.myself.validate_annotation.NameNotDuplicate;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import javax.validation.GroupSequence;
 import javax.validation.constraints.*;
-
+//Group validate theo nhom
+@GroupSequence(value = {UserDto.class,BasicInfo.class,AdvanceInfo.class})
 public class UserDto implements Validator {
     private Integer id;
-    @NotNull
-    @NotEmpty
-    @NotBlank
-    @Pattern(regexp = "^[A-Za-z]+$",message = "Invalid format")
-    @Size(min = 5,max = 45)
+    @NotBlank(groups = AdvanceInfo.class)
+    @NameNotDuplicate(groups = BasicInfo.class)
+    @Pattern(regexp = "^[A-Za-z]+$",message = "Invalid format",groups = AdvanceInfo.class)
+    @Size(min = 5,max = 45,groups = AdvanceInfo.class)
     private String firstName;
 
     @NotNull

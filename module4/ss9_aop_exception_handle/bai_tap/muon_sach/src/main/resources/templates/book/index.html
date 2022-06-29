@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout :: head">
+</head>
+<body>
+<!--<div>-->
+<!--    <form th:action="@{/product/searchName}" action="#" method="">-->
+<!--        <input type="text" placeholder="search by name" style="width: 25%" th:value="${nameKey}" name="byName">-->
+<!--        <button > Search</button>-->
+<!--    </form>-->
+<!--</div>-->
+<h3>Book</h3>
+<p>
+    <a th:href="@{/book/create}">
+        Add new book
+    </a>
+</p>
+<!--<div>-->
+<!--    <a th:href="@{/blog(sort='content_post,desc')}">-->
+<!--        SortDesc-->
+<!--    </a>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <a th:href="@{/blog(sort='content_post,asc')}">-->
+<!--        SortASc-->
+<!--    </a>-->
+<!--</div>-->
+
+<div class="notify">
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+
+<!--<div class="container mt-3">-->
+<!--    <nav class="navbar navbar-light bg-info">-->
+<!--        <div class="container">-->
+<!--            <form class="d-flex">-->
+<!--                <input class="form-control me-2" type="search" name="keyword"-->
+<!--                       placeholder="Search By Name" th:value="${keywordNew}" aria-label="Search">-->
+<!--                <button class="btn btn-outline-success">Search</button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </nav>-->
+<!--</div>-->
+
+<table id = "book">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Name book</th>
+        <th>Author</th>
+        <th>Amount</th>
+        <th>Borrow</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item,iStatus : ${bookList}">
+        <td th:text="${iStatus.count}"></td>
+        <td th:text="${item.idBook}"></td>
+        <td th:text="${item.nameBook}"></td>
+        <td th:text="${item.author}"></td>
+        <td th:text="${item.amount}"></td>
+        <td><a th:href="@{/book/{id}/borrow(id=${item.getIdBook()})}" class="btn btn-primary">Borrow</a></td>
+<!--        <td>-->
+<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+<!--                    th:data-bs-target="'#exampleModal'+${item.idBook}">-->
+<!--                Delete</button>-->
+<!--            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--            <div class="modal fade" th:id="exampleModal+${item.idBook}" tabindex="-1"-->
+<!--                 aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                <div class="modal-dialog">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--                            <h5 class="modal-title" id="exampleModalLabel">Delete</h5>-->
+<!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body">-->
+<!--                            Are u sure u want to delete blog <span th:text="${item.getNameBook()}"></span> have ID a-->
+<!--                            <span th:text="${item.idBook}"></span>?-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>-->
+<!--                            <a th:href="@{/book/{id}/delete(id=${item.getIdBook()})}">Delete</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </td>-->
+<!--        <td><a th:href="@{/book/{id}/view(id=${item.getIdBook()})}" class="btn btn-primary">view</a></td>-->
+    </tr>
+    </tbody>
+</table>
+<!--<div class="row">-->
+<!--    <div class="col-10">-->
+<!--        <a href="/category" class="btn btn-outline-success">Go To List Category</a>-->
+<!--    </div>-->
+    <!--    sort theo ten va theo noi dung-->
+    <!--    <div class="col-2 ">-->
+    <!--        <ul class="pagination" th:if="${blogList.totalPages > 0}">-->
+    <!--            <li class="page-item">-->
+    <!--                <a class="page-link" th:if="${blogList.hasPrevious()}" th:href="@{'/blog'(page=${blogList.number - 1}, search=${keywordNew}, sort='content_post,desc',sort='content_post,asc')}">-->
+    <!--                    Previous-->
+    <!--                </a>-->
+    <!--            </li>-->
+    <!--            <div th:each="item1, loop : ${#numbers.sequence(1, blogList.totalPages )}">-->
+    <!--                <div th:if="${(blogList.number + 1) == item1}">-->
+    <!--                    <li class="page-item active">-->
+    <!--                        <a class="page-link" href="#" th:text="${item1}" th:href="@{/blog(page=(${item1}-1), search=${keywordNew},sort='content_post,desc',sort='content_post,asc')}"></a>-->
+    <!--                    </li>-->
+    <!--                </div>-->
+    <!--                <div th:unless="${((blogList.number + 1) == item1)}">-->
+    <!--                    <li class="page-item">-->
+    <!--                        <a class="page-link" href="#" th:text="${item1}" th:href="@{/blog(page=(${item1}-1), search=${keywordNew} ,sort='content_post,desc',sort='content_post,asc')}"></a>-->
+    <!--                    </li>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <li class="page-item">-->
+    <!--                <a class="page-link" th:if="${blogList.hasNext()}" th:href="@{'/blog'(page=${blogList.number + 1}, search=${keywordNew},sort='content_post,desc',sort='content_post,asc')}">-->
+    <!--                    Next-->
+    <!--                </a>-->
+    <!--            </li>-->
+    <!--        </ul>-->
+    <!--    </div>-->
+
+    <!--    tim theo ten va khoang thoi gian-->
+<!--    <div class="col-2 ">-->
+<!--        <ul class="pagination" th:if="${blogList.totalPages > 0}">-->
+<!--            <li class="page-item">-->
+<!--                <a class="page-link" th:if="${blogList.hasPrevious()}" th:href="@{'/blog'(page=${blogList.number - 1}, search=${keywordNew})}">-->
+<!--                    Previous-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <div th:each="item1, loop : ${#numbers.sequence(1, blogList.totalPages )}">-->
+<!--                <div th:if="${(blogList.number + 1) == item1}">-->
+<!--                    <li class="page-item active">-->
+<!--                        <a class="page-link" href="#" th:text="${item1}" th:href="@{/blog(page=(${item1}-1), search=${keywordNew})}"></a>-->
+<!--                    </li>-->
+<!--                </div>-->
+<!--                <div th:unless="${((blogList.number + 1) == item1)}">-->
+<!--                    <li class="page-item">-->
+<!--                        <a class="page-link" href="#" th:text="${item1}" th:href="@{/blog(page=(${item1}-1), search=${keywordNew})}"></a>-->
+<!--                    </li>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <li class="page-item">-->
+<!--                <a class="page-link" th:if="${blogList.hasNext()}" th:href="@{'/blog'(page=${blogList.number + 1}, search=${keywordNew})}">-->
+<!--                    Next-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+<footer th:replace="/layout :: footer"></footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>

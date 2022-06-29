@@ -39,14 +39,15 @@ public class CategoryController {
         redirectAttributes.addFlashAttribute("message","Delete successful");
         return "redirect:/category";
     }
-    @GetMapping("{id}/view")
-    public  String view(@PathVariable Integer id,Model model){
-        model.addAttribute("categoryNew",this.iCatrgoryService.findByIdCategory(id));
-        return "category/view";
-    }
+//    @GetMapping("{id}/view")
+//    public  String view(@PathVariable Integer id,Model model){
+//        model.addAttribute("categoryNew",this.iCatrgoryService.findByIdCategory(id));
+//        return "category/view";
+//    }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Category categoryNew, RedirectAttributes redirectAttributes){
+        categoryNew.setNameCategory(categoryNew.getNameCategory()+1);
         iCatrgoryService.save(categoryNew);
         redirectAttributes.addFlashAttribute("message","Create successful");
         return "redirect:/category";

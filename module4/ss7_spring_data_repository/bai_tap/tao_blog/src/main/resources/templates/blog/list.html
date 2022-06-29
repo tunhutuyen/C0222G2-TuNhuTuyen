@@ -16,6 +16,16 @@
         Add new blog
     </a>
 </p>
+<!--<div>-->
+<!--    <a th:href="@{/blog(sort='content_post,desc')}">-->
+<!--        SortDesc-->
+<!--    </a>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <a th:href="@{/blog(sort='content_post,asc')}">-->
+<!--        SortASc-->
+<!--    </a>-->
+<!--</div>-->
 <div class="notify">
     <div th:if="${message}">
         <span th:text="${message}"></span>
@@ -38,7 +48,7 @@
         <th>STT</th>
         <th>ID</th>
         <th>Name post</th>
-<!--        <th>Content post</th>-->
+        <th>Content post</th>
         <th>Date post</th>
         <th>Category</th>
         <th>Edit</th>
@@ -51,6 +61,7 @@
         <td th:text="${iStatus.count}"></td>
         <td th:text="${item.id}"></td>
         <td th:text="${item.namePost}"></td>
+        <td th:text="${item.contentPost}"></td>
         <td th:text="${item.dateOfCreate}"></td>
         <td th:text="${item.category.nameCategory}"></td>
         <td><a th:href="@{/blog/{id}/edit(id=${item.getId()})}" class="btn btn-primary">edit</a></td>
@@ -87,6 +98,35 @@
     <div class="col-10">
         <a href="/category" class="btn btn-outline-success">Go To List Category</a>
     </div>
+<!--    sort theo ten va theo noi dung-->
+<!--    <div class="col-2 ">-->
+<!--        <ul class="pagination" th:if="${blogList.totalPages > 0}">-->
+<!--            <li class="page-item">-->
+<!--                <a class="page-link" th:if="${blogList.hasPrevious()}" th:href="@{'/blog'(page=${blogList.number - 1}, search=${keywordNew}, sort='content_post,desc',sort='content_post,asc')}">-->
+<!--                    Previous-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <div th:each="item1, loop : ${#numbers.sequence(1, blogList.totalPages )}">-->
+<!--                <div th:if="${(blogList.number + 1) == item1}">-->
+<!--                    <li class="page-item active">-->
+<!--                        <a class="page-link" href="#" th:text="${item1}" th:href="@{/blog(page=(${item1}-1), search=${keywordNew},sort='content_post,desc',sort='content_post,asc')}"></a>-->
+<!--                    </li>-->
+<!--                </div>-->
+<!--                <div th:unless="${((blogList.number + 1) == item1)}">-->
+<!--                    <li class="page-item">-->
+<!--                        <a class="page-link" href="#" th:text="${item1}" th:href="@{/blog(page=(${item1}-1), search=${keywordNew} ,sort='content_post,desc',sort='content_post,asc')}"></a>-->
+<!--                    </li>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <li class="page-item">-->
+<!--                <a class="page-link" th:if="${blogList.hasNext()}" th:href="@{'/blog'(page=${blogList.number + 1}, search=${keywordNew},sort='content_post,desc',sort='content_post,asc')}">-->
+<!--                    Next-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+
+<!--    tim theo ten va khoang thoi gian-->
     <div class="col-2 ">
         <ul class="pagination" th:if="${blogList.totalPages > 0}">
             <li class="page-item">
@@ -102,7 +142,7 @@
                 </div>
                 <div th:unless="${((blogList.number + 1) == item1)}">
                     <li class="page-item">
-                        <a class="page-link" href="#" th:text="${item1}" th:href="@{/blog(page=(${item1}-1), search=${keywordNew} )}"></a>
+                        <a class="page-link" href="#" th:text="${item1}" th:href="@{/blog(page=(${item1}-1), search=${keywordNew})}"></a>
                     </li>
                 </div>
             </div>
