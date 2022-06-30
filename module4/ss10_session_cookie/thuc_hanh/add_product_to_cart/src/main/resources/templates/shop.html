@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="html-css :: bootstrapCss"></th:block>
+</head>
+<body>
+<p>
+    <a href="/shopping-cart">Your cart</a>
+</p>
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <td>Name</td>-->
+<!--        <td>Price</td>-->
+<!--        <td>Add To Cart</td>-->
+<!--    </tr>-->
+<!--    <th:block th:each="product:${products}">-->
+<!--        <tr>-->
+<!--            <td th:text="${product.name}"></td>-->
+<!--            <td th:text="${product.price}"></td>-->
+<!--            <td><a th:href="@{/add/__${product.id}__(action='list')}">Add To Cart</a></td>-->
+<!--        </tr>-->
+<!--    </th:block>-->
+<!--</table>-->
+
+<section class="page-section" id="home">
+    <div class="container mt-3">
+        <div class="card float-start text-center m-3" style="width: 18rem;" th:each="item, loop : ${products}">
+            <img th:src="@{${item.image}}" class="card-img-top" th:alt="${item.name}">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${item.name}"></h5>
+                <p class="card-text" th:text="${#strings.replace(#numbers.formatCurrency(item.price), '.00', '')}"></p>
+                <a th:href="@{/product/add-cart(id=${item.id})}" class="btn btn-primary">Add to cart</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        th:data-bs-target="'#zzz' + ${item.id}">
+                    Detail
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title m-auto" id="staticBackdropLabel">Product Detail</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card text-center">
+                                    <div class="card-header text-primary fs-3 fw-bold" th:text="${item.name}">
+
+                                    </div>
+                                    <div class="card-body">
+                                        <img th:src="@{${item.image}}" class="img-fluid rounded-start" alt="...">
+                                        <div class="card" style="width: 100%;">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" th:text="'ID: ' + ${item.id}"></li>
+                                                <li class="list-group-item" th:text="'Price: ' + ${item.price}"></li>
+<!--                                                <li class="list-group-item"-->
+<!--                                                    th:text="'Quantity: ' + ${item.}"></li>-->
+                                                <li class="list-group-item"
+                                                    th:text="'Description: ' + ${item.description}"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<th:block th:replace="html-css :: boostrapScript"></th:block>
+</html>

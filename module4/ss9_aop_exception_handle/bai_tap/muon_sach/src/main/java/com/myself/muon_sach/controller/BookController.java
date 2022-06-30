@@ -57,6 +57,7 @@ public class BookController {
                 Book book=iBookService.findByIDBook(id);
                 book.setAmount(book.getAmount()-1);
                 iBookService.save(book);
+                redirectAttributes.addFlashAttribute("message","Borrow successful");
                 return "redirect:/book";
             }
         }
