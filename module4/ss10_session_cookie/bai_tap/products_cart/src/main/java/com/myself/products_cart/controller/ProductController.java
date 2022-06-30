@@ -38,6 +38,10 @@ public class ProductController {
             cart.addProduct(productOptional.get());
             return "redirect:/shopping-cart";
         }
+        if (action.equals("show1")) {
+            cart.reduceProduct(productOptional.get());
+            return "redirect:/shopping-cart";
+        }
         cart.addProduct(productOptional.get());
         return "redirect:/shop";
     }
