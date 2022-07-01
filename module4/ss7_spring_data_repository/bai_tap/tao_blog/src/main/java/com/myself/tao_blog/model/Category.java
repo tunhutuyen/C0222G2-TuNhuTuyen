@@ -1,5 +1,6 @@
 package com.myself.tao_blog.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
@@ -13,7 +14,8 @@ public class Category {
 
     @Column(name = "name_category")
     private String nameCategory;
-
+    // chặn vòng lặp
+    @JsonBackReference
     @OneToMany(mappedBy = "category")
     private List<Blog> blogList;
 

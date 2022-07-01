@@ -1,26 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>
-        How to get input type date
-        in dd-mm-yyyy format ?
-    </title>
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html>&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;        $(document).ready(function () {&ndash;&gt;-->
+<!--&lt;!&ndash;            $("#hide").click(function () {&ndash;&gt;-->
+<!--&lt;!&ndash;                $("p").hide();&ndash;&gt;-->
+<!--&lt;!&ndash;            });&ndash;&gt;-->
+<!--&lt;!&ndash;            $("#show").click(function () {&ndash;&gt;-->
+<!--&lt;!&ndash;                $("p").show();&ndash;&gt;-->
+<!--&lt;!&ndash;            });&ndash;&gt;-->
+<!--&lt;!&ndash;        });&ndash;&gt;-->
+<!--&lt;!&ndash;    </script>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>If you click on the "Hide" button, I will disappear.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<button id="hide">Hide</button>&ndash;&gt;-->
+<!--&lt;!&ndash;<button id="show">Show</button>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>-->
 
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--    <script>-->
+<!--        $(document).ready(function () {-->
+<!--            $("button").click(function () {-->
+<!--                var div = $("div");-->
+<!--                div.animate({left: '100px'}, "slow");-->
+<!--                div.animate({fontSize: '100px'}, "slow");-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<button>Start Animation</button>-->
+<!--<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to-->
+<!--    first set the CSS position property of the element to relative, fixed, or absolute!</p>-->
+<!--<div style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $("#btn1").click(function(){-->
+<!--                alert("Text: " + $("#test").text());-->
+<!--            });-->
+<!--            $("#btn2").click(function(){-->
+<!--                alert("HTML: " + $("#test").html());-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<p id="test">This is some <b>bold</b> text in a paragraph.</p>-->
+
+<!--<button id="btn1">Show Text</button>-->
+<!--<button id="btn2">Show HTML</button>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $("button").click(function(){-->
+<!--                alert("Value: " + $("#test").val());-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<p>Name: <input type="text" id="test" value="Mickey Mouse"></p>-->
+
+<!--<button>Show Value</button>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $("#btn1").click(function(){-->
+<!--                $("#test1").text("Hello world!");-->
+<!--            });-->
+<!--            $("#btn2").click(function(){-->
+<!--                $("#test2").html("<b>Hello world!</b>");-->
+<!--            });-->
+<!--            $("#btn3").click(function(){-->
+<!--                $("#test3").val("Dolly Duck");-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<p id="test1">This is a paragraph.</p>-->
+<!--<p id="test2">This is another paragraph.</p>-->
+
+<!--<p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>-->
+
+<!--<button id="btn1">Set Text</button>-->
+<!--<button id="btn2">Set HTML</button>-->
+<!--<button id="btn3">Set Value</button>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("p").append(" <b>Appended text</b>.");
+            });
+
+            $("#btn2").click(function(){
+                $("ol").append("<li>Appended item</li>");
+            });
+        });
+    </script>
 </head>
 <body>
-<h1>GeeksforGeeks</h1>
 
-<h3>
-    Get input date in
-    dd-mm-yyyy format
-</h3>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
 
-<label for="Date of Birth">
-    Enter the Date:
-    <input type="date" name="date" id="Date of Birth">
-</label>
+<ol>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+</ol>
 
-<input type="date" >
+<button id="btn1">Append text</button>
+<button id="btn2">Append list items</button>
+
 </body>
 </html>
