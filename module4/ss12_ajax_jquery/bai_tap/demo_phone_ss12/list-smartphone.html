@@ -135,6 +135,7 @@
                 // console.log(phonePage);
                 let phoneBodyHTML = "";
 
+                debugger
                 for (let i = 0; i < phonePage.content.length; i++) {
                     phoneBodyHTML += `<tr>
                         <td>${i}</td>
@@ -158,17 +159,17 @@
                                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                                   </div>
                                   <div class="modal-body">
-                                     <input type="hidden" class="form-control" id="idEdit" value="${phonePage.content[i].id}">
+                                     <input type="hidden" class="form-control idEdit" value="${phonePage.content[i].id}">
                                     <label for="producer" class="form-label">Producer</label>
-                                    <input type="text" class="form-control" id="producerEdit" value="${phonePage.content[i].producer}">
+                                    <input type="text" class="form-control producerEdit${phonePage.content[i].id}" value="${phonePage.content[i].producer}">
                                     <label for="model" class="form-label">Model</label>
-                                    <input type="text" class="form-control" id="modelEdit" value="${phonePage.content[i].model}">
+                                    <input type="text" class="form-control modelEdit${phonePage.content[i].id}" value="${phonePage.content[i].model}">
                                     <label for="price" class="form-label">Price</label>
-                                    <input type="text" class="form-control" id="priceEdit" value="${phonePage.content[i].price}">
+                                    <input type="text" class="form-control priceEdit${phonePage.content[i].id}" value="${phonePage.content[i].price}">
                                    </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                                    <a href="${phonePage.content[i].id}" class="btn btn-primary" id="btnEdit" data-mdb-dismiss="modal">Update</a>
+                                    <a href="${phonePage.content[i].id}" class="btn btn-primary btnEdit" data-mdb-dismiss="modal">Update</a>
                                   </div>
                                 </div>
                               </div>
@@ -256,18 +257,19 @@
         });
     })
     $(document).ready(function () {
-        $("#bodyPhone").on("click", "#btnEdit", function (event) {
+        $("#bodyPhone").on("click", ".btnEdit", function (event) {
             let idPhone = $(this).attr("href");
             event.preventDefault();
             // let valProducer = $("#exampleModalEdit"+idPhone+" #producerEdit").val();
             // let valModel = $("#exampleModalEdit"+idPhone+" #modelEdit").val();
             // let valPrice = $("#exampleModalEdit"+idPhone+" #priceEdit").val();
-            let valProducer = $("#producerEdit").val();
-            let valModel = $("#modelEdit").val();
-            let valPrice = $("#priceEdit").val();
+            let valProducer = $((".producerEdit"+idPhone)).val();
+            let valModel = $((".modelEdit"+idPhone)).val();
+            let valPrice = $((".priceEdit"+idPhone)).val();
 
             console.log(idPhone," ",valProducer," ",valModel," ",valPrice);
             let smartphoneObj = {
+                id: idPhone,
                 producer: valProducer,
                 model: valModel,
                 price: valPrice

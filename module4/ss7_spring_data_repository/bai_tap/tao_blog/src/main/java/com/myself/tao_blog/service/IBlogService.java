@@ -22,4 +22,6 @@ public interface IBlogService {
     Optional<Blog> findByIdBlogRest(Integer id);
 
     List<Blog> getBlogByIdCategory(Integer id);
+
+    Page<Blog> getAllBlog(String searchName, Pageable pageable);
 }

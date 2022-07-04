@@ -51,4 +51,9 @@ public class BlogService implements IBlogService {
     public List<Blog> getBlogByIdCategory(Integer id) {
         return iBlogRepository.getBlogByIdCategory(id);
     }
+
+    @Override
+    public Page<Blog> getAllBlog(String searchName, Pageable pageable) {
+        return iBlogRepository.getAllBlogByKeyword("%"+searchName+"%",pageable);
+    }
 }

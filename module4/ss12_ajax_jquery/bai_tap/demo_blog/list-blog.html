@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,17 +7,16 @@
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
           crossorigin="anonymous">
 
-
 </head>
 <body>
-<h1 class="text-center text-primary"> Blogger</h1>
+<h1 class="text-center text-primary"> Blog</h1>
 <div class="container mt-4">
     <div class="row w-50 mx-auto">
         <div class="col-lg-10">
-            <input class="form-control" type="text" id="search">
+            <input class="form-control" type="text" id="searchBlog">
         </div>
         <div class="col-lg-2">
-            <button class="btn btn-primary bg-momo" id="btnSearch">Search</button>
+            <button class="btn btn-primary bg-momo" id="btnLoadPage">Load Page</button>
         </div>
     </div>
     <div class="row w-50 mx-auto">
@@ -25,7 +24,6 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">No</th>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Content</th>
@@ -35,6 +33,9 @@
                 </tr>
                 </thead>
                 <tbody id="bodyBlog">
+
+                </tbody>
+                <tbody id="bodyLoadBlog">
 
                 </tbody>
             </table>
@@ -56,63 +57,99 @@
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="jquery.min.js"></script>
 <script>
-    function getPageBlog(pageNumber) {
+    let totalPage =0;
+    function loadPageBlog(pageNumber,name) {
         $.ajax({
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             type: "GET",
-            url: "http://localhost:8080/rest/blog?page=" + pageNumber,
+            url: "http://localhost:8080/blog-rest/list-blog?page=" + pageNumber + "&name=" + name,
             success: function (blogPage) {
+                totalPage = blogPage.totalPages;
                 console.log(blogPage);
                 let blogHTML = "";
                 for (let i = 0; i < blogPage.content.length; i++) {
                     blogHTML += `<tr>
-                        <td>${i}</td>
                         <td>${blogPage.content[i].id}</td>
-                        <td>${blogPage.content[i].name}</td>
-                        <td>${blogPage.content[i].title}</td>
-                        <td>${blogPage.content[i].content}</td>
-                        <td>${blogPage.content[i].category.name}</td>
+                        <td>${blogPage.content[i].namePost}</td>
+                        <td>${blogPage.content[i].contentPost}</td>
+                        <td>${blogPage.content[i].dateOfCreate}</td>
+                        <td>${blogPage.content[i].category.nameCategory}</td>
                          <td><a href="#">Edit</a></td>
                         <td><a href="#">Delete</a</td>
                         </tr>`
                 }
-                $('#bodyBlog').html(blogPage);
+                $("#bodyLoadBlog").html(blogHTML);
+            },
+            error:function (resultError) {
+                console.log("errors");
+            }
+        })
+    }
+    function getPageBlog(pageNumber,name) {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/blog-rest/list-blog?page=" + pageNumber+"&name="+name,
+            success: function (blogPage) {
+                totalPage= blogPage.totalPages;
+                console.log(blogPage);
+                let blogHTML = "";
+                for (let i = 0; i < blogPage.content.length; i++) {
+                    blogHTML += `<tr>
+
+                        <td>${blogPage.content[i].id}</td>
+                        <td>${blogPage.content[i].namePost}</td>
+                        <td>${blogPage.content[i].contentPost}</td>
+                        <td>${blogPage.content[i].dateOfCreate}</td>
+                        <td>${blogPage.content[i].category.nameCategory}</td>
+                         <td><a href="#">Edit</a></td>
+                        <td><a href="#">Delete</a</td>
+                        </tr>`
+                }
+                $('#bodyBlog').html(blogHTML);
             },
             error: function (resultError) {
                 console.log('error')
             }
         });
     }
-
-    getPageBlog(0);
+    let searchBlog = "";
+    getPageBlog(0,searchBlog);
     let pageCur = 0;
     $('#aPrevious').click(function () {
         if (pageCur > 0) {
             pageCur--;
-            getPageBlog(pageCur)
+            getPageBlog(pageCur,searchBlog);
         } else {
-            alert(" no page")
+            alert("No page previous");
         }
     });
     $("#aNext").click(function () {
-        pageCur++;
-        getPageStudent(pageCur);
+        if (pageCur<totalPage){
+            pageCur++;
+            getPageBlog(pageCur,searchBlog);
+        }else {
+            alert("No page next");
+        }
     });
-</script>
-<script>
-    $(document).ready(function(){
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#bodyBlog tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
+    $(document).ready(function () {
+        $("#searchBlog").on("change",function () {
+            let name = $(this).val();
+            pageCur =0;
+            getPageBlog(pageCur,name);
+        })
+        $("#btnLoadPage").click(function () {
+            loadPageBlog(++pageCur,name);
+        })
+    })
 </script>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
