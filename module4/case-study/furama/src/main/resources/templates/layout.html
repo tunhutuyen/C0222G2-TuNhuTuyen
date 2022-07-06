@@ -23,7 +23,7 @@
         <header>
             <!-- header inner -->
             <div class="header">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="row">
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                             <div class="full">
@@ -41,8 +41,8 @@
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarsExample04">
                                     <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="#">Home</a>
+                                        <li class="nav-item " th:classappend="${param.view == 'home'} ? 'active' : ''">
+                                            <a class="nav-link" href="/furama">Home</a>
                                         </li>
                                         <li class="nav-item">
                                             <!--                                 <a class="nav-link" href="#">About</a>-->
@@ -56,33 +56,19 @@
                                             <!--                                    <a class="dropdown-item" href="#">Bootstrap</a>-->
                                             <!--                                 </div>-->
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/customer">Customer</a>
+                                        <li class="nav-item" th:classappend="${view == 'customer'} ? 'active' : ''">
+                                            <a class="nav-link nav-link1" href="/furama/customer">Customer</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/furama/employee">Employee</a>
+                                        <li class="nav-item" th:classappend="${view == 'employee'} ? 'active' : ''">
+                                            <a class="nav-link nav-link2" href="/furama/employee">Employee</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/furama/service">Service</a>
+                                        <li class="nav-item" th:classappend="${view == 'service'} ? 'active' : ''">
+                                            <a class="nav-link nav-link3" href="/furama/service">Service</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Contract</a>
+                                        <li class="nav-item" th:classappend="${view == 'contract'} ? 'active' : ''">
+                                            <a class="nav-link nav-link4" href="/furama/contract">Contract</a>
                                         </li>
                                     </ul>
-                                    <div>
-                                        <form class="form-inline" action="/action_page.php">
-                                            <!--                                 <input class="form-control mr-sm-2" type="text" placeholder="Search">-->
-                                            <!--                                 <button class="btn btn-success" type="submit">a</button>-->
-                                            <div class="input-group">
-                                                <input type="search" class="form-control" placeholder="Search" name="searchName">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-secondary" type="submit">
-                                                        <i class="fa fa-search"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </nav>
                         </div>
@@ -159,5 +145,16 @@
     <!-- sidebar -->
     <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
     <script th:src="@{/js/custom.js}"></script>
+<!--     <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $('ul li a').click(function() {-->
+<!--                debugger-->
+<!--                $(".nav-item").removeClass('active')-->
+<!--                $(this).parent().addClass('active');-->
+<!--                // $(this).closest('li').addClass('active');-->
+<!--                // event.preventDefault();-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
 </th:block>
 </html>

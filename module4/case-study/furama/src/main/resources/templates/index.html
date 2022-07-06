@@ -39,13 +39,13 @@
       <header>
          <!-- header inner -->
          <div class="header">
-            <div class="container-fluid">
+            <div class="container">
                <div class="row">
                   <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                              <a href="index.html"><img th:src="@{/images/FURAMA.png}" alt="#" style="width: 150px;height: 70px;"/></a>
+                              <a href="index.html"><img th:src="@{/images/FURAMA.png}" alt="#" style="width: 150px;height: 50px;"/></a>
                            </div>
                         </div>
                      </div>
@@ -73,7 +73,7 @@
 <!--                                 </div>-->
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="/customer">Customer</a>
+                                 <a class="nav-link" href="/furama/customer">Customer</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="/furama/employee">Employee</a>
@@ -82,23 +82,23 @@
                                  <a class="nav-link" href="/furama/service">Service</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="#">Contract</a>
+                                 <a class="nav-link" href="/furama/contract">Contract</a>
                               </li>
                            </ul>
-                           <div>
-                              <form class="form-inline" action="/action_page.php">
-<!--                                 <input class="form-control mr-sm-2" type="text" placeholder="Search">-->
-<!--                                 <button class="btn btn-success" type="submit">a</button>-->
-                                 <div class="input-group">
-                                    <input type="search" class="form-control" placeholder="Search" name="searchName">
-                                    <div class="input-group-append">
-                                       <button class="btn btn-secondary" type="submit">
-                                          <i class="fa fa-search"></i>
-                                       </button>
-                                    </div>
-                                 </div>
-                              </form>
-                           </div>
+<!--                           <div>-->
+<!--                              <form class="form-inline" action="/action_page.php">-->
+<!--&lt;!&ndash;                                 <input class="form-control mr-sm-2" type="text" placeholder="Search">&ndash;&gt;-->
+<!--&lt;!&ndash;                                 <button class="btn btn-success" type="submit">a</button>&ndash;&gt;-->
+<!--                                 <div class="input-group">-->
+<!--                                    <input type="search" class="form-control" placeholder="Search" name="searchName" th:value="${searchNameKey}">-->
+<!--                                    <div class="input-group-append">-->
+<!--                                       <button class="btn btn-secondary" type="submit">-->
+<!--                                          <i class="fa fa-search"></i>-->
+<!--                                       </button>-->
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                              </form>-->
+<!--                           </div>-->
                         </div>
                      </nav>
                   </div>
