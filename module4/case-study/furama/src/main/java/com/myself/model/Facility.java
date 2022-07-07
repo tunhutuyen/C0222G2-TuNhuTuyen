@@ -31,8 +31,8 @@ public class Facility {
     @ManyToOne
     @JoinColumn(name = "id_rent_type")
     private RentType rentType;
-//    @OneToMany(mappedBy = "facility")
-//    private List<Contract> contractList;
+    @OneToMany(mappedBy = "facility")
+    private List<Contract> contractList;
 
     public Facility() {
     }
@@ -52,29 +52,29 @@ public class Facility {
         this.rentType = rentType;
     }
 
-//    public Facility(Integer idFacility, String nameFacility, Integer area, Double cost, Integer maxPeople, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloor, String facilityFree, FacilityType facilityType, RentType rentType, List<Contract> contractList) {
-//        this.idFacility = idFacility;
-//        this.nameFacility = nameFacility;
-//        this.area = area;
-//        this.cost = cost;
-//        this.maxPeople = maxPeople;
-//        this.standardRoom = standardRoom;
-//        this.descriptionOtherConvenience = descriptionOtherConvenience;
-//        this.poolArea = poolArea;
-//        this.numberOfFloor = numberOfFloor;
-//        this.facilityFree = facilityFree;
-//        this.facilityType = facilityType;
-//        this.rentType = rentType;
-//        this.contractList = contractList;
-//    }
-//
-//    public List<Contract> getContractList() {
-//        return contractList;
-//    }
-//
-//    public void setContractList(List<Contract> contractList) {
-//        this.contractList = contractList;
-//    }
+    public Facility(Integer idFacility, String nameFacility, Integer area, Double cost, Integer maxPeople, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloor, String facilityFree, FacilityType facilityType, RentType rentType, List<Contract> contractList) {
+        this.idFacility = idFacility;
+        this.nameFacility = nameFacility;
+        this.area = area;
+        this.cost = cost;
+        this.maxPeople = maxPeople;
+        this.standardRoom = standardRoom;
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
+        this.poolArea = poolArea;
+        this.numberOfFloor = numberOfFloor;
+        this.facilityFree = facilityFree;
+        this.facilityType = facilityType;
+        this.rentType = rentType;
+        this.contractList = contractList;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
+    }
 
     public Integer getIdFacility() {
         return idFacility;

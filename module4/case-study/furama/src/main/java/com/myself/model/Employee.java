@@ -35,8 +35,8 @@ public class Employee {
     @OneToOne
     @JoinColumn
     private User user;
-//    @OneToMany(mappedBy = "employee")
-//    private List<Contract> contractList;
+    @OneToMany(mappedBy = "employee")
+    private List<Contract> contractList;
 
     public Employee() {
     }
@@ -56,29 +56,29 @@ public class Employee {
         this.user = user;
     }
 
-//    public Employee(Integer idEmployee, String nameEmployee, String dateOfBirthEmployee, String idCardEmployee, Double salaryEmployee, String phoneNumberEmployee, String emailEmployee, String addressEmployee, Division division, EducationDegree educationDegree, Position position, User user, List<Contract> contractList) {
-//        this.idEmployee = idEmployee;
-//        this.nameEmployee = nameEmployee;
-//        this.dateOfBirthEmployee = dateOfBirthEmployee;
-//        this.idCardEmployee = idCardEmployee;
-//        this.salaryEmployee = salaryEmployee;
-//        this.phoneNumberEmployee = phoneNumberEmployee;
-//        this.emailEmployee = emailEmployee;
-//        this.addressEmployee = addressEmployee;
-//        this.division = division;
-//        this.educationDegree = educationDegree;
-//        this.position = position;
-//        this.user = user;
-//        this.contractList = contractList;
-//    }
-//
-//    public List<Contract> getContractList() {
-//        return contractList;
-//    }
-//
-//    public void setContractList(List<Contract> contractList) {
-//        this.contractList = contractList;
-//    }
+    public Employee(Integer idEmployee, String nameEmployee, String dateOfBirthEmployee, String idCardEmployee, Double salaryEmployee, String phoneNumberEmployee, String emailEmployee, String addressEmployee, Division division, EducationDegree educationDegree, Position position, User user, List<Contract> contractList) {
+        this.idEmployee = idEmployee;
+        this.nameEmployee = nameEmployee;
+        this.dateOfBirthEmployee = dateOfBirthEmployee;
+        this.idCardEmployee = idCardEmployee;
+        this.salaryEmployee = salaryEmployee;
+        this.phoneNumberEmployee = phoneNumberEmployee;
+        this.emailEmployee = emailEmployee;
+        this.addressEmployee = addressEmployee;
+        this.division = division;
+        this.educationDegree = educationDegree;
+        this.position = position;
+        this.user = user;
+        this.contractList = contractList;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
+    }
 
     public Integer getIdEmployee() {
         return idEmployee;

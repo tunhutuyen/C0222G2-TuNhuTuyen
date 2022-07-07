@@ -20,8 +20,8 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "id_customer_type")
     private CustomerType customerType;
-//    @OneToMany(mappedBy = "customer")
-//    private List<Contract> contractList;
+    @OneToMany(mappedBy = "customer")
+    private List<Contract> contractList;
 
     public Customer() {
     }
@@ -38,26 +38,26 @@ public class Customer {
         this.customerType = customerType;
     }
 
-//    public Customer(Integer idCustomer, String nameCustomer, String dateOfBirth, Integer gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType, List<Contract> contractList) {
-//        this.idCustomer = idCustomer;
-//        this.nameCustomer = nameCustomer;
-//        this.dateOfBirth = dateOfBirth;
-//        this.gender = gender;
-//        this.idCard = idCard;
-//        this.phoneNumber = phoneNumber;
-//        this.email = email;
-//        this.address = address;
-//        this.customerType = customerType;
-//        this.contractList = contractList;
-//    }
-//
-//    public List<Contract> getContractList() {
-//        return contractList;
-//    }
-//
-//    public void setContractList(List<Contract> contractList) {
-//        this.contractList = contractList;
-//    }
+    public Customer(Integer idCustomer, String nameCustomer, String dateOfBirth, Integer gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType, List<Contract> contractList) {
+        this.idCustomer = idCustomer;
+        this.nameCustomer = nameCustomer;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.customerType = customerType;
+        this.contractList = contractList;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
+    }
 
     public Integer getIdCustomer() {
         return idCustomer;

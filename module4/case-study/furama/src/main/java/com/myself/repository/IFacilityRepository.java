@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface IFacilityRepository extends JpaRepository<Facility,Integer> {
     @Query(value = " select * from facility where name_facility like :keyword ",nativeQuery = true,
-            countQuery = " select count(*) from (select * from facility where name_facility like :keyword) temp_table ")
+            countQuery = " select count(*) from ( select * from facility where name_facility like :keyword) temp_table ")
     Page<Facility> findAllFacility(Pageable pageable,@Param("keyword") String searchNameKey);
 }

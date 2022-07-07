@@ -164,15 +164,15 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <h2>Customer List</h2>
-<!--                            <p th:text="${message}"></p>-->
+                            <p class="text-primary" th:text="${message}"></p>
                             <a href="/furama/customer/create" class="btn btn-outline-success">Create Customer</a>
                         </div>
                         <div class="col-sm-4">
                             <div class="search-box">
                                 <form class="d-flex">
-                                    <!--                                        <i class="material-icons">&#xE8B6;</i>-->
+                                    <i class="material-icons">&#xE8B6;</i>
                                     <input type="text" class="form-control" placeholder="Search name"
-                                           name="searchName"/> <!--th:value="${searchName}"-->
+                                           name="searchName" th:value="${searchName}">
                                     <button class="btn btn-outline-success">Search</button>
                                 </form>
                             </div>
@@ -192,169 +192,94 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>12-02-2000</td>
-                        <td>0123456789</td>
-                        <td>Nam</td>
-                        <td>0123456789</td>
+                    <tr th:each="customer, iStatus : ${customerList}">
+                        <td th:text="${iStatus.count + customerList.number * customerList.size}"></td>
+                        <td th:text="${customer.nameCustomer}"></td>
+                        <td th:text="${customer.dateOfBirth}"></td>
+                        <td th:text="${customer.idCard}"></td>
+                        <td th:text="${customer.gender}"></td>
+                        <td th:text="${customer.phoneNumber}"></td>
                         <td>
-                            <a class="btn btn-primary" href="/furama/customer/edit">Edit</a>
+                            <a class="btn btn-primary text-light"
+                               th:href="@{/furama/customer/edit/{id}(id=${customer.idCustomer})}">Edit</a>
                         </td>
                         <td>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    th:data-target="'#deleteModal'+${customer.idCustomer}">
                                 Delete
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
+                            <div class="modal fade" th:id="deleteModal+${customer.idCustomer}" tabindex="-1"
+                                 aria-labelledby="deleteModal" aria-hidden="true">
+                                <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">DELETE</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Bạn muốn xóa ..........</p>
+                                            <p>Are U sure U want to remove <span
+                                                    th:text="${customer.nameCustomer}"></span>
+                                                and ID: <span th:text="${customer.idCustomer}"></span></p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                            </button>
+                                            <a class="btn btn-primary"
+                                               th:href="@{/furama/customer/delete/{id}(id=${customer.idCustomer})}">Delete</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
-<!--                    <tr th:each="item,iStatus : ${serviceList}">-->
-<!--                        <td th:text="${item.getIdFacility()}"></td>-->
-<!--                        <td th:text="${item.getNameFacility()}"></td>-->
-<!--                        <td th:text="${item.getArea()}"></td>-->
-<!--                        <td th:text="${item.getCost()}"></td>-->
-<!--                        <td th:text="${item.getMaxPeople()}"></td>-->
-<!--                        <td th:text="${item.getStandardRoom()}"></td>-->
-<!--                        <td>-->
-<!--                            <button type="button" class="btn btn-primary" data-toggle="modal"-->
-<!--                                    data-target="#exampleModal">-->
-<!--                                Edit-->
-<!--                            </button>-->
-
-                            <!--                            &lt;!&ndash; Modal &ndash;&gt;-->
-                            <!--                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
-                            <!--                                 aria-hidden="true">-->
-                            <!--                                <div class="modal-dialog">-->
-                            <!--                                    <div class="modal-content">-->
-                            <!--                                        <div class="modal-header">-->
-                            <!--                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
-                            <!--                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                            <!--                                                <span aria-hidden="true">&times;</span>-->
-                            <!--                                            </button>-->
-                            <!--                                        </div>-->
-                            <!--                                        <div class="modal-body">-->
-                            <!--                                            ...-->
-                            <!--                                        </div>-->
-                            <!--                                        <div class="modal-footer">-->
-                            <!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close-->
-                            <!--                                            </button>-->
-                            <!--                                            <button type="button" class="btn btn-primary">Save changes</button>-->
-                            <!--                                        </div>-->
-                            <!--                                    </div>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
-<!--                        </td>-->
-<!--                        <td>-->
-<!--                            <button type="button" class="btn btn-primary" data-toggle="modal"-->
-<!--                                    th:data-target="'#exampleModal'+${item.getIdFacility()}">-->
-<!--                                Delete-->
-<!--                            </button>-->
-
-<!--                            &lt;!&ndash; Modal &ndash;&gt;-->
-<!--                            <div class="modal fade" th:id="exampleModal+${item.getIdFacility()}" tabindex="-1"-->
-<!--                                 aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--                                <div class="modal-dialog">-->
-<!--                                    <div class="modal-content">-->
-<!--                                        <div class="modal-header">-->
-<!--                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
-<!--                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                                                <span aria-hidden="true">&times;</span>-->
-<!--                                            </button>-->
-<!--                                        </div>-->
-<!--                                        <div class="modal-body">-->
-<!--                                            <p>Are U sure U want to remove <span-->
-<!--                                                    th:text="${item.getNameFacility()}"></span>-->
-<!--                                                and ID: <span th:text="${item.getIdFacility()}"></span></p>-->
-<!--                                        </div>-->
-<!--                                        <div class="modal-footer">-->
-<!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close-->
-<!--                                            </button>-->
-<!--                                            <a class="btn btn-primary"-->
-<!--                                               th:href="@{/furama/service/delete/{id}(id=${item.getIdFacility()})}">Delete</a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </td>-->
-<!--                    </tr>-->
                     </tbody>
                 </table>
-                <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <!--                <div class="row">-->
-                <!--                    <div class="col-10">-->
-                <!--                        <a href="/category" class="btn btn-outline-success">Go To List Facility</a>-->
-                <!--                    </div>-->
-                <!--                    &lt;!&ndash;                            sort theo ten &ndash;&gt;-->
-                <!--                    <div class="col-2 ">-->
-                <!--                        <ul class="pagination" th:if="${serviceList.totalPages > 0}">-->
-                <!--                            <li class="page-item">-->
-                <!--                                <a class="page-link" th:if="${serviceList.hasPrevious()}"-->
-                <!--                                   th:href="@{'/furama/service'(page=${serviceList.number - 1}, search=${searchName})}">-->
-                <!--                                    Previous-->
-                <!--                                </a>-->
-                <!--                            </li>-->
-                <!--                            <div th:each="item1, loop : ${#numbers.sequence(1, serviceList.totalPages )}">-->
-                <!--                                <div th:if="${(serviceList.number + 1) == item1}">-->
-                <!--                                    <li class="page-item active">-->
-                <!--                                        <a class="page-link" href="#" th:text="${item1}"-->
-                <!--                                           th:href="@{/furama/service(page=(${item1}-1), search=${searchName})}"></a>-->
-                <!--                                    </li>-->
-                <!--                                </div>-->
-                <!--                                <div th:unless="${((serviceList.number + 1) == item1)}">-->
-                <!--                                    <li class="page-item">-->
-                <!--                                        <a class="page-link" href="#" th:text="${item1}"-->
-                <!--                                           th:href="@{/furama/service(page=(${item1}-1), search=${searchName} )}"></a>-->
-                <!--                                    </li>-->
-                <!--                                </div>-->
-                <!--                            </div>-->
-                <!--                            <li class="page-item">-->
-                <!--                                <a class="page-link" th:if="${serviceList.hasNext()}"-->
-                <!--                                   th:href="@{'/furama/service'(page=${serviceList.number + 1}, search=${searchName})}">-->
-                <!--                                    Next-->
-                <!--                                </a>-->
-                <!--                            </li>-->
-                <!--                        </ul>-->
-                <!--                    </div>-->
+                <div class="row">
+                    <div class="col-10">
+                        <a href="/furama/customer" class="btn btn-outline-success">Go To List Customer</a>
+                    </div>
+                    <!--                            sort theo ten -->
+                    <div class="col-2 ">
+                        <ul class="pagination" th:if="${customerList.totalPages > 0}">
+                            <li class="page-item">
+                                <a class="page-link" th:if="${customerList.hasPrevious()}"
+                                   th:href="@{'/furama/customer'(page=${customerList.number - 1}, search=${searchName})}">
+                                    Previous
+                                </a>
+                            </li>
+                            <div th:each="item1, loop : ${#numbers.sequence(1, customerList.totalPages )}">
+                                <div th:if="${(customerList.number + 1) == item1}">
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#" th:text="${item1}"
+                                           th:href="@{/furama/customer(page=(${item1}-1), search=${searchName})}"></a>
+                                    </li>
                                 </div>
+                                <div th:unless="${((customerList.number + 1) == item1)}">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" th:text="${item1}"
+                                           th:href="@{/furama/customer(page=(${item1}-1), search=${searchName} )}"></a>
+                                    </li>
+                                </div>
+                            </div>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${customerList.hasNext()}"
+                                   th:href="@{'/furama/customer'(page=${customerList.number + 1}, search=${searchName})}">
+                                    Next
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
-<th:block th:replace="~{layout :: footerLayout}"></th:block>
+    <th:block th:replace="~{layout :: footerLayout}"></th:block>
 </body>
 <th:block th:replace="~{layout :: jsJquery}"></th:block>
 </html>
