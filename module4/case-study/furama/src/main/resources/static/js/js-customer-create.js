@@ -1,49 +1,40 @@
-function showMoreInput(value) {
-    $(".aFacility").click(function (event) {
-        let choice = $(this).attr("href");
-        if (value !== "") {
-            choice = value;
-        }
-        console.log(choice)
-        event.preventDefault();
-        switch (choice) {
-            case "House":
-                $("#tableInput" + choice).show();
-                $("#tableInputRoom").hide();
-                $("#tableInputVilla").hide();
-                $("#tableInputName").show();
-                $("#tableInputName").text(choice);
-                $("#inputFacilityHidden").val(choice)
-                break
-            case "Room":
-                $("#tableInputHouse").hide();
-                $("#tableInput" + choice).show();
-                $("#tableInputVilla").show();
-                $("#tableInputName").show();
-                $("#tableInputName").text(choice);
-                $("#inputFacilityHidden").val(choice)
-                break
-            case "Villa":
-                $("#tableInputHouse").show();
-                $("#tableInputRoom").hide();
-                $("#tableInput" + choice).show();
-                $("#tableInputName").show();
-                $("#tableInputName").text(choice);
-                $("#inputFacilityHidden").val(choice)
-                break
+$(document).ready(function () {
+    $("#serviceType").change(function () {
+        let temp = $("#serviceType").val();
+        switch (Number(temp)) {
+            case 1:
+                $("#divStandardRoom").show();
+                $("#divDescriptionOtherConvenience").show();
+                $("#divNumberOfFloors").show();
+                $("#divPoolAreaVilla").show();
+                $("#divFacilityFree").hide();
+                break;
+            case 2:
+                $("#divStandardRoom").show();
+                $("#divDescriptionOtherConvenience").show();
+                $("#divNumberOfFloors").show();
+                $("#divPoolAreaVilla").hide();
+                $("#divFacilityFree").hide();
+                break;
+            case 3:
+                $("#divStandardRoom").hide();
+                $("#divDescriptionOtherConvenience").hide();
+                $("#divNumberOfFloors").hide();
+                $("#divPoolAreaVilla").hide();
+                $("#divFacilityFree").show();
+                break;
             default:
-                $("#tableInputHouse").hide();
-                $("#tableInputRoom").hide();
-                $("#tableInputVilla").hide();
-                $("#tableInputName").hide();
-                break
+                $("#divStandardRoom").hide();
+                $("#divDescriptionOtherConvenience").hide();
+                $("#divNumberOfFloors").hide();
+                $("#divPoolAreaVilla").hide();
+                $("#divFacilityFree").hide();
+                break;
         }
     })
-}
-
-$("#tableInputHouse").hide();
-$("#tableInputRoom").hide();
-$("#tableInputVilla").hide();
-$("#tableInputName").hide();
-let value = $("#inputFacilityHidden").val();
-showMoreInput(value);
+    $("#divStandardRoom").hide();
+    $("#divDescriptionOtherConvenience").hide();
+    $("#divNumberOfFloors").hide();
+    $("#divPoolAreaVilla").hide();
+    $("#divFacilityFree").hide();
+})

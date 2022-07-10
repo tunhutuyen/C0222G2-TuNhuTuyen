@@ -37,7 +37,7 @@
                         <div>
                             <label >Gender</label>
                         </div>
-                        <select class="form-select" aria-label="Default select example"
+                        <select class="form-control" aria-label="Default select example"
                                 style="padding-top: 0.625rem !important;" th:field="*{gender}">
                             <option value="">Choice Gender</option>
                             <option value="1">Male</option>
@@ -70,7 +70,7 @@
                         <div>
                             <label >Customer Type</label>
                         </div>
-                        <select class="form-select" aria-label="Default select example"
+                        <select class="form-control" aria-label="Default select example"
                                 style="padding-top: 0.625rem !important;" th:field="*{customerType}">
                             <option value="" >Choice Customer Type</option>
                             <option value="" selected th:each="item, loop : ${customerTypeList}"

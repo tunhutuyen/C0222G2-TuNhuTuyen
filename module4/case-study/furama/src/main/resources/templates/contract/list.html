@@ -5,6 +5,7 @@
     <title>List Facility</title>
     <th:block th:replace="~{layout :: boostrapCss}"></th:block>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--    <script th:src="@{/css/mycss-list.css}"></script>-->
     <style>
         body {
             color: #566787;
@@ -164,15 +165,15 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <h2>Contract List</h2>
-                            <!--                            <p th:text="${message}"></p>-->
+                            <p th:text="${message}"></p>
                             <a href="/furama/customer/create" class="btn btn-outline-success">Create Customer</a>
                         </div>
                         <div class="col-sm-4">
                             <div class="search-box">
                                 <form class="d-flex">
-                                    <!--                                        <i class="material-icons">&#xE8B6;</i>-->
+                                    <i class="material-icons">&#xE8B6;</i>
                                     <input type="text" class="form-control" placeholder="Search name"
-                                           name="searchName"/> <!--th:value="${searchName}"-->
+                                           name="searchName" th:value="${searchName}">
                                     <button class="btn btn-outline-success">Search</button>
                                 </form>
                             </div>
@@ -188,29 +189,92 @@
                         <th>Start date<i class="fa fa-sort"></i></th>
                         <th>End date</th>
                         <th>Deposit<i class="fa fa-sort"></i></th>
-                        <th>Total Money<i class="fa fa-sort"></i></th>
+                        <!--                        <th>Total Money<i class="fa fa-sort"></i></th>-->
                         <th colspan="2">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Villa TaoBao</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>12-02-2000</td>
-                        <td>13-02-2000</td>
-                        <td>1000000</td>
-                        <td>15000000</td>
+                    <tr th:each="item, loop : ${contractList}">
+                        <td th:text="${loop.count + contractList.number * contractList.size}"></td>
+                        <td th:text="${item.facility.nameFacility}"></td>
+                        <td th:text="${item.customer.nameCustomer}"></td>
+                        <td th:text="${item.startDate}"></td>
+                        <td th:text="${item.endDate}"></td>
+                        <td th:text="${item.deposit}"></td>
                         <td>
-                            <a class="btn btn-primary" href="/furama/customer/edit">+</a>
+<!--                            them moi dich vu di kem-->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    th:attr="data-bs-target='#staticBackdrop' +${item.idContract}">
+                                +
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" th:id="'staticBackdrop' + ${item.idContract}" data-bs-backdrop="static"
+                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content get-in-touch">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title titleModal" id="staticBackdropLabelCreate">Create Details
+                                                Contract</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+
+                                                <form class="contact-form row" th:action="@{/furama/contract/createDetailContract}"
+                                                      method="post"
+                                                      th:object="${contractDetailObj}">
+
+                                                    <div class="form-field col-lg-6">
+                                                        <select class="form-select" id="facilityAttach">
+                                                            <option value="">Attach Service</option>
+                                                            <option th:each="item1, loop : ${attachFacilityList}"
+                                                                    th:text="${item1.nameAttachFacility}" th:value="${item1.idAttachFacility}"></option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-field col-lg-6">
+                                                        <input id="quantity" class="input-text js-input" type="text" required>
+                                                        <label class="label" for="quantity">Quantity</label>
+                                                    </div>
+
+                                                    <div class="form-field col-lg-12">
+                                                        <input id="contract" class="input-text js-input" type="hidden"
+                                                               th:text="${item.idContract}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"></div>
+                                                        <div class="col-4 text-center">
+                                                            <input type="submit" class="btn btn-outline-success col-lg-12" value="Save">
+                                                        </div>
+                                                        <div class="col-4 text-center">
+                                                            <button type="button" class="btn btn-outline-secondary col-lg-12 "
+                                                                    data-bs-dismiss="modal">clone
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                         <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <!-- Button trigger modal danh sach dich vu free-->
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal">
                                 Danh sách dịch vụ đi kèm
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -223,7 +287,8 @@
                                             <p>Bạn muốn xóa ..........</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                            </button>
                                             <button type="button" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </div>
@@ -302,54 +367,43 @@
                     <!--                    </tr>-->
                     </tbody>
                 </table>
-                <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a>
-                        </li>
-                    </ul>
+<!--                phân trang-->
+                <div class="row">
+                    <div class="col-10">
+                        <a href="/furama/contract" class="btn btn-outline-success">Go To List Contract</a>
+                    </div>
+                    <!--                            sort theo ten -->
+                    <div class="col-2 ">
+                        <ul class="pagination" th:if="${contractList.totalPages > 0}">
+                            <li class="page-item">
+                                <a class="page-link" th:if="${contractList.hasPrevious()}"
+                                   th:href="@{'/furama/contract'(page=${contractList.number - 1}, search=${searchName})}">
+                                    Previous
+                                </a>
+                            </li>
+                            <div th:each="item1, loop : ${#numbers.sequence(1, contractList.totalPages )}">
+                                <div th:if="${(contractList.number + 1) == item1}">
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#" th:text="${item1}"
+                                           th:href="@{/furama/contract(page=(${item1}-1), search=${searchName})}"></a>
+                                    </li>
+                                </div>
+                                <div th:unless="${((contractList.number + 1) == item1)}">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" th:text="${item1}"
+                                           th:href="@{/furama/contract(page=(${item1}-1), search=${searchName} )}"></a>
+                                    </li>
+                                </div>
+                            </div>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${contractList.hasNext()}"
+                                   th:href="@{'/furama/contract'(page=${contractList.number + 1}, search=${searchName})}">
+                                    Next
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <!--                <div class="row">-->
-                <!--                    <div class="col-10">-->
-                <!--                        <a href="/category" class="btn btn-outline-success">Go To List Facility</a>-->
-                <!--                    </div>-->
-                <!--                    &lt;!&ndash;                            sort theo ten &ndash;&gt;-->
-                <!--                    <div class="col-2 ">-->
-                <!--                        <ul class="pagination" th:if="${serviceList.totalPages > 0}">-->
-                <!--                            <li class="page-item">-->
-                <!--                                <a class="page-link" th:if="${serviceList.hasPrevious()}"-->
-                <!--                                   th:href="@{'/furama/service'(page=${serviceList.number - 1}, search=${searchName})}">-->
-                <!--                                    Previous-->
-                <!--                                </a>-->
-                <!--                            </li>-->
-                <!--                            <div th:each="item1, loop : ${#numbers.sequence(1, serviceList.totalPages )}">-->
-                <!--                                <div th:if="${(serviceList.number + 1) == item1}">-->
-                <!--                                    <li class="page-item active">-->
-                <!--                                        <a class="page-link" href="#" th:text="${item1}"-->
-                <!--                                           th:href="@{/furama/service(page=(${item1}-1), search=${searchName})}"></a>-->
-                <!--                                    </li>-->
-                <!--                                </div>-->
-                <!--                                <div th:unless="${((serviceList.number + 1) == item1)}">-->
-                <!--                                    <li class="page-item">-->
-                <!--                                        <a class="page-link" href="#" th:text="${item1}"-->
-                <!--                                           th:href="@{/furama/service(page=(${item1}-1), search=${searchName} )}"></a>-->
-                <!--                                    </li>-->
-                <!--                                </div>-->
-                <!--                            </div>-->
-                <!--                            <li class="page-item">-->
-                <!--                                <a class="page-link" th:if="${serviceList.hasNext()}"-->
-                <!--                                   th:href="@{'/furama/service'(page=${serviceList.number + 1}, search=${searchName})}">-->
-                <!--                                    Next-->
-                <!--                                </a>-->
-                <!--                            </li>-->
-                <!--                        </ul>-->
-                <!--                    </div>-->
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@
     <div class="container px-4 px-lg-5" style="background: #e3dcdc;">
         <div class="row gx-4 gx-lg-5 justify-content-center " style="padding-top: 10px;">
             <div class="col-lg-8 col-xl-6 text-center border-bottom-0 border border-primary" style="background-color:#FFE7BF ">
-                <h2 class="mt-0">Create Customer!</h2>
+                <h2 class="mt-0">Edit Customer!</h2>
                 <hr class="divider"/>
                 <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
                     back to you as soon as possible!</p>
@@ -38,7 +38,7 @@
                         <div>
                             <label >Gender</label>
                         </div>
-                        <select class="form-select" aria-label="Default select example"
+                        <select class="form-control" aria-label="Default select example"
                                 style="padding-top: 0.625rem !important;" th:field="*{gender}">
                             <option value="">Choice Gender</option>
                             <option value="1">Male</option>
@@ -71,7 +71,7 @@
                         <div>
                             <label >Customer Type</label>
                         </div>
-                        <select class="form-select" aria-label="Default select example"
+                        <select class="form-control" aria-label="Default select example"
                                 style="padding-top: 0.625rem !important;" th:field="*{customerType}">
                             <option value="" th:each="item, loop : ${customerTypeList}"
                                     th:if="${item.idCustomerType == customer.getCustomerType().idCustomerType}"

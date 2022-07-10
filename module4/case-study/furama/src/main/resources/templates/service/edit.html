@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <th:block th:replace="~{layout :: boostrapCss}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{layout :: header-navbar}"></th:block>
+<section class="page-section" id="facility">
+  <div class="container px-4 px-lg-5 " style="background: #e3dcdc;">
+    <div class="row gx-4 gx-lg-5 justify-content-center " style="padding-top: 10px">
+      <div class="col-lg-8 col-xl-6 text-center border-bottom-0 border border-warning bg-light" style="padding-top: 10px" >
+        <h2 class="mt-0">Edit Facility!</h2>
+        <hr class="divider"/>
+        <input class="form-control" id="inputName" type="hidden"
+               th:value="${facility.facilityType.idFacilityType}"/>
+        <p class="text-muted mb-5">U want edit + <span class="text-danger" th:text="${facility.facilityType.nameFacilityType}"></span> !</p>
+      </div>
+    </div>
+    <div class="row gx-4 gx-lg-5 justify-content-center mb-5" style="padding-bottom: 10px;">
+      <div class="col-lg-6 border-top-0 border border-warning bg-light">
+        <div class="text-danger" id="tableInputName">
+          <p class="text-danger" th:text="${message}"></p>
+        </div>
+        <form id="contactForm" method="post" th:action="@{/furama/service/save}" th:object="${facility}">
+          <input type="hidden" class="form-control" th:field="*{idFacility}">
+          <!-- name input-->
+          <div class="form-floating mb-3">
+            <label for="name">Facility name</label>
+            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                   th:field="${facility.nameFacility}"/>
+          </div>
+          <!-- area input-->
+          <div class="form-floating mb-3">
+            <label for="area">Area</label>
+            <input class="form-control" id="area" type="text" placeholder="Enter your area..."
+                   th:field="${facility.area}"/>
+          </div>
+          <!-- cost input-->
+          <div class="form-floating mb-3">
+            <label for="cost">Cost</label>
+            <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
+                   th:field="${facility.cost}"/>
+          </div>
+          <!-- maxPeople input-->
+          <div class="form-floating mb-3">
+            <label for="maxPeople">Max people</label>
+            <input class="form-control" id="maxPeople" type="text" placeholder="Enter your max people..."
+                   th:field="*{maxPeople}"/>
+          </div>
+          <!--                     rentType input-->
+          <div class="form-floating mb-3">
+            <label>Rent Type</label>
+            <select class="form-control" aria-label="Default select example"
+                    style="padding-top: 0.625rem !important;"
+                    th:field="*{rentType}">
+              <option value="">Choose rent type</option>
+              <option th:each="item, loop : ${rentTypeList}" th:text="${item.nameRentType}"
+                      th:value="${item.idRentType}"></option>
+            </select>
+          </div>
+          <!--                     facilityType input-->
+          <div class="form-floating mb-3">
+            <label>Facility Type</label>
+<!--            <select class="form-control" id="serviceType" aria-label="Default select example"-->
+<!--                    style="padding-top: 0.625rem !important;"-->
+<!--                    th:field="*{facilityType}">-->
+<!--              <option value="">Choose facility type</option>-->
+<!--              <option th:each="item, loop : ${facilityTypeList}" th:text="${item.nameFacilityType}"-->
+<!--                      th:value="${item.idFacilityType}"></option>-->
+<!--            </select>-->
+            <input class="form-control" type="hidden" th:field="*{facilityType}">
+            <div class="form-control bg-danger text-primary" th:text="${facility.facilityType.nameFacilityType}"></div>
+          </div>
+
+          <!--standardRoom input-->
+          <div class="form-floating mb-3" id="divStandardRoom">
+            <label for="standardRoom">Standard Room</label>
+            <input class="form-control" id="standardRoom" type="text"
+                   placeholder="Enter your standard room..." th:field="*{standardRoom}"/>
+          </div>
+          <!--descriptionOtherConvenience input-->
+          <div class="form-floating mb-3" id="divDescriptionOtherConvenience">
+            <label for="descriptionOtherConvenience">Description Other Convenience</label>
+            <input class="form-control" id="descriptionOtherConvenience" type="text"
+                   placeholder="Enter your description other convenience..."
+                   th:field="*{descriptionOtherConvenience}"/>
+          </div>
+          <!--numberOfFloors input-->
+          <div class="form-floating mb-3" id="divNumberOfFloors">
+            <label for="numberOfFloors">Number Of Floors</label>
+            <input class="form-control" id="numberOfFloors" type="text"
+                   placeholder="Enter your number of floors..." th:field="*{numberOfFloor}"/>
+          </div>
+
+          <!--facilityFree input-->
+          <div class="form-floating mb-3" id="divFacilityFree">
+            <label for="facilityFree">Facility Free</label>
+            <input class="form-control" id="facilityFree" type="text"
+                   placeholder="Enter your facility free..." th:field="*{facilityFree}"/>
+          </div>
+
+          <!--poolArea input-->
+          <div class="form-floating mb-3" id="divPoolAreaVilla">
+            <label for="poolAreaVilla">Pool Area</label>
+            <input class="form-control" id="poolAreaVilla" type="text"
+                   placeholder="Enter your pool area..." th:field="*{poolArea}"/>
+          </div>
+          <input type="hidden" id="inputFacilityHidden" name="facilityHidden">
+          <!-- Submit Button-->
+          <div class="d-grid text-center" style="padding-bottom: 40px;">
+            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<th:block th:replace="~{layout :: footerLayout}"></th:block>
+</body>
+<th:block th:replace="~{layout :: jsJquery}"></th:block>
+
+<script th:src="@{/js/js-service-edit.js}"></script>
+</html>

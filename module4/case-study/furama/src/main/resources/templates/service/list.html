@@ -164,7 +164,7 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <h2>Service List</h2>
-                            <p th:text="${message}"></p>
+                            <p class="text-primary" th:text="${message}"></p>
                             <a href="/furama/service/create" class="btn btn-outline-success">Create Facility</a>
                         </div>
                         <div class="col-sm-4">
@@ -183,50 +183,34 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name <i class="fa fa-sort"></i></th>
+                        <th>Name </th>
                         <th>Area</th>
-                        <th>Cost <i class="fa fa-sort"></i></th>
+                        <th>Cost </th>
                         <th>People</th>
-                        <th> Stand Room<i class="fa fa-sort"></i></th>
+                        <th> Stand Room</th>
+                        <th> Facility type</th>
+                        <th> Facility Free</th>
+                        <th> Pool Area</th>
+                        <th> Rent Type</th>
                         <th colspan="2">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="item,iStatus : ${serviceList}">
-                        <td th:text="${item.getIdFacility()}"></td>
+                        <td th:text="${iStatus.count + serviceList.size * serviceList.number}"></td>
                         <td th:text="${item.getNameFacility()}"></td>
                         <td th:text="${item.getArea()}"></td>
                         <td th:text="${item.getCost()}"></td>
                         <td th:text="${item.getMaxPeople()}"></td>
-                        <td th:text="${item.getStandardRoom()}"></td>
+                        <td th:text="${item.standardRoom}"></td>
+                        <td th:text="${item.facilityType == null ? '' : item.facilityType.nameFacilityType}"></td>
+                        <td th:text="${item.facilityFree}"></td>
+                        <td th:text="${item.poolArea}"></td>
+                        <td th:text="${item.rentType == null ? '' : item.rentType.nameRentType}"></td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal">
+                            <a th:href="@{/furama/service/edit/{id}(id=${item.idFacility})}" class="btn btn-primary text-light">
                                 Edit
-                            </button>
-
-                            <!--                            &lt;!&ndash; Modal &ndash;&gt;-->
-                            <!--                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
-                            <!--                                 aria-hidden="true">-->
-                            <!--                                <div class="modal-dialog">-->
-                            <!--                                    <div class="modal-content">-->
-                            <!--                                        <div class="modal-header">-->
-                            <!--                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
-                            <!--                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                            <!--                                                <span aria-hidden="true">&times;</span>-->
-                            <!--                                            </button>-->
-                            <!--                                        </div>-->
-                            <!--                                        <div class="modal-body">-->
-                            <!--                                            ...-->
-                            <!--                                        </div>-->
-                            <!--                                        <div class="modal-footer">-->
-                            <!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close-->
-                            <!--                                            </button>-->
-                            <!--                                            <button type="button" class="btn btn-primary">Save changes</button>-->
-                            <!--                                        </div>-->
-                            <!--                                    </div>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
+                            </a>
                         </td>
                         <td>
                             <button type="button" class="btn btn-primary" data-toggle="modal"
