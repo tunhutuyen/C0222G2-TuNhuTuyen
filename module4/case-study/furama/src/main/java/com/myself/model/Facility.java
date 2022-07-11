@@ -1,5 +1,7 @@
 package com.myself.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -31,7 +33,8 @@ public class Facility {
     @ManyToOne
     @JoinColumn(name = "id_rent_type")
     private RentType rentType;
-    @OneToMany(mappedBy = "facility")
+    @OneToMany(mappedBy = "facility",fetch = FetchType.LAZY)
+    @JsonBackReference("6")
     private List<Contract> contractList;
 
     public Facility() {

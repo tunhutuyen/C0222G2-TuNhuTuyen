@@ -17,7 +17,6 @@ public class Role {
     @JoinTable(name = "user_role",
     joinColumns = @JoinColumn(name = "id_role"),
     inverseJoinColumns =  @JoinColumn(name = "name_user"))
-    @JsonManagedReference
     private List<User> userList;
 
     public Role() {

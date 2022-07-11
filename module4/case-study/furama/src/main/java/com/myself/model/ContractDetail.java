@@ -1,5 +1,7 @@
 package com.myself.model;
 
+
+
 import javax.persistence.*;
 
 @Entity
@@ -9,9 +11,11 @@ public class ContractDetail {
     @Column(name = "id_contract_detail")
     private Integer idContractDetail;
     private Integer quantity;
+
     @ManyToOne
     @JoinColumn(name = "id_attach_facility")
     private AttachFacility attachFacility;
+
     @ManyToOne
     @JoinColumn(name = "id_contract")
     private Contract contract;
@@ -56,5 +60,14 @@ public class ContractDetail {
 
     public void setContract(Contract contract) {
         this.contract = contract;
+    }
+
+    @Override
+    public String toString() {
+        return "ContractDetail{" +
+                ", quantity=" + quantity +
+                ", attachFacility=" + attachFacility +
+                ", contract=" + contract +
+                '}';
     }
 }

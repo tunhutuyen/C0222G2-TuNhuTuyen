@@ -1,39 +1,29 @@
-package com.myself.model;
+package com.myself.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.myself.model.ContractDetail;
+import com.myself.model.Customer;
+import com.myself.model.Employee;
+import com.myself.model.Facility;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-public class Contract {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_contract")
+public class ContractDto {
     private Integer idContract;
-    @Column(columnDefinition = "DATE")
     private String startDate;
-    @Column(columnDefinition = "DATE")
     private String endDate;
     private Double deposit;
-    @ManyToOne
-    @JoinColumn(name = "id_employee")
     private Employee employee;
-    @ManyToOne
-    @JoinColumn(name = "id_customer")
     private Customer customer;
-    @ManyToOne
-    @JoinColumn(name = "id_facility")
     private Facility facility;
-
-    @OneToMany(mappedBy = "contract",fetch = FetchType.LAZY)
-    @JsonBackReference("12")
     private List<ContractDetail> contractDetailList;
+    private Double totalMoney;
 
-    public Contract() {
+    public ContractDto() {
     }
 
-    public Contract(Integer idContract, String startDate, String endDate, Double deposit, Employee employee, Customer customer, Facility facility, List<ContractDetail> contractDetailList) {
+    public ContractDto(Integer idContract, String startDate, String endDate, Double deposit, Employee employee, Customer customer, Facility facility, List<ContractDetail> contractDetailList, Double totalMoney) {
         this.idContract = idContract;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -42,6 +32,7 @@ public class Contract {
         this.customer = customer;
         this.facility = facility;
         this.contractDetailList = contractDetailList;
+        this.totalMoney = totalMoney;
     }
 
     public Integer getIdContract() {
@@ -106,5 +97,13 @@ public class Contract {
 
     public void setContractDetailList(List<ContractDetail> contractDetailList) {
         this.contractDetailList = contractDetailList;
+    }
+
+    public Double getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(Double totalMoney) {
+        this.totalMoney = totalMoney;
     }
 }

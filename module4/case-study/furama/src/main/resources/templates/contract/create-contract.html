@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <th:block th:replace="~{layout :: boostrapCss}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{layout :: header-navbar}"></th:block>
+<section class="page-section" id="facility">
+  <div class="container px-4 px-lg-5 " style="background: #e3dcdc;">
+    <div class="row gx-4 gx-lg-5 justify-content-center " style="padding-top: 10px">
+      <div class="col-lg-8 col-xl-6 text-center border-bottom-0 border border-warning bg-light" style="padding-top: 10px">
+        <h2 class="mt-0" style="padding-top: 10px">Create New Contract!</h2>
+        <hr class="divider"/>
+<!--        <p class="text-muted mb-5">Please choose Facility what U want to create new !</p>-->
+      </div>
+    </div>
+    <div class="row gx-4 gx-lg-5 justify-content-center mb-5" style="padding-bottom: 10px;" >
+      <div class="col-lg-6 border-top-0 border border-warning bg-light">
+        <div class="text-danger" id="tableInputName">
+          <p class="text-danger" th:text="${message}"></p>
+        </div>
+        <form id="contactForm" method="post" th:action="@{/furama/contract/save}" th:object="${contractNew}">
+          <!-- startDate input-->
+          <div class="form-floating mb-3">
+            <label class="label" for="startDate">Date start</label>
+            <input id="startDate" class="form-control" type="date" th:field="*{startDate}" required>
+          </div>
+          <!-- endDate input-->
+          <div class="form-floating mb-3">
+            <label class="label" for="endDate">Date end</label>
+            <input id="endDate" class="form-control" type="date" th:field="*{endDate}" required>
+          </div>
+          <!-- deposit input-->
+          <div class="form-floating mb-3">
+            <label  for="deposit">Deposit</label>
+            <input id="deposit" class="form-control" type="text" th:field="*{deposit}" required>
+
+          </div>
+          <!-- employee input-->
+          <div class="form-floating mb-3">
+            <label >Select employee :</label>
+            <select class="form-control" th:field="*{employee}">
+              <option value="" selected>Select employee </option>
+              <option th:each="item, loop : ${employeeList}" th:text="${item.nameEmployee}" th:value="${item.idEmployee}"></option>
+            </select>
+          </div>
+          <!--  customer input-->
+          <div class="form-floating mb-3">
+            <label class="label">Select customer :</label>
+            <select class="form-control" th:field="*{customer}">
+              <option value="" selected>Select customer </option>
+              <option th:each="item, loop : ${customerList}" th:text="${item.nameCustomer}" th:value="${item.idCustomer}"></option>
+            </select>
+          </div>
+          <!--   facility input-->
+          <div class="form-floating mb-3">
+            <label class="label">Select facility :</label>
+            <select class="form-control" th:field="*{facility}">
+              <option value="" selected>Select facility </option>
+              <option th:each="item, loop : ${facilityList}" th:text="${item.nameFacility}" th:value="${item.idFacility}"></option>
+            </select>
+          </div>
+          <!-- Submit Button-->
+          <div class="d-grid text-center" style="padding-bottom: 40px;">
+            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
+            <a href="/furama/contract" class="btn btn-outline-secondary">Back home</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<th:block th:replace="~{layout :: footerLayout}"></th:block>
+</body>
+<th:block th:replace="~{layout :: jsJquery}"></th:block>
+</html>

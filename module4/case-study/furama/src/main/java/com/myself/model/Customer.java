@@ -1,5 +1,7 @@
 package com.myself.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,7 +22,8 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "id_customer_type")
     private CustomerType customerType;
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
+    @JsonBackReference(value = "1")
     private List<Contract> contractList;
 
     public Customer() {

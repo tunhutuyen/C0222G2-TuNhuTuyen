@@ -14,8 +14,8 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Employee employee;
 
-    @ManyToMany(mappedBy = "userList")
-    @JsonManagedReference
+    @ManyToMany(mappedBy = "userList", fetch = FetchType.LAZY)
+    @JsonManagedReference("11")
     private List<Role> roleList;
 
     public User() {

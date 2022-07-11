@@ -1,5 +1,7 @@
 package com.myself.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +14,8 @@ public class CustomerType {
     private Integer idCustomerType;
     @Column(name = "name_customer_type")
     private String nameCustomerType;
-    @OneToMany(mappedBy = "customerType")
+    @OneToMany(mappedBy = "customerType",fetch = FetchType.LAZY)
+    @JsonBackReference(value = "2")
     private List<Customer> customerList;
 
     public CustomerType() {

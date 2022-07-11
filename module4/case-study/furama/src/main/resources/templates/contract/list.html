@@ -166,7 +166,7 @@
                         <div class="col-sm-8">
                             <h2>Contract List</h2>
                             <p th:text="${message}"></p>
-                            <a href="/furama/customer/create" class="btn btn-outline-success">Create Customer</a>
+                            <a href="/furama/contract/create" class="btn btn-outline-success">Create new contract</a>
                         </div>
                         <div class="col-sm-4">
                             <div class="search-box">
@@ -189,7 +189,7 @@
                         <th>Start date<i class="fa fa-sort"></i></th>
                         <th>End date</th>
                         <th>Deposit<i class="fa fa-sort"></i></th>
-                        <!--                        <th>Total Money<i class="fa fa-sort"></i></th>-->
+                        <th>Total Money<i class="fa fa-sort"></i></th>
                         <th colspan="2">Actions</th>
                     </tr>
                     </thead>
@@ -201,173 +201,162 @@
                         <td th:text="${item.startDate}"></td>
                         <td th:text="${item.endDate}"></td>
                         <td th:text="${item.deposit}"></td>
+                        <td th:text="${item.totalMoney}"></td>
                         <td>
-<!--                            them moi dich vu di kem-->
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    th:attr="data-bs-target='#staticBackdrop' +${item.idContract}">
+                            <!--                            them moi dich vu di kem-->
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    th:data-target="'#staticBackdrop'+ ${item.idContract}">
                                 +
                             </button>
-
                             <!-- Modal -->
-                            <div class="modal fade" th:id="'staticBackdrop' + ${item.idContract}" data-bs-backdrop="static"
-                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                 aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content get-in-touch">
-                                        <div class="modal-header">
-                                            <h6 class="modal-title titleModal" id="staticBackdropLabelCreate">Create Details
-                                                Contract</h6>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="container-fluid">
-
-                                                <form class="contact-form row" th:action="@{/furama/contract/createDetailContract}"
-                                                      method="post"
-                                                      th:object="${contractDetailObj}">
-
-                                                    <div class="form-field col-lg-6">
-                                                        <select class="form-select" id="facilityAttach">
-                                                            <option value="">Attach Service</option>
-                                                            <option th:each="item1, loop : ${attachFacilityList}"
-                                                                    th:text="${item1.nameAttachFacility}" th:value="${item1.idAttachFacility}"></option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="form-field col-lg-6">
-                                                        <input id="quantity" class="input-text js-input" type="text" required>
-                                                        <label class="label" for="quantity">Quantity</label>
-                                                    </div>
-
-                                                    <div class="form-field col-lg-12">
-                                                        <input id="contract" class="input-text js-input" type="hidden"
-                                                               th:text="${item.idContract}"/>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"></div>
-                                                        <div class="col-4 text-center">
-                                                            <input type="submit" class="btn btn-outline-success col-lg-12" value="Save">
-                                                        </div>
-                                                        <div class="col-4 text-center">
-                                                            <button type="button" class="btn btn-outline-secondary col-lg-12 "
-                                                                    data-bs-dismiss="modal">clone
-                                                            </button>
-                                                        </div>
-
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <!-- Button trigger modal danh sach dich vu free-->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal">
-                                Danh sách dịch vụ đi kèm
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" th:id="'staticBackdrop'+ ${item.idContract}" tabindex="-1"
+                                 role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">ADD Contract Detail</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Bạn muốn xóa ..........</p>
+                                            <form th:action="@{/furama/contract/createDetailContract}" method="post"
+                                                  th:object="${contractDetailObj}">
+                                                <div class="form-row">
+                                                    <div class="col-6 col-sm-4 form-group">
+                                                        <label>Attach Facility</label>
+                                                        <select class="form-control" name="facilityAttach"
+                                                                th:field="*{attachFacility}">
+                                                            <option value="" selected>Select</option>
+                                                            <option th:each="item1, loop : ${attachFacilityList}"
+                                                                    th:text="${item1.nameAttachFacility}"
+                                                                    th:value="${item1.idAttachFacility}"></option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-6 col-sm-8 form-group">
+                                                        <label>Quantity</label>
+                                                        <input type="text" class="form-control" name="quantityAttach"
+                                                               placeholder="Enter quantity" th:field="*{quantity}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-sm-4 form-group" style="visibility: hidden">
+                                                    <select class="form-control" name="facilityAttach"
+                                                            th:field="*{contract}">
+                                                        <option th:value="${item.idContract}"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--                            <div class="modal fade" th:id="'staticBackdrop' + ${item.idContract}" data-backdrop="static"-->
+                            <!--                                 data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"-->
+                            <!--                                 aria-hidden="true">-->
+                            <!--                                <div class="modal-dialog">-->
+                            <!--                                    <div class="modal-content get-in-touch">-->
+                            <!--                                        <div class="modal-header">-->
+                            <!--                                            <h6 class="modal-title titleModal" id="staticBackdropLabelCreate">Create Details-->
+                            <!--                                                Contract</h6>-->
+                            <!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+                            <!--                                                    aria-label="Close"></button>-->
+                            <!--                                        </div>-->
+                            <!--                                        <div class="modal-body">-->
+                            <!--                                            <div class="container-fluid">-->
+
+                            <!--                                                <form class="contact-form row" th:action="@{/furama/contract/createDetailContract}"-->
+                            <!--                                                      method="post"-->
+                            <!--                                                      th:object="${contractDetailObj}">-->
+
+                            <!--                                                    <div class="form-field col-lg-6">-->
+                            <!--                                                        <select class="form-select" id="facilityAttach">-->
+                            <!--                                                            <option value="">Attach Service</option>-->
+                            <!--                                                            <option th:each="item1, loop : ${attachFacilityList}"-->
+                            <!--                                                                    th:text="${item1.nameAttachFacility}" th:value="${item1.idAttachFacility}"></option>-->
+                            <!--                                                        </select>-->
+                            <!--                                                    </div>-->
+
+                            <!--                                                    <div class="form-field col-lg-6">-->
+                            <!--                                                        <input id="quantity" class="input-text js-input" type="text" required>-->
+                            <!--                                                        <label class="label" for="quantity">Quantity</label>-->
+                            <!--                                                    </div>-->
+
+                            <!--                                                    <div class="form-field col-lg-12">-->
+                            <!--                                                        <input id="contract" class="input-text js-input" type="hidden"-->
+                            <!--                                                               th:text="${item.idContract}"/>-->
+                            <!--                                                    </div>-->
+                            <!--                                                    <div class="row">-->
+                            <!--                                                        <div class="col-4"></div>-->
+                            <!--                                                        <div class="col-4 text-center">-->
+                            <!--                                                            <input type="submit" class="btn btn-outline-success col-lg-12" value="Save">-->
+                            <!--                                                        </div>-->
+                            <!--                                                        <div class="col-4 text-center">-->
+                            <!--                                                            <button type="button" class="btn btn-outline-secondary col-lg-12 "-->
+                            <!--                                                                    data-bs-dismiss="modal">clone-->
+                            <!--                                                            </button>-->
+                            <!--                                                        </div>-->
+
+                            <!--                                                    </div>-->
+
+                            <!--                                                </form>-->
+                            <!--                                            </div>-->
+                            <!--                                        </div>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                        </td>
+                        <td>
+                            <!-- Button trigger modal danh sach dich vu free-->
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    th:data-target="'#listAttachFacility'+${item.idContract}">List Attach facility
+                            </button>
+                            <!--  Modal -->
+                            <div class="modal fade" th:id="'listAttachFacility'+${item.idContract}" tabindex="-1"
+                                 role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">List attach facility</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">Attach Facility</th>
+                                                    <th scope="col">Amount</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="itemContractDetail, loop :${contractDetailList}" th:if="${itemContractDetail.contract.idContract == item.idContract}">
+                                                    <td th:text="${itemContractDetail.attachFacility.nameAttachFacility}"></td>
+                                                    <td th:text="${itemContractDetail.quantity}"></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
                                             </button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <!--                    <tr th:each="item,iStatus : ${serviceList}">-->
-                    <!--                        <td th:text="${item.getIdFacility()}"></td>-->
-                    <!--                        <td th:text="${item.getNameFacility()}"></td>-->
-                    <!--                        <td th:text="${item.getArea()}"></td>-->
-                    <!--                        <td th:text="${item.getCost()}"></td>-->
-                    <!--                        <td th:text="${item.getMaxPeople()}"></td>-->
-                    <!--                        <td th:text="${item.getStandardRoom()}"></td>-->
-                    <!--                        <td>-->
-                    <!--                            <button type="button" class="btn btn-primary" data-toggle="modal"-->
-                    <!--                                    data-target="#exampleModal">-->
-                    <!--                                Edit-->
-                    <!--                            </button>-->
-
-                    <!--                            &lt;!&ndash; Modal &ndash;&gt;-->
-                    <!--                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
-                    <!--                                 aria-hidden="true">-->
-                    <!--                                <div class="modal-dialog">-->
-                    <!--                                    <div class="modal-content">-->
-                    <!--                                        <div class="modal-header">-->
-                    <!--                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
-                    <!--                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                    <!--                                                <span aria-hidden="true">&times;</span>-->
-                    <!--                                            </button>-->
-                    <!--                                        </div>-->
-                    <!--                                        <div class="modal-body">-->
-                    <!--                                            ...-->
-                    <!--                                        </div>-->
-                    <!--                                        <div class="modal-footer">-->
-                    <!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close-->
-                    <!--                                            </button>-->
-                    <!--                                            <button type="button" class="btn btn-primary">Save changes</button>-->
-                    <!--                                        </div>-->
-                    <!--                                    </div>-->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </td>-->
-                    <!--                        <td>-->
-                    <!--                            <button type="button" class="btn btn-primary" data-toggle="modal"-->
-                    <!--                                    th:data-target="'#exampleModal'+${item.getIdFacility()}">-->
-                    <!--                                Delete-->
-                    <!--                            </button>-->
-
-                    <!--                            &lt;!&ndash; Modal &ndash;&gt;-->
-                    <!--                            <div class="modal fade" th:id="exampleModal+${item.getIdFacility()}" tabindex="-1"-->
-                    <!--                                 aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-                    <!--                                <div class="modal-dialog">-->
-                    <!--                                    <div class="modal-content">-->
-                    <!--                                        <div class="modal-header">-->
-                    <!--                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
-                    <!--                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                    <!--                                                <span aria-hidden="true">&times;</span>-->
-                    <!--                                            </button>-->
-                    <!--                                        </div>-->
-                    <!--                                        <div class="modal-body">-->
-                    <!--                                            <p>Are U sure U want to remove <span-->
-                    <!--                                                    th:text="${item.getNameFacility()}"></span>-->
-                    <!--                                                and ID: <span th:text="${item.getIdFacility()}"></span></p>-->
-                    <!--                                        </div>-->
-                    <!--                                        <div class="modal-footer">-->
-                    <!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close-->
-                    <!--                                            </button>-->
-                    <!--                                            <a class="btn btn-primary"-->
-                    <!--                                               th:href="@{/furama/service/delete/{id}(id=${item.getIdFacility()})}">Delete</a>-->
-                    <!--                                        </div>-->
-                    <!--                                    </div>-->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </td>-->
-                    <!--                    </tr>-->
                     </tbody>
                 </table>
-<!--                phân trang-->
+                <!--                phân trang-->
                 <div class="row">
                     <div class="col-10">
                         <a href="/furama/contract" class="btn btn-outline-success">Go To List Contract</a>

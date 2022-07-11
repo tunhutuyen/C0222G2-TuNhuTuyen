@@ -1,5 +1,7 @@
 package com.myself.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,7 +15,9 @@ public class AttachFacility {
     private Double cost;
     private String unit;
     private String statusAttachFacility;
-    @OneToMany(mappedBy = "attachFacility")
+
+    @OneToMany(mappedBy = "attachFacility",fetch = FetchType.LAZY)
+    @JsonBackReference("12")
     private List<ContractDetail> contractDetailList;
 
     public AttachFacility() {

@@ -1,5 +1,7 @@
 package com.myself.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -32,10 +34,12 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "id_position")
     private Position position;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn
+    @JsonBackReference("13")
     private User user;
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee",fetch = FetchType.LAZY)
+    @JsonBackReference("5")
     private List<Contract> contractList;
 
     public Employee() {

@@ -1,5 +1,7 @@
 package com.myself.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +14,8 @@ public class Division {
     private Integer idDivision;
     @Column(name = "name_division")
     private String nameDivision;
-    @OneToMany(mappedBy = "division")
+    @OneToMany(mappedBy = "division",fetch = FetchType.LAZY)
+    @JsonBackReference(value = "3")
     private List<Employee> employeeList;
 
 
