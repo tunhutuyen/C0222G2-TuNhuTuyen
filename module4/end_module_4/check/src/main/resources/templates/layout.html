@@ -42,7 +42,7 @@
                                 <div class="collapse navbar-collapse" id="navbarsExample04">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item " th:classappend="${param.view == 'home'} ? 'active' : ''">
-                                            <a class="nav-link" href="/furama">Home</a>
+                                            <a class="nav-link" href="/check">Home</a>
                                         </li>
 <!--                                        <li class="nav-item">-->
 <!--                                            &lt;!&ndash;                                 <a class="nav-link" href="#">About</a>&ndash;&gt;-->
@@ -56,21 +56,21 @@
                                             <!--                                    <a class="dropdown-item" href="#">Bootstrap</a>-->
                                             <!--                                 </div>-->
 <!--                                        </li>-->
-                                        <li class="nav-item" th:classappend="${view == 'customer'} ? 'active' : ''">
-                                            <a class="nav-link nav-link1" href="/furama/customer">Customer</a>
+                                        <li class="nav-item" th:classappend="${view == 'product'} ? 'active' : ''">
+                                            <a class="nav-link nav-link1" href="/check/product">Product</a>
                                         </li>
-                                        <li class="nav-item" th:classappend="${view == 'employee'} ? 'active' : ''">
-                                            <a class="nav-link nav-link2" href="/furama/employee">Employee</a>
-                                        </li>
-                                        <li class="nav-item" th:classappend="${view == 'service'} ? 'active' : ''">
-                                            <a class="nav-link nav-link3" href="/furama/service">Service</a>
-                                        </li>
-                                        <li class="nav-item" th:classappend="${view == 'contract'} ? 'active' : ''">
-                                            <a class="nav-link nav-link4" href="/furama/contract">Contract</a>
-                                        </li>
-                                        <li class="nav-item" th:classappend="${view == 'customerUseFacility'} ? 'active' : ''">
-                                            <a class="nav-link nav-link4" href="/furama/customer/contract-facility">Customer Facility</a>
-                                        </li>
+<!--                                        <li class="nav-item" th:classappend="${view == 'employee'} ? 'active' : ''">-->
+<!--                                            <a class="nav-link nav-link2" href="/furama/employee">Employee</a>-->
+<!--                                        </li>-->
+<!--                                        <li class="nav-item" th:classappend="${view == 'service'} ? 'active' : ''">-->
+<!--                                            <a class="nav-link nav-link3" href="/furama/service">Service</a>-->
+<!--                                        </li>-->
+<!--                                        <li class="nav-item" th:classappend="${view == 'contract'} ? 'active' : ''">-->
+<!--                                            <a class="nav-link nav-link4" href="/furama/contract">Contract</a>-->
+<!--                                        </li>-->
+<!--                                        <li class="nav-item" th:classappend="${view == 'customerUseFacility'} ? 'active' : ''">-->
+<!--                                            <a class="nav-link nav-link4" href="/furama/customer/contract-facility">Customer Facility</a>-->
+<!--                                        </li>-->
                                     </ul>
                                 </div>
                             </nav>
