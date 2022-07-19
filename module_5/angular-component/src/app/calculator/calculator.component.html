@@ -1,0 +1,16 @@
+<div class="text-center">
+  <div>
+    <h2>Calculator</h2>
+  </div>
+  <div>
+    <input type="number" [(ngModel)]="number1"><br>
+    <input type="number" [(ngModel)]="number2">
+    <br>
+    <button class="btn btn-outline-info" type="button" (click)="calculator('+')">+</button>
+    <button class="btn btn-outline-primary" type="button" (click)="calculator('-')">-</button>
+    <button class="btn btn-outline-secondary" type="button" (click)="calculator('*')">*</button>
+    <button class="btn btn-outline-success" type="button" (click)="calculator('/')">/</button>
+    <p>Result: {{result}}</p>
+  </div>
+</div>
+
