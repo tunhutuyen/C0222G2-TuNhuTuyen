@@ -9,6 +9,10 @@ import { PetComponent } from './pet/pet.component';
 import { AngularUsingBootstrapComponent } from './angular-using-bootstrap/angular-using-bootstrap.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { ShowColorComponent } from './show-color/show-color.component';
+import { ArticleComponent } from './article/article.component';
+import { LikeComponent } from './like/like.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { ShowColorComponent } from './show-color/show-color.component';
     PetComponent,
     AngularUsingBootstrapComponent,
     CalculatorComponent,
-    ShowColorComponent
+    ShowColorComponent,
+    ArticleComponent,
+    LikeComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
