@@ -111,96 +111,73 @@
                 <p class="text-muted mb-5">Please choose Facility what U want to create new !</p>
             </div>
         </div>
-        <div class="row gx-4 gx-lg-5 justify-content-center mb-5" style="padding-bottom: 10px;" >
-            <div class="col-lg-6 border-top-0 border border-warning bg-light">
-                <div class="text-danger" id="tableInputName">
-                    <p class="text-danger" th:text="${message}"></p>
-                </div>
-                <form id="contactForm" method="post" action="" th:object="${facility}">
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5 ">
+            <div class="col-lg-6 border-top-0 border border-primary" style="margin-bottom: 10px;background: #FFE7BF">
+                <div class="text-danger" id="tableInputName"></div>
+                <div class="text-primary" th:text="${message}"></div>
+                <form id="contactForm" method="post" th:action="@{/furama/customer/save}" th:object="${customer}">
                     <!-- name input-->
                     <div class="form-floating mb-3">
-                        <label for="name">Facility name</label>
+                        <label for="name">Customer name</label>
                         <input class="form-control" id="name" type="text" placeholder="Enter your name..."
-                               th:field="${facility.nameFacility}"/>
+                               th:field="*{nameCustomer}"/>
                     </div>
-                    <!-- area input-->
+                    <!-- birthday input-->
                     <div class="form-floating mb-3">
-                        <label for="area">Area</label>
-                        <input class="form-control" id="area" type="text" placeholder="Enter your area..."
-                               th:field="${facility.area}"/>
+                        <label for="birthday">Birthday</label>
+                        <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..."
+                               th:field="*{dateOfBirth}"/>
                     </div>
-                    <!-- cost input-->
+                    <!-- gender input-->
                     <div class="form-floating mb-3">
-                        <label for="cost">Cost</label>
-                        <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."
-                               th:field="${facility.cost}"/>
-                    </div>
-                    <!-- maxPeople input-->
-                    <div class="form-floating mb-3">
-                        <label for="maxPeople">Max people</label>
-                        <input class="form-control" id="maxPeople" type="text" placeholder="Enter your max people..."
-                               th:field="*{maxPeople}"/>
-                    </div>
-                    <!--                     rentType input-->
-                    <div class="form-floating mb-3">
-                        <label>Rent Type</label>
+                        <div>
+                            <label>Gender</label>
+                        </div>
                         <select class="form-control" aria-label="Default select example"
-                                style="padding-top: 0.625rem !important;"
-                                th:field="*{rentType}">
-                            <option value="">Choose rent type</option>
-                            <option th:each="item, loop : ${rentTypeList}" th:text="${item.nameRentType}"
-                                    th:value="${item.idRentType}"></option>
+                                style="padding-top: 0.625rem !important;" th:field="*{gender}">
+                            <option value="">Choice Gender</option>
+                            <option value="1">Male</option>
+                            <option value="0">FeMale</option>
                         </select>
                     </div>
-                    <!--                     facilityType input-->
+                    <!-- idCard input-->
                     <div class="form-floating mb-3">
-                        <label>Facility Type</label>
-                        <select class="form-control" id="serviceType" aria-label="Default select example"
-                                style="padding-top: 0.625rem !important;"
-                                th:field="*{facilityType}">
-                            <option value="">Choose facility type</option>
-                            <option value="1">Villa</option>
-                            <option value="2">House</option>
-                            <option value="3">Room</option>
-                            <!--                            <option th:each="item, loop : ${facilityTypeList}" th:text="${item.nameFacilityType}"-->
-                            <!--                                    th:value="${item.idFacilityType}"></option>-->
+                        <label for="idCard">Id Card</label>
+                        <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..."
+                               th:field="*{idCard}"/>
+                    </div>
+                    <!-- phoneNumber input-->
+                    <div class="form-floating mb-3">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input class="form-control" id="phoneNumber" type="text"
+                               placeholder="Enter your phone number..." th:field="*{phoneNumber}"/>
+                    </div>
+                    <!-- email input-->
+                    <div class="form-floating mb-3">
+                        <label for="email">Email</label>
+                        <input class="form-control" id="email" type="text" placeholder="Enter your email..."
+                               th:field="*{email}"/>
+                    </div>
+                    <!-- address input-->
+                    <div class="form-floating mb-3">
+                        <label for="address">Address</label>
+                        <input class="form-control" id="address" type="text" placeholder="Enter your address..."
+                               th:field="*{address}"/>
+
+                    </div>
+                    <!-- facilityType input-->
+                    <div class="form-floating mb-3">
+                        <div>
+                            <label>Customer Type</label>
+                        </div>
+                        <select class="form-control" aria-label="Default select example"
+                                style="padding-top: 0.625rem !important;" th:field="*{customerType}">
+                            <option value="">Choice Customer Type</option>
+                            <option value="" selected th:each="item, loop : ${customerTypeList}"
+                                    th:value="${item.idCustomerType}" th:text="${item.nameCustomerType}"></option>
                         </select>
                     </div>
 
-                    <!--standardRoom input-->
-                    <div class="form-floating mb-3" id="divStandardRoom">
-                        <label for="standardRoom">Standard Room</label>
-                        <input class="form-control" id="standardRoom" type="text"
-                               placeholder="Enter your standard room..." th:field="*{standardRoom}"/>
-                    </div>
-                    <!--descriptionOtherConvenience input-->
-                    <div class="form-floating mb-3" id="divDescriptionOtherConvenience">
-                        <label for="descriptionOtherConvenience">Description Other Convenience</label>
-                        <input class="form-control" id="descriptionOtherConvenience" type="text"
-                               placeholder="Enter your description other convenience..."
-                               th:field="*{descriptionOtherConvenience}"/>
-                    </div>
-                    <!--numberOfFloors input-->
-                    <div class="form-floating mb-3" id="divNumberOfFloors">
-                        <label for="numberOfFloors">Number Of Floors</label>
-                        <input class="form-control" id="numberOfFloors" type="text"
-                               placeholder="Enter your number of floors..." th:field="*{numberOfFloor}"/>
-                    </div>
-
-                    <!--facilityFree input-->
-                    <div class="form-floating mb-3" id="divFacilityFree">
-                        <label for="facilityFree">Facility Free</label>
-                        <input class="form-control" id="facilityFree" type="text"
-                               placeholder="Enter your facility free..." th:field="*{facilityFree}"/>
-                    </div>
-
-                    <!--poolArea input-->
-                    <div class="form-floating mb-3" id="divPoolAreaVilla">
-                        <label for="poolAreaVilla">Pool Area</label>
-                        <input class="form-control" id="poolAreaVilla" type="text"
-                               placeholder="Enter your pool area..." th:field="*{poolArea}"/>
-                    </div>
-                    <input type="hidden" id="inputFacilityHidden" name="facilityHidden">
                     <!-- Submit Button-->
                     <div class="d-grid text-center" style="padding-bottom: 40px;">
                         <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>

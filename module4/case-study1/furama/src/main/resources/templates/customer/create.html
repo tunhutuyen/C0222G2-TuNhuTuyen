@@ -25,17 +25,19 @@
                     <!-- name input-->
                     <div class="form-floating mb-3">
                         <label for="name">Customer name</label>
-                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." th:field="*{nameCustomer}"/>
-               </div>
-               <!-- birthday input-->
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                               th:field="*{nameCustomer}"/>
+                    </div>
+                    <!-- birthday input-->
                     <div class="form-floating mb-3">
                         <label for="birthday">Birthday</label>
-                        <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..." th:field="*{dateOfBirth}"/>
-               </div>
-               <!-- gender input-->
+                        <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..."
+                               th:field="*{dateOfBirth}"/>
+                    </div>
+                    <!-- gender input-->
                     <div class="form-floating mb-3">
                         <div>
-                            <label >Gender</label>
+                            <label>Gender</label>
                         </div>
                         <select class="form-control" aria-label="Default select example"
                                 style="padding-top: 0.625rem !important;" th:field="*{gender}">
@@ -47,32 +49,36 @@
                     <!-- idCard input-->
                     <div class="form-floating mb-3">
                         <label for="idCard">Id Card</label>
-                        <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..." th:field="*{idCard}"/>
-              </div>
-              <!-- phoneNumber input-->
+                        <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..."
+                               th:field="*{idCard}"/>
+                    </div>
+                    <!-- phoneNumber input-->
                     <div class="form-floating mb-3">
                         <label for="phoneNumber">Phone Number</label>
-                        <input class="form-control" id="phoneNumber" type="text" placeholder="Enter your phone number..." th:field="*{phoneNumber}"/>
-              </div>
-              <!-- email input-->
+                        <input class="form-control" id="phoneNumber" type="text"
+                               placeholder="Enter your phone number..." th:field="*{phoneNumber}"/>
+                    </div>
+                    <!-- email input-->
                     <div class="form-floating mb-3">
                         <label for="email">Email</label>
-                        <input class="form-control" id="email" type="text" placeholder="Enter your email..." th:field="*{email}"/>
-              </div>
-              <!-- address input-->
+                        <input class="form-control" id="email" type="text" placeholder="Enter your email..."
+                               th:field="*{email}"/>
+                    </div>
+                    <!-- address input-->
                     <div class="form-floating mb-3">
                         <label for="address">Address</label>
-                        <input class="form-control" id="address" type="text" placeholder="Enter your address..." th:field="*{address}"/>
+                        <input class="form-control" id="address" type="text" placeholder="Enter your address..."
+                               th:field="*{address}"/>
 
                     </div>
                     <!-- facilityType input-->
                     <div class="form-floating mb-3">
                         <div>
-                            <label >Customer Type</label>
+                            <label>Customer Type</label>
                         </div>
                         <select class="form-control" aria-label="Default select example"
                                 style="padding-top: 0.625rem !important;" th:field="*{customerType}">
-                            <option value="" >Choice Customer Type</option>
+                            <option value="">Choice Customer Type</option>
                             <option value="" selected th:each="item, loop : ${customerTypeList}"
                                     th:value="${item.idCustomerType}" th:text="${item.nameCustomerType}"></option>
                         </select>

@@ -1,0 +1,215 @@
+<div class="body">
+  <div class="back_re">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title">
+            <h2>Customer</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- customer list -->
+  <div class="container">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
+              <h2>Customer List</h2>
+              <!--                            hien thi message-->
+              <p class="text-primary"></p>
+              <!--                            create-->
+              <a href="#" class="btn btn-outline-success">Create new customer</a>
+            </div>
+            <!--                        tim kiem-->
+            <div class="col-sm-4">
+              <div class="search-box">
+                <form class="d-flex">
+                  <!--                                <i class="material-icons">&#xE8B6;</i>-->
+                  <input type="text" class="form-control" placeholder="Search name"
+                         name="searchName">
+                  <button class="btn btn-outline-success">Search</button>
+                </form>
+              </div>
+            </div>
+            <!--                        end tim kiem-->
+          </div>
+        </div>
+        <table class="table table-striped table-hover table-bordered">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Name <i class="fa fa-sort"></i></th>
+            <th>Date</th>
+            <th>ID Card <i class="fa fa-sort"></i></th>
+            <th>Gender</th>
+            <th> Phone Number<i class="fa fa-sort"></i></th>
+            <th colspan="2">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>1</td>
+            <td>Tận Cùng Phía Nam</td>
+            <td>28-09-1999</td>
+            <td>0123445678</td>
+            <td>Nam</td>
+            <td>0779564312</td>
+            <td>Edit</td>
+            <td><!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+                Delete
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel-1">Delete</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Bạn có chắc muốn xóa Tận Cùng Phía Nam???
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Tận Cùng Phía 2</td>
+            <td>28-09-1999</td>
+            <td>0123445678</td>
+            <td>Nam</td>
+            <td>0779564312</td>
+            <td>Edit</td>
+            <td>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+                Delete
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel-2">Delete</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Bạn có chắc muốn xóa Tận Cùng Phía 2???
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Tận Cùng Phía Bắc</td>
+            <td>28-09-1999</td>
+            <td>0123445678</td>
+            <td>Nam</td>
+            <td>0779564312</td>
+            <td>Edit</td>
+            <td>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+                Delete
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Bạn có chắc muốn xóa Tận Cùng Phía Bắc???
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="clearfix">
+          <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+          <ul class="pagination">
+            <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a>
+            </li>
+          </ul>
+        </div>
+        <!--            <div class="row">-->
+        <!--                <div class="col-10">-->
+        <!--                    <a href="/furama/customer" class="btn btn-outline-success">Go To List Customer</a>-->
+        <!--                </div>-->
+        <!--                &lt;!&ndash;                            sort theo ten &ndash;&gt;-->
+        <!--                <div class="col-2 ">-->
+        <!--                    <ul class="pagination" th:if="${customerList.totalPages > 0}">-->
+        <!--                        <li class="page-item">-->
+        <!--                            <a class="page-link" th:if="${customerList.hasPrevious()}"-->
+        <!--                               th:href="@{'/furama/customer'(page=${customerList.number - 1}, search=${searchName})}">-->
+        <!--                                Previous-->
+        <!--                            </a>-->
+        <!--                        </li>-->
+        <!--                        <div th:each="item1, loop : ${#numbers.sequence(1, customerList.totalPages )}">-->
+        <!--                            <div th:if="${(customerList.number + 1) == item1}">-->
+        <!--                                <li class="page-item active">-->
+        <!--                                    <a class="page-link" href="#" th:text="${item1}"-->
+        <!--                                       th:href="@{/furama/customer(page=(${item1}-1), search=${searchName})}"></a>-->
+        <!--                                </li>-->
+        <!--                            </div>-->
+        <!--                            <div th:unless="${((customerList.number + 1) == item1)}">-->
+        <!--                                <li class="page-item">-->
+        <!--                                    <a class="page-link" href="#" th:text="${item1}"-->
+        <!--                                       th:href="@{/furama/customer(page=(${item1}-1), search=${searchName} )}"></a>-->
+        <!--                                </li>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                        <li class="page-item">-->
+        <!--                            <a class="page-link" th:if="${customerList.hasNext()}"-->
+        <!--                               th:href="@{'/furama/customer'(page=${customerList.number + 1}, search=${searchName})}">-->
+        <!--                                Next-->
+        <!--                            </a>-->
+        <!--                        </li>-->
+        <!--                    </ul>-->
+        <!--                </div>-->
+        <!--            </div>-->
+      </div>
+    </div>
+  </div>
+</div>
+

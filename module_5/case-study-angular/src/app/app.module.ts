@@ -4,15 +4,31 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { CustomerListComponent } from './customer/customer-list/customer-list.component';
+import { CustomerCreateComponent } from './customer/customer-create/customer-create.component';
+import { FacilityListComponent } from './facility/facility-list/facility-list.component';
+import { FacilityEditComponent } from './facility/facility-edit/facility-edit.component';
+import { HomeComponent } from './home/home.component';
+import {FuramaRoutingModule} from "./furama-routing.module";
+import {RouterModule} from "@angular/router";
+import { FacilityCreateComponent } from './facility/facility-create/facility-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    CustomerListComponent,
+    CustomerCreateComponent,
+    FacilityListComponent,
+    FacilityEditComponent,
+    HomeComponent,
+    FacilityCreateComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FuramaRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
