@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontSizeEditorComponent } from './font-size-editor/font-size-editor.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PetComponent } from './pet/pet.component';
 import { AngularUsingBootstrapComponent } from './angular-using-bootstrap/angular-using-bootstrap.component';
 import { CalculatorComponent } from './calculator/calculator.component';
@@ -17,6 +17,9 @@ import { NameCardComponent } from './name-card/name-card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
+import { TodoComponent } from './todo/todo.component';
+import { RegisterAccountUseReactiveComponent } from './register-account-use-reactive/register-account-use-reactive.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +36,17 @@ import { RatingBarComponent } from './rating-bar/rating-bar.component';
     NameCardComponent,
     ProgressBarComponent,
     CountdownTimerComponent,
-    RatingBarComponent
+    RatingBarComponent,
+    TodoComponent,
+    RegisterAccountUseReactiveComponent,
+    LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

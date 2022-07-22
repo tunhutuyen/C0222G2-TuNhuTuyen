@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import {FuramaRoutingModule} from "./furama-routing.module";
 import {RouterModule} from "@angular/router";
 import { FacilityCreateComponent } from './facility/facility-create/facility-create.component';
+import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FacilityCreateComponent } from './facility/facility-create/facility-cre
     FacilityListComponent,
     FacilityEditComponent,
     HomeComponent,
-    FacilityCreateComponent
+    FacilityCreateComponent,
+    CustomerEditComponent
   ],
   imports: [
     BrowserModule,

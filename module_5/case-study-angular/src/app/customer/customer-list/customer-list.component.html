@@ -45,18 +45,27 @@
             <th>Date</th>
             <th>ID Card <i class="fa fa-sort"></i></th>
             <th>Gender</th>
-            <th> Phone Number<i class="fa fa-sort"></i></th>
+            <th>Phone Number<i class="fa fa-sort"></i></th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Type<i class="fa fa-sort"></i></th>
             <th colspan="2">Actions</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>Tận Cùng Phía Nam</td>
-            <td>28-09-1999</td>
-            <td>0123445678</td>
-            <td>Nam</td>
-            <td>0779564312</td>
+          <tr *ngFor="let customer of customerList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{customer.nameCustomer}}</td>
+            <td>{{customer.dateOfBirth | date: "dd-MM-yyyy"}}</td>
+            <td>{{customer.idCard}}</td>
+            <td>
+              <span *ngIf="customer.gender==1">Nam</span>
+              <span *ngIf="customer.gender==0">Nữ</span>
+            </td>
+            <td>{{customer.phoneCustomer}}</td>
+            <td>{{customer.address}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.customerType.nameCustomerType}}</td>
             <td>Edit</td>
             <td><!-- Button trigger modal -->
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
@@ -85,78 +94,78 @@
               </div>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Tận Cùng Phía 2</td>
-            <td>28-09-1999</td>
-            <td>0123445678</td>
-            <td>Nam</td>
-            <td>0779564312</td>
-            <td>Edit</td>
-            <td>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-                Delete
-              </button>
+<!--          <tr>-->
+<!--            <td>2</td>-->
+<!--            <td>Tận Cùng Phía 2</td>-->
+<!--            <td>28-09-1999</td>-->
+<!--            <td>0123445678</td>-->
+<!--            <td>Nam</td>-->
+<!--            <td>0779564312</td>-->
+<!--            <td>Edit</td>-->
+<!--            <td>-->
+<!--              &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">-->
+<!--                Delete-->
+<!--              </button>-->
 
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel-2">Delete</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      Bạn có chắc muốn xóa Tận Cùng Phía 2???
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Tận Cùng Phía Bắc</td>
-            <td>28-09-1999</td>
-            <td>0123445678</td>
-            <td>Nam</td>
-            <td>0779564312</td>
-            <td>Edit</td>
-            <td>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
-                Delete
-              </button>
+<!--              &lt;!&ndash; Modal &ndash;&gt;-->
+<!--              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                  <div class="modal-content">-->
+<!--                    <div class="modal-header">-->
+<!--                      <h5 class="modal-title" id="exampleModalLabel-2">Delete</h5>-->
+<!--                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                      </button>-->
+<!--                    </div>-->
+<!--                    <div class="modal-body">-->
+<!--                      Bạn có chắc muốn xóa Tận Cùng Phía 2???-->
+<!--                    </div>-->
+<!--                    <div class="modal-footer">-->
+<!--                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                      <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>3</td>-->
+<!--            <td>Tận Cùng Phía Bắc</td>-->
+<!--            <td>28-09-1999</td>-->
+<!--            <td>0123445678</td>-->
+<!--            <td>Nam</td>-->
+<!--            <td>0779564312</td>-->
+<!--            <td>Edit</td>-->
+<!--            <td>-->
+<!--              &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">-->
+<!--                Delete-->
+<!--              </button>-->
 
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      Bạn có chắc muốn xóa Tận Cùng Phía Bắc???
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-          </tr>
+<!--              &lt;!&ndash; Modal &ndash;&gt;-->
+<!--              <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                  <div class="modal-content">-->
+<!--                    <div class="modal-header">-->
+<!--                      <h5 class="modal-title" id="exampleModalLabel">Delete</h5>-->
+<!--                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                      </button>-->
+<!--                    </div>-->
+<!--                    <div class="modal-body">-->
+<!--                      Bạn có chắc muốn xóa Tận Cùng Phía Bắc???-->
+<!--                    </div>-->
+<!--                    <div class="modal-footer">-->
+<!--                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                      <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </td>-->
+<!--          </tr>-->
           </tbody>
         </table>
         <div class="clearfix">
