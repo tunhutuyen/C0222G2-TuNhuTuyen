@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ProductService} from "../service/product.service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Product} from "../model/product";
 
 @Component({
   selector: 'app-product-edit',
@@ -10,8 +11,9 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 })
 export class ProductEditComponent implements OnInit {
   productFormReactive: FormGroup;
+  productEdit: Product = {};
 
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) {
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute,private router:Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
       const product = this.productService.findProductById(parseInt(id))[0];
@@ -28,7 +30,10 @@ export class ProductEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   update() {
-    this.productService.update();
+    this.productEdit = this.productFormReactive.value;
+    this.productService.updateProduct(this.productEdit);
+    this.router.navigateByUrl("/product/list")
   }
 }

@@ -43,4 +43,16 @@ export class ProductService {
   findProductById(id) {
     return this.products.filter(pd=>pd.id === id);
   }
+
+  updateProduct(productEdit: Product) {
+    for (let i=0;i<this.products.length;i++){
+      if (productEdit.id === this.products[i].id){
+        this.products[i] = productEdit;
+      }
+    }
+  }
+
+  deleteProduct(id: number) {
+    return this.products = this.products.filter(pd=>pd.id !==id);
+  }
 }

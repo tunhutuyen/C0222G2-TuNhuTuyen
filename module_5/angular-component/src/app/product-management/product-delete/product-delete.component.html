@@ -1,1 +1,19 @@
-<p>product-delete works!</p>
+<h1>Xóa sản phẩm</h1>
+  <table>
+    <tr>
+      <td>Tên sản phẩm:</td>
+      <td>{{productDelete.name}}</td>
+    </tr>
+    <tr>
+      <td>Giá sản phẩm</td>
+      <td>{{productDelete.price}}</td>
+    </tr>
+    <tr>
+      <td>Mô tả về sản phẩm</td>
+      <td>{{productDelete.description}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button class="btn btn-outline-danger" (click)="deleteProduct(productDelete.id)">Delete</button></td>
+    </tr>
+  </table>
