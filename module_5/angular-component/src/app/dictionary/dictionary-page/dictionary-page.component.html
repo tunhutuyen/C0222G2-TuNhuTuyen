@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Dictionary</h2>
+  <form #searchWord = "ngForm" (ngSubmit)="seach(searchWord)">
+    <input type="text" placeholder="Enter word" ngModel name="searchName">
+    <button type="submit" class="btn-outline-success">Search</button>
+  </form>
+  <div class="col-4" >
+    <table class="table table-responsive">
+      <thead>
+      <th>Word</th>
+      <th>Action</th>
+      </thead>
+      <tbody >
+      <tr *ngFor="let dictionary of dictionaryList">
+        <td>{{dictionary.word}}</td>
+        <td><button [routerLink]="['/dictionary-translate',dictionary.word]" class="btn btn-outline-success">Translate</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

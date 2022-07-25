@@ -19,7 +19,16 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { TodoComponent } from './todo/todo.component';
 import { RegisterAccountUseReactiveComponent } from './register-account-use-reactive/register-account-use-reactive.component';
-import { LoginComponent } from './login/login.component';
+
+import { YoutubePlaylistComponent } from './youtube-playlist/youtube-playlist.component';
+import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
+import { ProductListComponent } from './product-management/product/product-list/product-list.component';
+import { ProductCreateComponent } from './product-management/product/product-create/product-create.component';
+import { TimelinesComponent } from './time-live/timelines/timelines.component';
+import { DictionaryPageComponent } from './dictionary/dictionary-page/dictionary-page.component';
+import { DictionaryTranslateComponent } from './dictionary/dictionary-translate/dictionary-translate.component';
+import { ProductDeleteComponent } from './product-management/product-delete/product-delete.component';
+import { ProductEditComponent } from './product-management/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +48,22 @@ import { LoginComponent } from './login/login.component';
     RatingBarComponent,
     TodoComponent,
     RegisterAccountUseReactiveComponent,
-    LoginComponent
+
+    YoutubePlaylistComponent,
+    YoutubePlayerComponent,
+    ProductListComponent,
+    ProductCreateComponent,
+    TimelinesComponent,
+    DictionaryPageComponent,
+    DictionaryTranslateComponent,
+    ProductDeleteComponent,
+    ProductEditComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

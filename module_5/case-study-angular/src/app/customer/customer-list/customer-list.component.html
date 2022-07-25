@@ -21,7 +21,7 @@
               <!--                            hien thi message-->
               <p class="text-primary"></p>
               <!--                            create-->
-              <a href="#" class="btn btn-outline-success">Create new customer</a>
+              <a [routerLink]="['/customer-create']" class="btn btn-outline-success">Create new customer</a>
             </div>
             <!--                        tim kiem-->
             <div class="col-sm-4">
@@ -68,7 +68,7 @@
             <td>{{customer.customerType.nameCustomerType}}</td>
             <td>Edit</td>
             <td><!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1+">
                 Delete
               </button>
 
@@ -83,7 +83,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      Bạn có chắc muốn xóa Tận Cùng Phía Nam???
+
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
