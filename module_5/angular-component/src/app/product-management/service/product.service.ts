@@ -55,4 +55,5 @@ export class ProductService {
   deleteProduct(id: number) {
     return this.products = this.products.filter(pd=>pd.id !==id);
   }
+
 }

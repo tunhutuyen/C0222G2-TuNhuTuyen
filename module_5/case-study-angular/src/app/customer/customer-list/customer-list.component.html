@@ -47,7 +47,7 @@
             <th>Gender</th>
             <th>Phone Number<i class="fa fa-sort"></i></th>
             <th>Address</th>
-            <th>Email</th>
+<!--            <th>Email</th>-->
             <th>Type<i class="fa fa-sort"></i></th>
             <th colspan="2">Actions</th>
           </tr>
@@ -64,11 +64,11 @@
             </td>
             <td>{{customer.phoneCustomer}}</td>
             <td>{{customer.address}}</td>
-            <td>{{customer.email}}</td>
+<!--            <td>{{customer.email}}</td>-->
             <td>{{customer.customerType.nameCustomerType}}</td>
-            <td>Edit</td>
+            <td><a class="btn btn-outline-warning" [routerLink]="['/customer-edit',customer.idCustomer]" style="color: rgba(28,26,26,0.8)">Edit</a></td>
             <td><!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1+">
+              <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal1+">
                 Delete
               </button>
 

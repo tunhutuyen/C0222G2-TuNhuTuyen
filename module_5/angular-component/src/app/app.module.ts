@@ -17,7 +17,7 @@ import { NameCardComponent } from './name-card/name-card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
-import { TodoComponent } from './todo/todo.component';
+import { TodoComponent } from './bai-tap-ss9/todo/todo.component';
 import { RegisterAccountUseReactiveComponent } from './register-account-use-reactive/register-account-use-reactive.component';
 
 import { YoutubePlaylistComponent } from './youtube-playlist/youtube-playlist.component';
@@ -29,6 +29,12 @@ import { DictionaryPageComponent } from './dictionary/dictionary-page/dictionary
 import { DictionaryTranslateComponent } from './dictionary/dictionary-translate/dictionary-translate.component';
 import { ProductDeleteComponent } from './product-management/product-delete/product-delete.component';
 import { ProductEditComponent } from './product-management/product-edit/product-edit.component';
+import {SharedModule} from "./thuc-hanh-ss9/shared/shared.module";
+import {HttpClientModule} from "@angular/common/http";
+
+import { TodoEditComponent } from './bai-tap-ss9/todo-edit/todo-edit.component';
+import { TodoDeleteComponent } from './bai-tap-ss9/todo-delete/todo-delete.component';
+
 
 @NgModule({
   declarations: [
@@ -57,13 +63,19 @@ import { ProductEditComponent } from './product-management/product-edit/product-
     DictionaryPageComponent,
     DictionaryTranslateComponent,
     ProductDeleteComponent,
-    ProductEditComponent
+    ProductEditComponent,
+
+    TodoEditComponent,
+    TodoDeleteComponent,
+
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
+      SharedModule,
+      HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

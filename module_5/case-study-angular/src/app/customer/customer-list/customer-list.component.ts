@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from "../../model/customer";
+import {ActivatedRoute, ParamMap} from "@angular/router";
 
 @Component({
   selector: 'app-customer-list',
@@ -8,7 +9,8 @@ import {Customer} from "../../model/customer";
 })
 export class CustomerListComponent implements OnInit {
   customerList: Customer[] = [];
-  constructor() {
+  customer:Customer={};
+  constructor(private activatedRoute: ActivatedRoute) {
     this.customerList.push({
       idCustomer: 1, email: 'conlocdn@gmail.com', nameCustomer: 'tuyến', address: 'Đà Nẵng', gender: 1,
       idCard: '010101010101', phoneCustomer: '0123445678', dateOfBirth: '1999-12-28', customerType: {
@@ -37,10 +39,18 @@ export class CustomerListComponent implements OnInit {
         nameCustomerType: "Vip"
       }
     });
+  this.activatedRoute.paramMap.subscribe((paramMap:ParamMap)=>{
+    const id = paramMap.get('id');
+    this.customer = this.findById(parseInt(id))[0];
+  })
 
   }
+
 
   ngOnInit(): void {
   }
 
+  private findById(number: number) {
+    return this.customerList.filter(ctm=>ctm.idCustomer === number);
+  }
 }

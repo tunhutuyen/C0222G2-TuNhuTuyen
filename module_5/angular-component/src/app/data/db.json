@@ -1,0 +1,114 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "nameCategory": "Hoa Quả Sơn"
+    },
+    {
+      "id": 2,
+      "nameCategory": "Hoa Để Xem"
+    },
+    {
+      "id": 3,
+      "nameCategory": "Hoa Để Ăn"
+    }
+  ],
+
+  "product": [
+    {
+      "id": 1,
+      "name": "IPhone 14",
+      "price": 2400000,
+      "description": "New",
+      "category": {
+        "id": 1,
+        "nameCategory": "Hoa Quả Sơn"
+      }
+    },
+    {
+      "id": 2,
+      "name": "IPhone 5",
+      "price": 1560000,
+      "description": "Like new",
+      "category": {
+        "id": 2,
+        "nameCategory": "Hoa Để Xem"
+      }
+    },
+    {
+      "id": 3,
+      "name": "IPhone XS ProMax",
+      "price": 968000,
+      "description": "100%",
+      "category": {
+        "id": 3,
+        "nameCategory": "Hoa Để Ăn"
+      }
+    },
+    {
+      "id": 4,
+      "name": "IPhone 8",
+      "price": 7540000,
+      "description": "50%",
+      "category": {
+        "id": 1,
+        "nameCategory": "Hoa Quả Sơn"
+      }
+    },
+    {
+      "id": 5,
+      "name": "IPhone 11 Pro",
+      "price": 1895000,
+      "description": "Like new",
+      "category": {
+        "id": 3,
+        "nameCategory": "Hoa Để Ăn"
+      }
+    },
+    {
+      "id": 11,
+      "name": "2",
+      "price": 3,
+      "description": "4",
+      "category": {
+        "id": 1,
+        "nameCategory": "Hoa Quả Sơn"
+      }
+    },
+    {
+      "id": 12,
+      "name": "112222",
+      "price": 11,
+      "description": "1",
+      "category": {
+        "id": 1,
+        "nameCategory": "Hoa Quả Sơn"
+      }
+    }
+  ],
+
+  "todo": [
+    {
+      "id": 1,
+      "content": "json-server",
+      "complete": true
+    },
+    {
+      "id": 2,
+      "content": "json-server",
+      "complete": true
+    }, {
+      "id": 3,
+      "content": "json-server",
+      "complete": true
+    }, {
+      "id": 4,
+      "content": "json-server",
+      "complete": false
+    }, {
+      "id": 5,
+      "content": "json-server",
+      "complete": false
+    }
+  ]
+}

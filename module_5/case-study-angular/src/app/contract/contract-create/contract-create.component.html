@@ -1,1 +1,75 @@
-<p>contract-create works!</p>
+<div class="back_re">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <h2>Contract</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="page-section" id="facility">
+  <div class="container-fluid px-4 px-lg-5 " style="background: #D6EFED;">
+    <div class="row gx-4 gx-lg-5 justify-content-center " style="padding-top: 10px">
+      <div class="col-lg-8 col-xl-6 text-center border-bottom-0 border border-warning bg-light" style="padding-top: 10px">
+        <h2 class="mt-0" style="padding-top: 10px">Create New Contract!</h2>
+        <hr class="divider"/>
+        <!--        <p class="text-muted mb-5">Please choose Facility what U want to create new !</p>-->
+      </div>
+    </div>
+    <div class="row gx-4 gx-lg-5 justify-content-center mb-5" style="padding-bottom: 10px;" >
+      <div class="col-lg-6 border-top-0 border border-warning bg-light">
+        <div class="text-danger" id="tableInputName">
+          <p class="text-danger"></p>
+        </div>
+        <form id="contactForm" method="post">
+          <!-- startDate input-->
+          <div class="form-floating mb-3">
+            <label class="label" for="startDate">Date start</label>
+            <input id="startDate" class="form-control" type="date" required>
+          </div>
+          <!-- endDate input-->
+          <div class="form-floating mb-3">
+            <label class="label" for="endDate">Date end</label>
+            <input id="endDate" class="form-control" type="date"required>
+          </div>
+          <!-- deposit input-->
+          <div class="form-floating mb-3">
+            <label  for="deposit">Deposit</label>
+            <input id="deposit" class="form-control" type="text"  required>
+
+          </div>
+          <!-- employee input-->
+<!--          <div class="form-floating mb-3">-->
+<!--            <label >Select employee :</label>-->
+<!--            <select class="form-control">-->
+<!--              <option value="" selected>Select employee </option>-->
+<!--              <option ></option>-->
+<!--            </select>-->
+<!--          </div>-->
+          <!--  customer input-->
+          <div class="form-floating mb-3">
+            <label class="label">Select customer :</label>
+            <select class="form-control">
+              <option value="" selected>Select customer </option>
+            </select>
+          </div>
+          <!--   facility input-->
+          <div class="form-floating mb-3">
+            <label class="label">Select facility :</label>
+            <select class="form-control" >
+              <option value="" selected>Select facility </option>
+            </select>
+          </div>
+          <!-- Submit Button-->
+          <div class="d-grid text-center" style="padding-bottom: 40px;">
+            <button class="btn btn-outline-success btn-xl" id="submitButton" type="submit">Submit</button>
+<!--            <a href="/furama/contract" class="btn btn-outline-secondary">Back home</a>-->
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

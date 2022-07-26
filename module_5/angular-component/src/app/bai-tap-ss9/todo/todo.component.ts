@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo} from "../todo";
 import {FormControl} from "@angular/forms";
+import {TodoService} from "../service/todo.service";
+import {Router} from "@angular/router";
 
 let _id = 1;
 @Component({
@@ -11,26 +13,31 @@ let _id = 1;
 export class TodoComponent implements OnInit {
   todos: Todo[] = [];
   content = new FormControl();
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private todoService: TodoService, private router: Router) {
   }
 
-  toggleTodo(i: number) {
-    this.todos[i].complete = !this.todos[i].complete;
+  ngOnInit(): void {
   }
 
   change() {
     const value = this.content.value;
     if (value) {
-
       const todo: Todo = {
         id: _id++,
         content: value,
         complete: false
       };
-      this.todos.push(todo);
+      this.todoService.create(todo).subscribe(data => {
+      }, error => {
+      }, () => {
+        this.router.navigate(['/product-list']);
+      });
       this.content.reset();
     }
+  }
+
+  toggleTodo(i: number) {
+    this.todos[i].complete = !this.todos[i].complete;
   }
 }
