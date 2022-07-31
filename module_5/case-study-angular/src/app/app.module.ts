@@ -15,6 +15,11 @@ import { FacilityCreateComponent } from './facility/facility-create/facility-cre
 import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
 import { ContractListComponent } from './contract/contract-list/contract-list.component';
 import { ContractCreateComponent } from './contract/contract-create/contract-create.component';
+import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -33,8 +38,13 @@ import { ContractCreateComponent } from './contract/contract-create/contract-cre
   ],
   imports: [
     BrowserModule,
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     FuramaRoutingModule,
-    RouterModule
+    NgxPaginationModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

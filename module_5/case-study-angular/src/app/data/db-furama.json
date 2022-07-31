@@ -1,0 +1,158 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "email": "tactacdn@gmail.com",
+      "nameCustomer": "Nguyên Tắc",
+      "address": "HCM",
+      "gender": 0,
+      "idCard": "0231523123",
+      "phoneCustomer": "09350305432",
+      "dateOfBirth": "1996-09-04",
+      "customerType": {
+        "id": 3,
+        "nameCustomerType": "Pro-Vip"
+      }
+    },
+    {
+      "id": 2,
+      "email": "tactacdn@gmail.com",
+      "nameCustomer": "Nguyên Tắc",
+      "address": "HCM",
+      "gender": 0,
+      "idCard": "0231523123",
+      "phoneCustomer": "09350305432",
+      "dateOfBirth": "1996-09-04",
+      "customerType": {
+        "id": 3,
+        "nameCustomerType": "Pro-Vip"
+      }
+    },
+    {
+      "id": 3,
+      "email": "thienquycmm@gmail.com",
+      "nameCustomer": "Thiên Quy",
+      "address": "Lâm Đồng",
+      "gender": 1,
+      "idCard": "0324161234",
+      "phoneCustomer": "0123445678",
+      "dateOfBirth": "1990-12-11",
+      "customerType": {
+        "id": 1,
+        "nameCustomerType": "Vip"
+      }
+    },
+    {
+      "id": 4,
+      "email": "tuyendn@gmail.com",
+      "nameCustomer": "TN Tuyến",
+      "address": "Đà Nẵng",
+      "gender": 1,
+      "idCard": "0324161234",
+      "phoneCustomer": "0935112233",
+      "dateOfBirth": "1999-12-11",
+      "customerType": {
+        "id": 3,
+        "nameCustomerType": "Pro-Vip"
+      }
+    },
+    {
+      "id": 5,
+      "email": "thienquycmm@gmail.com",
+      "nameCustomer": "Thiên Quy",
+      "address": "Lâm Đồng",
+      "gender": 1,
+      "idCard": "0324161234",
+      "phoneCustomer": "0123445678",
+      "dateOfBirth": "1990-12-11",
+      "customerType": {
+        "id": 1,
+        "nameCustomerType": "Vip"
+      }
+    },
+    {
+      "id": 6,
+      "email": "tactacdn@gmail.com",
+      "nameCustomer": "Nguyên Tắc",
+      "address": "HCM",
+      "gender": 0,
+      "idCard": "0231523123",
+      "phoneCustomer": "09350305432",
+      "dateOfBirth": "1996-09-04",
+      "customerType": {
+        "id": 3,
+        "nameCustomerType": "Pro-Vip"
+      }
+    },
+    {
+      "id": 7,
+      "email": "tactacdn@gmail.com",
+      "nameCustomer": "Nguyên Tắc",
+      "address": "HCM",
+      "gender": 0,
+      "idCard": "0231523123",
+      "phoneCustomer": "09350305432",
+      "dateOfBirth": "1996-09-04",
+      "customerType": {
+        "id": 3,
+        "nameCustomerType": "Pro-Vip"
+      }
+    },
+    {
+      "id": 8,
+      "email": "thienquycmm@gmail.com",
+      "nameCustomer": "Thiên Quy",
+      "address": "Lâm Đồng",
+      "gender": 1,
+      "idCard": "0324161234",
+      "phoneCustomer": "0123445678",
+      "dateOfBirth": "1990-12-11",
+      "customerType": {
+        "id": 1,
+        "nameCustomerType": "Vip"
+      }
+    },
+    {
+      "id": 9,
+      "email": "tuyendn@gmail.com",
+      "nameCustomer": "TN Tuyến",
+      "address": "Đà Nẵng",
+      "gender": 1,
+      "idCard": "0324161234",
+      "phoneCustomer": "0935112233",
+      "dateOfBirth": "1999-12-11",
+      "customerType": {
+        "id": 3,
+        "nameCustomerType": "Pro-Vip"
+      }
+    },
+    {
+      "id": 10,
+      "email": "thienquycmm@gmail.com",
+      "nameCustomer": "Thiên Quy",
+      "address": "Lâm Đồng",
+      "gender": 1,
+      "idCard": "0324161234",
+      "phoneCustomer": "0123445678",
+      "dateOfBirth": "1990-12-11",
+      "customerType": {
+        "id": 1,
+        "nameCustomerType": "Vip"
+      }
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "nameCustomerType": "Vip"
+    },
+    {
+      "id": 2,
+      "nameCustomerType": "Normal"
+    },
+    {
+      "id": 3,
+      "nameCustomerType": "Pro-Vip"
+    }
+  ]
+}

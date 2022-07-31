@@ -13,69 +13,91 @@
 <section class="page-section" id="customer">
   <div class="container-fluid px-4 px-lg-5 " style="background: #D6EFED;">
     <div class="row gx-4 gx-lg-5 justify-content-center " style="padding-top: 10px">
-      <div class="col-lg-8 col-xl-6 text-center border-bottom-0 border border-warning bg-light" style="padding-top: 10px">
+      <div class="col-lg-8 col-xl-6 text-center border-bottom-0 border border-warning bg-light"
+           style="padding-top: 10px">
         <h2 class="mt-0" style="padding-top: 10px">Create New Customer!</h2>
         <hr class="divider"/>
         <p class="text-muted mb-5">Please input info customer what U want to create new !</p>
       </div>
     </div>
-    <div class="row gx-4 gx-lg-5 justify-content-center mb-5" style="padding-bottom: 10px;" >
+    <div class="row gx-4 gx-lg-5 justify-content-center mb-5" style="padding-bottom: 10px;">
       <div class="col-lg-6 border-top-0 border border-warning bg-light">
         <div class="text-danger" id="tableInputName"></div>
         <div class="text-primary"></div>
-        <form id="contactForm" method="post" action="">
+        <form [formGroup]="customerForm" (ngSubmit)="submit()" *ngIf="customerForm">
           <!-- name input-->
           <div class="form-floating mb-3">
             <label for="name">Customer name</label>
-            <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
+            <input class="form-control" id="name" type="text" placeholder="Enter your name..." formControlName="nameCustomer"
+            name="nameCustomer"/>
+            <small style="color: red" *ngIf="getNameCustomer().hasError('required') &&
+            (getNameCustomer().touched&&getNameCustomer().pristine) || submitted"> Name not empty</small>
           </div>
+
           <!-- birthday input-->
           <div class="form-floating mb-3">
             <label for="birthday">Birthday</label>
-            <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..."/>
+            <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..." formControlName="dateOfBirth"
+            name="dateOfBirth"/>
+            <small style="color: red" *ngIf="getDateOfBirth().hasError('required') &&
+            getDateOfBirth().touched || submitted"> Date not empty</small>
           </div>
           <!-- gender input-->
           <div class="form-floating mb-3">
             <div>
               <label>Gender</label>
             </div>
-            <select class="form-control" aria-label="Default select example" style="padding-top: 0.625rem !important;">
-              <option value="">Choice Gender</option>
-              <option value="1">Male</option>
-              <option value="0">FeMale</option>
+            <select class="form-control" aria-label="Default select example" formControlName="gender" name="gender">
+              <option value="" disabled>Choice Gender</option>
+              <option [ngValue]="1">Male</option>
+              <option [ngValue]="0">FeMale</option>
             </select>
+            <small style="color: red" *ngIf="getGender().hasError('required') &&
+            getGender().touched || submitted"> Gender not empty</small>
           </div>
           <!-- idCard input-->
           <div class="form-floating mb-3">
             <label for="idCard">Id Card</label>
-            <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..."/>
+            <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..."
+                   formControlName="idCard" name="idCard"/>
+            <small style="color: red" *ngIf="getIdCard().hasError('required') &&
+            getIdCard().touched || submitted"> Id card not empty</small>
           </div>
           <!-- phoneNumber input-->
           <div class="form-floating mb-3">
             <label for="phoneNumber">Phone Number</label>
-            <input class="form-control" id="phoneNumber" type="text"
-                   placeholder="Enter your phone number..."/>
+            <input class="form-control" id="phoneNumber" type="text" placeholder="Enter your phone number..."
+            formControlName="phoneCustomer" name="phoneCustomer"/>
+            <small style="color: red" *ngIf="getPhoneCustomer().hasError('required') &&
+            getPhoneCustomer().touched || submitted"> Phone not empty</small>
           </div>
           <!-- email input-->
           <div class="form-floating mb-3">
             <label for="email">Email</label>
-            <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
+            <input class="form-control" id="email" type="text" placeholder="Enter your email..." formControlName="email"
+            name="email"/>
+            <small style="color: red" *ngIf="getEmail().hasError('required') &&
+            getEmail().touched || submitted"> Email not empty</small>
           </div>
           <!-- address input-->
           <div class="form-floating mb-3">
             <label for="address">Address</label>
-            <input class="form-control" id="address" type="text" placeholder="Enter your address..."/>
-
+            <input class="form-control" id="address" type="text" placeholder="Enter your address..."
+            formControlName="address" name="address"/>
+            <small style="color: red" *ngIf="getAddress().hasError('required') &&
+            getAddress().touched || submitted"> Address not empty</small>
           </div>
-          <!-- facilityType input-->
+          <!-- Customer Type input-->
           <div class="form-floating mb-3">
             <div>
               <label>Customer Type</label>
             </div>
-            <select class="form-control" aria-label="Default select example" style="padding-top: 0.625rem !important;">
-              <option value="">Choice Customer Type</option>
-              <option value="" selected></option>
+            <select class="form-control" aria-label="Default select example" formControlName="customerType" name="customerType">
+              <option value="" selected="selected">Choice Customer Type</option>
+              <option *ngFor="let c of customerTypeList" [ngValue]="c">{{c.nameCustomerType}}</option>
             </select>
+            <small style="color: red" *ngIf="getCustomerType().hasError('required') &&
+            getCustomerType().touched || submitted" > Customer Type not empty</small>
           </div>
 
           <!-- Submit Button-->

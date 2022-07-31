@@ -25,7 +25,6 @@ export class ProductEditComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((paramMap:ParamMap)=>{
       const idEdit= parseInt(paramMap.get('idEdit'));
       this.productService.findById(idEdit).subscribe(productEdit=>{
-        console.log(productEdit);
        this.categoryService.getAll().subscribe(data=>{
          this.categoryList = data;
        },error => {

@@ -23,58 +23,65 @@
       <div class="col-lg-6 border-top-0 border border-warning bg-light">
         <div class="text-danger" id="tableInputName"></div>
         <div class="text-primary"></div>
-        <form id="contactForm" method="post" action="">
+        <form id="contactForm" [formGroup]="customerFormEdit" (ngSubmit)="editCustomer()" *ngIf="customerFormEdit">
           <!-- name input-->
+          <input type="hidden" formControlName="id">
           <div class="form-floating mb-3">
             <label for="name">Customer name</label>
-            <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
+            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                   formControlName="nameCustomer" name="nameCustomer"/>
           </div>
           <!-- birthday input-->
           <div class="form-floating mb-3">
             <label for="birthday">Birthday</label>
-            <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..."/>
+            <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..."
+            formControlName="dateOfBirth" name="dateOfBirth"/>
           </div>
           <!-- gender input-->
           <div class="form-floating mb-3">
             <div>
               <label>Gender</label>
             </div>
-            <select class="form-control" aria-label="Default select example" style="padding-top: 0.625rem !important;">
+            <select class="form-control" aria-label="Default select example" style="padding-top: 0.625rem !important;"
+            formControlName="gender" name="gender">
               <option value="">Choice Gender</option>
-              <option value="1">Male</option>
-              <option value="0">FeMale</option>
+              <option [ngValue]="1">Nam</option>
+              <option [ngValue]="0">Nữ</option>
             </select>
           </div>
           <!-- idCard input-->
           <div class="form-floating mb-3">
             <label for="idCard">Id Card</label>
-            <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..."/>
+            <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..."
+            formControlName="idCard" name="idCard"/>
           </div>
           <!-- phoneNumber input-->
           <div class="form-floating mb-3">
             <label for="phoneNumber">Phone Number</label>
-            <input class="form-control" id="phoneNumber" type="text"
-                   placeholder="Enter your phone number..."/>
+            <input class="form-control" id="phoneNumber" type="text" placeholder="Enter your phone number..."
+            formControlName="phoneCustomer" name="phoneCustomer"/>
           </div>
           <!-- email input-->
           <div class="form-floating mb-3">
             <label for="email">Email</label>
-            <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
+            <input class="form-control" id="email" type="text" placeholder="Enter your email..."
+            formControlName="email" name="email"/>
           </div>
           <!-- address input-->
           <div class="form-floating mb-3">
             <label for="address">Address</label>
-            <input class="form-control" id="address" type="text" placeholder="Enter your address..."/>
-
+            <input class="form-control" id="address" type="text" placeholder="Enter your address..."
+            formControlName="address" name="address"/>
           </div>
-          <!-- facilityType input-->
+          <!-- >Customer Type input-->
           <div class="form-floating mb-3">
             <div>
               <label>Customer Type</label>
             </div>
-            <select class="form-control" aria-label="Default select example" style="padding-top: 0.625rem !important;">
+            <select class="form-control" aria-label="Default select example" style="padding-top: 0.625rem !important;"
+            formControlName="customerType" name="customerType" [compareWith]="compareCustomerType">
               <option value="">Choice Customer Type</option>
-              <option value="" selected></option>
+              <option *ngFor="let c of customerTypeList" [ngValue]="c">{{c.nameCustomerType}}</option>
             </select>
           </div>
 

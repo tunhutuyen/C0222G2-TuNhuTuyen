@@ -17,20 +17,22 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <h2>Customer List</h2>
+              <!--              <h2>Customer List</h2>-->
               <!--                            hien thi message-->
-              <p class="text-primary"></p>
+              <!--              <p class="text-primary"></p>-->
               <!--                            create-->
               <a [routerLink]="['/customer-create']" class="btn btn-outline-success">Create new customer</a>
             </div>
             <!--                        tim kiem-->
             <div class="col-sm-4">
               <div class="search-box">
-                <form class="d-flex">
+                <form class="d-flex" [formGroup]="formSearch" (ngSubmit)="searchFormCustomer()" *ngIf="formSearch">
                   <!--                                <i class="material-icons">&#xE8B6;</i>-->
-                  <input type="text" class="form-control" placeholder="Search name"
-                         name="searchName">
-                  <button class="btn btn-outline-success">Search</button>
+                  <input type="text" class="form-control" placeholder="Search name" formControlName="searchByName"
+                         name="searchByName">
+                  <input type="text" class="form-control" placeholder="Search address" formControlName="searchByAddress"
+                         name="searchByAddress">
+                  <button class="btn btn-outline-primary" style="border-radius: 20px;">Search</button>
                 </form>
               </div>
             </div>
@@ -47,14 +49,15 @@
             <th>Gender</th>
             <th>Phone Number<i class="fa fa-sort"></i></th>
             <th>Address</th>
-<!--            <th>Email</th>-->
+            <!--            <th>Email</th>-->
             <th>Type<i class="fa fa-sort"></i></th>
-            <th colspan="2">Actions</th>
+            <th colspan="2" style="text-align: center">Actions</th>
           </tr>
           </thead>
-          <tbody>
-          <tr *ngFor="let customer of customerList; index as i">
-            <td>{{i+1}}</td>
+
+          <tbody *ngIf="customerList.length>0; else templateFalse">
+          <tr *ngFor="let customer of customerList | paginate: { itemsPerPage: 3, currentPage: p }; index as i">
+            <td>{{i + 1}}</td>
             <td>{{customer.nameCustomer}}</td>
             <td>{{customer.dateOfBirth | date: "dd-MM-yyyy"}}</td>
             <td>{{customer.idCard}}</td>
@@ -64,123 +67,30 @@
             </td>
             <td>{{customer.phoneCustomer}}</td>
             <td>{{customer.address}}</td>
-<!--            <td>{{customer.email}}</td>-->
+            <!--            <td>{{customer.email}}</td>-->
             <td>{{customer.customerType.nameCustomerType}}</td>
-            <td><a class="btn btn-outline-warning" [routerLink]="['/customer-edit',customer.idCustomer]" style="color: rgba(28,26,26,0.8)">Edit</a></td>
+            <td><a class="btn btn-outline-warning" [routerLink]="['/customer-edit',customer.id]"
+                   style="color: rgba(28,26,26,0.8)">
+              <i class="fa-solid fa-pen-to-square" style=""></i></a></td>
             <td><!-- Button trigger modal -->
-              <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal1+">
-                Delete
+              <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal3"
+                      (click)="modalDelete(customer)">
+                <i class="fa-solid fa-trash-can"></i>
               </button>
-
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel-1">Delete</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </td>
           </tr>
-<!--          <tr>-->
-<!--            <td>2</td>-->
-<!--            <td>Tận Cùng Phía 2</td>-->
-<!--            <td>28-09-1999</td>-->
-<!--            <td>0123445678</td>-->
-<!--            <td>Nam</td>-->
-<!--            <td>0779564312</td>-->
-<!--            <td>Edit</td>-->
-<!--            <td>-->
-<!--              &lt;!&ndash; Button trigger modal &ndash;&gt;-->
-<!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">-->
-<!--                Delete-->
-<!--              </button>-->
-
-<!--              &lt;!&ndash; Modal &ndash;&gt;-->
-<!--              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--                <div class="modal-dialog" role="document">-->
-<!--                  <div class="modal-content">-->
-<!--                    <div class="modal-header">-->
-<!--                      <h5 class="modal-title" id="exampleModalLabel-2">Delete</h5>-->
-<!--                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                        <span aria-hidden="true">&times;</span>-->
-<!--                      </button>-->
-<!--                    </div>-->
-<!--                    <div class="modal-body">-->
-<!--                      Bạn có chắc muốn xóa Tận Cùng Phía 2???-->
-<!--                    </div>-->
-<!--                    <div class="modal-footer">-->
-<!--                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--                      <button type="button" class="btn btn-primary">Save changes</button>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <td>3</td>-->
-<!--            <td>Tận Cùng Phía Bắc</td>-->
-<!--            <td>28-09-1999</td>-->
-<!--            <td>0123445678</td>-->
-<!--            <td>Nam</td>-->
-<!--            <td>0779564312</td>-->
-<!--            <td>Edit</td>-->
-<!--            <td>-->
-<!--              &lt;!&ndash; Button trigger modal &ndash;&gt;-->
-<!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">-->
-<!--                Delete-->
-<!--              </button>-->
-
-<!--              &lt;!&ndash; Modal &ndash;&gt;-->
-<!--              <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--                <div class="modal-dialog" role="document">-->
-<!--                  <div class="modal-content">-->
-<!--                    <div class="modal-header">-->
-<!--                      <h5 class="modal-title" id="exampleModalLabel">Delete</h5>-->
-<!--                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                        <span aria-hidden="true">&times;</span>-->
-<!--                      </button>-->
-<!--                    </div>-->
-<!--                    <div class="modal-body">-->
-<!--                      Bạn có chắc muốn xóa Tận Cùng Phía Bắc???-->
-<!--                    </div>-->
-<!--                    <div class="modal-footer">-->
-<!--                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--                      <button type="button" class="btn btn-primary">Save changes</button>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </td>-->
-<!--          </tr>-->
           </tbody>
         </table>
-        <div class="clearfix">
-          <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-          <ul class="pagination">
-            <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-            <li class="page-item"><a href="#" class="page-link">1</a></li>
-            <li class="page-item"><a href="#" class="page-link">2</a></li>
-            <li class="page-item active"><a href="#" class="page-link">3</a></li>
-            <li class="page-item"><a href="#" class="page-link">4</a></li>
-            <li class="page-item"><a href="#" class="page-link">5</a></li>
-            <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a>
-            </li>
-          </ul>
+        <ng-template #templateFalse>
+          <td colspan="10"><p style="font-weight: 600;text-align: center">No data</p></td>
+        </ng-template>
+        <div class="row" style="justify-content: end;">
+          <div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
         </div>
+
+
         <!--            <div class="row">-->
         <!--                <div class="col-10">-->
         <!--                    <a href="/furama/customer" class="btn btn-outline-success">Go To List Customer</a>-->
@@ -217,6 +127,30 @@
         <!--                    </ul>-->
         <!--                </div>-->
         <!--            </div>-->
+        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Are U sure customer is name <span style="color: red;">{{customer.nameCustomer}}</span> and
+                  have a number phone <span style="color: red;">{{customer.phoneCustomer}}</span>!!!</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteCustomer(customer)">
+                  Yes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
       </div>
     </div>
   </div>

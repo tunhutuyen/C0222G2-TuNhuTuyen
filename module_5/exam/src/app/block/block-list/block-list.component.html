@@ -1,0 +1,155 @@
+<div class="body">
+  <div class="back_re">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title">
+            <h2>Block</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- customer list -->
+  <div class="container">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
+              <!--              <h2>Customer List</h2>-->
+              <!--                            hien thi message-->
+              <!--              <p class="text-primary"></p>-->
+              <!--                            create-->
+              <a [routerLink]="['/block-create']" class="btn btn-outline-success">Create new block</a>
+            </div>
+            <!--                        tim kiem-->
+            <div class="col-sm-4">
+              <div class="search-box">
+                <form class="d-flex" [formGroup]="formSearch" (ngSubmit)="searchFormBlock()" *ngIf="formSearch">
+<!--                  <i class="fa-solid fa-magnifying-glass"></i>-->
+                  <input type="text" class="form-control" placeholder="Search name" formControlName="searchByName"
+                         name="searchByName">
+<!--                  <input type="text" class="form-control" placeholder="Search address" formControlName="searchByAddress"-->
+<!--                         name="searchByAddress">-->
+                  <button class="btn btn-outline-primary" style="border-radius: 20px;">Search</button>
+                </form>
+              </div>
+            </div>
+            <!--                        end tim kiem-->
+          </div>
+        </div>
+        <table class="table table-striped table-hover table-bordered">
+          <thead>
+          <tr>
+            <th>Code</th>
+            <th>Name Product <i class="fa fa-sort"></i></th>
+            <th>Cost</th>
+            <th>Amount <i class="fa fa-sort"></i></th>
+            <th>Quantity</th>
+            <th>Date import<i class="fa fa-sort"></i></th>
+            <th>Date start</th>
+            <th>Date end</th>
+            <th colspan="2" style="text-align: center">Actions</th>
+          </tr>
+          </thead>
+
+          <tbody *ngIf="blockList.length>0; else templateFalse">
+          <tr *ngFor="let item of blockList; index as i">
+            <td>{{item.codeBlock}}</td>
+            <td>{{item.product.name}}</td>
+            <td>{{item.product.cost}}</td>
+            <td>{{item.product.amount}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.dateImport | date: "dd-MM-yyyy"}}</td>
+            <td>{{item.dateStart | date: "dd-MM-yyyy"}}</td>
+            <td>{{item.dateEnd | date: "dd-MM-yyyy"}}</td>
+            <td><a class="btn btn-outline-warning" [routerLink]="['/block-edit',item.id]"
+                   style="color: rgba(28,26,26,0.8)">
+              <i class="fa-solid fa-pen-to-square" style=""></i></a></td>
+            <td><!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal3"
+                      (click)="modalDelete(item)">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <ng-template #templateFalse>
+          <td colspan="10"><p style="font-weight: 600;text-align: center">No data</p></td>
+        </ng-template>
+<!--        <div class="row" style="justify-content: end;">-->
+<!--          <div>-->
+<!--            <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+        <!--            <div class="row">-->
+        <!--                <div class="col-10">-->
+        <!--                    <a href="/furama/customer" class="btn btn-outline-success">Go To List Customer</a>-->
+        <!--                </div>-->
+
+        <!--                &lt;!&ndash;                            sort theo ten &ndash;&gt;-->
+<!--                        <div class="col-2 ">-->
+<!--                            <ul class="pagination" th:if="${customerList.totalPages > 0}">-->
+<!--                                <li class="page-item">-->
+<!--                                    <a class="page-link" th:if="${customerList.hasPrevious()}"-->
+<!--                                       th:href="@{'/furama/customer'(page=${customerList.number - 1}, search=${searchName})}">-->
+<!--                                        Previous-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <div th:each="item1, loop : ${#numbers.sequence(1, customerList.totalPages )}">-->
+<!--                                    <div th:if="${(customerList.number + 1) == item1}">-->
+<!--                                        <li class="page-item active">-->
+<!--                                            <a class="page-link" href="#" th:text="${item1}"-->
+<!--                                               th:href="@{/furama/customer(page=(${item1}-1), search=${searchName})}"></a>-->
+<!--                                        </li>-->
+<!--                                    </div>-->
+<!--                                    <div th:unless="${((customerList.number + 1) == item1)}">-->
+<!--                                        <li class="page-item">-->
+<!--                                            <a class="page-link" href="#" th:text="${item1}"-->
+<!--                                               th:href="@{/furama/customer(page=(${item1}-1), search=${searchName} )}"></a>-->
+<!--                                        </li>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <li class="page-item">-->
+<!--                                    <a class="page-link" th:if="${customerList.hasNext()}"-->
+<!--                                       th:href="@{'/furama/customer'(page=${customerList.number + 1}, search=${searchName})}">-->
+<!--                                        Next-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Are U sure block is a code <span style="color: red;">{{blockProduct.codeBlock}}</span>!!!</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteBlock(blockProduct.id)">
+                  Yes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+      </div>
+    </div>
+  </div>
+</div>
+

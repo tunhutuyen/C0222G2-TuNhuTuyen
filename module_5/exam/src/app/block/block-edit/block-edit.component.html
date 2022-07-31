@@ -1,0 +1,96 @@
+<div class="back_re">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <h2>Block</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- facility -->
+<section class="page-section" id="customer">
+  <div class="container-fluid px-4 px-lg-5 " style="background: #D6EFED;">
+    <div class="row gx-4 gx-lg-5 justify-content-center " style="padding-top: 10px">
+      <div class="col-lg-8 col-xl-6 text-center border-bottom-0 border border-warning bg-light"
+           style="padding-top: 10px">
+        <h2 class="mt-0" style="padding-top: 10px">Edit Block!</h2>
+        <hr class="divider"/>
+        <p class="text-muted mb-5">Please input info what U want to edit !</p>
+      </div>
+    </div>
+    <div class="row gx-4 gx-lg-5 justify-content-center mb-5" style="padding-bottom: 10px;">
+      <div class="col-lg-6 border-top-0 border border-warning bg-light">
+        <div class="text-danger" id="tableInputName"></div>
+        <div class="text-primary"></div>
+        <form [formGroup]="blockFormEdit" (ngSubmit)="submitEdit()" *ngIf="blockFormEdit">
+          <!-- name input-->
+          <input type="hidden" formControlName="id">
+          <div class="form-floating mb-3">
+            <label for="name">Code</label>
+            <input class="form-control" id="name" type="text" placeholder="Enter your code..." formControlName="codeBlock"
+                   name="codeBlock"/>
+            <small style="color: red" *ngIf="getCodeBlock().hasError('pattern') &&
+            getCodeBlock().touched"> Code not invalid</small>
+            <small style="color: red" *ngIf="getCodeBlock().hasError('required') &&
+            (getCodeBlock().touched||getCodeBlock().pristine) || submitted"> Code not empty</small>
+
+          </div>
+
+          <!-- birthday input-->
+          <div class="form-floating mb-3">
+            <label for="birthday">Date Import</label>
+            <input class="form-control" id="birthday" type="date" placeholder="Enter your date..." formControlName="dateImport"
+                   name="dateImport"/>
+            <small style="color: red" *ngIf="getDateImport().hasError('required') &&
+            getDateImport().touched || submitted"> Date not empty</small>
+          </div>
+
+          <div class="form-floating mb-3">
+            <label for="idCard">Date start</label>
+            <input class="form-control" id="idCard" type="date" placeholder="Enter your date..."
+                   formControlName="dateStart" name="dateStart"/>
+            <small style="color: red" *ngIf="getDateStart().hasError('required') &&
+            getDateStart().touched || submitted"> Date not empty</small>
+          </div>
+          <!-- phoneNumber input-->
+          <div class="form-floating mb-3">
+            <label for="phoneNumber">Date End</label>
+            <input class="form-control" id="phoneNumber" type="date" placeholder="Enter your date..."
+                   formControlName="dateEnd" name="dateEnd"/>
+            <small style="color: red" *ngIf="getDateEnd().hasError('required') &&
+            getDateEnd().touched || submitted"> Date End not empty</small>
+          </div>
+          <!-- email input-->
+          <div class="form-floating mb-3">
+            <label for="email">Quantity</label>
+            <input class="form-control" id="email" type="number" placeholder="Enter your quantity..." formControlName="quantity"
+                   name="quantity"/>
+            <small style="color: red" *ngIf="getQuantity().hasError('required') &&
+            getQuantity().touched || submitted"> Quantity not empty</small>
+          </div>
+          <!-- address input-->
+
+          <div class="form-floating mb-3">
+            <div>
+              <label>Product</label>
+            </div>
+            <select class="form-control" aria-label="Default select example" formControlName="product"
+            [compareWith]="compareWithEdit">
+              <option value="" selected="selected">Choice Product</option>
+              <option *ngFor="let c of productList"  [ngValue]="c">{{c.name}}</option>
+            </select>
+            <small style="color: red" *ngIf="getProduct().hasError('required') &&
+            getProduct().touched || submitted" > Product Type not empty</small>
+          </div>
+
+          <!-- Submit Button-->
+          <div class="d-grid text-center" style="padding-bottom: 40px;">
+            <button class="btn btn-outline-success btn-xl" id="submitButton" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

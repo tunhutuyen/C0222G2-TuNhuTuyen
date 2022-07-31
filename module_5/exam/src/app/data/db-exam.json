@@ -1,0 +1,116 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Sting",
+      "country": "Vietnamese",
+      "cost": 10000,
+      "amount": "Thùng"
+    },
+    {
+      "id": 2,
+      "name": "Tiger",
+      "country": "Vietnamese",
+      "cost": 20000,
+      "amount": "Thùng"
+    },
+    {
+      "id": 3,
+      "name": "Oshi",
+      "country": "Vietnamese",
+      "cost": 5000,
+      "amount": "Thùng"
+    },
+    {
+      "id": 4,
+      "name": "Dầu gội",
+      "country": "Vietnamese",
+      "cost": 10000,
+      "amount": "Thùng"
+    },
+    {
+      "id": 5,
+      "name": "Larue",
+      "country": "Vietnamese",
+      "cost": 15000,
+      "amount": "Thùng"
+    }
+  ],
+  "block": [
+    {
+      "id": 1,
+      "codeBlock": "LH-0001",
+      "product": {
+        "id": 1,
+        "name": "Sting",
+        "country": "Vietnamese",
+        "cost": 10000,
+        "amount": "Thùng"
+      },
+      "quantity": 5,
+      "dateImport": "2022-01-02",
+      "dateStart": "2022-01-01",
+      "dateEnd": "2023-01-01"
+    },
+    {
+      "id": 2,
+      "codeBlock": "LH-0002",
+      "product": {
+        "id": 2,
+        "name": "Tiger",
+        "country": "Vietnamese",
+        "cost": 20000,
+        "amount": "Thùng"
+      },
+      "quantity": 5,
+      "dateImport": "2022-01-02",
+      "dateStart": "2022-01-01",
+      "dateEnd": "2023-01-01"
+    },
+    {
+      "id": 3,
+      "codeBlock": "LH-0003",
+      "product": {
+        "id": 3,
+        "name": "Oshi",
+        "country": "Vietnamese",
+        "cost": 5000,
+        "amount": "Thùng"
+      },
+      "quantity": 5,
+      "dateImport": "2022-01-02",
+      "dateStart": "2022-01-01",
+      "dateEnd": "2023-01-01"
+    },
+    {
+      "id": 4,
+      "codeBlock": "LH-0004",
+      "product": {
+        "id": 4,
+        "name": "Dầu gội",
+        "country": "Vietnamese",
+        "cost": 10000,
+        "amount": "Thùng"
+      },
+      "quantity": 5,
+      "dateImport": "2022-01-02",
+      "dateStart": "2022-01-01",
+      "dateEnd": "2023-01-01"
+    },
+    {
+      "id": 5,
+      "codeBlock": "LH-0005",
+      "product": {
+        "id": 5,
+        "name": "Larue",
+        "country": "Vietnamese",
+        "cost": 15000,
+        "amount": "Thùng"
+      },
+      "quantity": 5,
+      "dateImport": "2022-01-02",
+      "dateStart": "2022-01-01",
+      "dateEnd": "2023-01-01"
+    }
+  ]
+}

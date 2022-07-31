@@ -1,0 +1,12 @@
+.container-fluid {
+  background: #D6EFED;
+}
+
+.container-fluid .row .col-lg-6 {
+  background: #FFE7BF;
+  margin-bottom: 10px;
+}
+
+.container-fluid .row .col-lg-8 {
+  background: #FFE7BF;
+}

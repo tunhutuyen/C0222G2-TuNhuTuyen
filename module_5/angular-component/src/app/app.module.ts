@@ -34,6 +34,8 @@ import {HttpClientModule} from "@angular/common/http";
 
 import { TodoEditComponent } from './bai-tap-ss9/todo-edit/todo-edit.component';
 import { TodoDeleteComponent } from './bai-tap-ss9/todo-delete/todo-delete.component';
+import {ImageGalleryModule} from "./thuc-hanh-gallery-DI/image-gallery/image-gallery.module";
+import {GalleryConfig} from "./thuc-hanh-gallery-DI/image-gallery/token";
 
 
 @NgModule({
@@ -75,9 +77,12 @@ import { TodoDeleteComponent } from './bai-tap-ss9/todo-delete/todo-delete.compo
         FormsModule,
         ReactiveFormsModule,
       SharedModule,
-      HttpClientModule
+      HttpClientModule,
+      ImageGalleryModule
     ],
-  providers: [],
+  providers: [
+    {provide: GalleryConfig, useValue: 3}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

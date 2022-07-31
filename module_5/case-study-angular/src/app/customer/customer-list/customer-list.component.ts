@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../model/customer";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {CustomerService} from "../../service/customer/customer.service";
+import {CustomerTypeService} from "../../service/customer_type/customer-type.service";
+import {FormControl, FormGroup} from "@angular/forms";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-customer-list',
@@ -9,48 +13,62 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 })
 export class CustomerListComponent implements OnInit {
   customerList: Customer[] = [];
-  customer:Customer={};
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.customerList.push({
-      idCustomer: 1, email: 'conlocdn@gmail.com', nameCustomer: 'tuyến', address: 'Đà Nẵng', gender: 1,
-      idCard: '010101010101', phoneCustomer: '0123445678', dateOfBirth: '1999-12-28', customerType: {
-        idCustomerType: 1,
-        nameCustomerType: "Vip"
-      }
-    });
-    this.customerList.push({
-      idCustomer: 2, email: 'conlocdn1@gmail.com', nameCustomer: 'hòa chó', address: 'Đà Nẵng', gender: 0,
-      idCard: '1111111111111  ', phoneCustomer: '0423412312', dateOfBirth: '2000-02-20', customerType: {
-        idCustomerType: 2,
-        nameCustomerType: "Gold"
-      }
-    });
-    this.customerList.push({
-      idCustomer: 3, email: 'lamgi@gmail.com', nameCustomer: 'hòa oshin', address: 'Đà Nẵng', gender: 1,
-      idCard: '222222222222', phoneCustomer: '0123445678', dateOfBirth: '1990-05-13', customerType: {
-        idCustomerType: 3,
-        nameCustomerType: "Silver"
-      }
-    });
-    this.customerList.push({
-      idCustomer: 4, email: 'lamgi@gmail.com', nameCustomer: 'Hòa Phú Cường', address: 'Việt Nam', gender: 0,
-      idCard: '4242424224', phoneCustomer: '2255523541311', dateOfBirth: '1990-05-13', customerType: {
-        idCustomerType: 1,
-        nameCustomerType: "Vip"
-      }
-    });
-  this.activatedRoute.paramMap.subscribe((paramMap:ParamMap)=>{
-    const id = paramMap.get('id');
-    this.customer = this.findById(parseInt(id))[0];
-  })
+  customer: Customer = {};
+  p: number = 1;
+  searchAddress: string = '';
+  searchName: string = '';
+  formSearch: FormGroup;
 
+  constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService, private router: Router,
+              private toast:ToastrService) {
   }
 
 
   ngOnInit(): void {
+    this.customerService.getAll().subscribe(data => {
+      // this.p = 1;
+      this.customerList = data;
+      this.searchCustomer();
+    }, error => {
+    }, () => {
+    })
+  }
+  searchCustomer(){
+    this.formSearch = new FormGroup({
+      searchByAddress: new FormControl(),
+      searchByName: new FormControl()
+    });
   }
 
-  private findById(number: number) {
-    return this.customerList.filter(ctm=>ctm.idCustomer === number);
+  modalDelete(customer: Customer) {
+    this.customer = customer;
+  }
+
+  deleteCustomer(customer: Customer) {
+    this.customerService.deleteCustomer(customer).subscribe(ct =>{
+      this.toast.success('Delete success','Delete')
+      this.ngOnInit();
+    },error => {
+    },()=>{
+
+    })
+  }
+
+  searchFormCustomer() {
+    this.searchAddress = this.formSearch.value.searchByAddress;
+    this.searchName = this.formSearch.value.searchByName;
+    if (this.searchAddress == null) {
+      this.searchAddress = '';
+    }
+    if (this.searchName == null) {
+      this.searchName = '';
+    }
+    this.customerService.searchFormCustomer(this.searchName,this.searchAddress).subscribe(da=>{
+      this.customerList = da;
+        console.log(da)
+    },error => {},
+      ()=>{
+        console.log(this.customerList);
+      });
   }
 }
