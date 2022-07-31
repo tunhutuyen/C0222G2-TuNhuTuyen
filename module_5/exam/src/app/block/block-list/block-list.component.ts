@@ -56,18 +56,18 @@ export class BlockListComponent implements OnInit {
   }
 
   searchFormBlock() {
-    this.searchName = this.formSearch.value.searchByName;
-    if (this.searchName == null) {
-      this.searchName = '';
-    }
-    this.blockProService.searchFormBlock(this.searchName).subscribe(da=>{
-        // @ts-ignore
-        this.blockList = da.content;
-        console.log(da)
-      },error => {},
-      ()=>{
-
-      });
+    // this.searchName = this.formSearch.value.searchByName;
+    // if (this.searchName == null) {
+    //   this.searchName = '';
+    // }
+    // this.blockProService.searchFormBlock(this.searchName).subscribe(da=>{
+    //     // @ts-ignore
+    //     this.blockList = da.content;
+    //     console.log(da)
+    //   },error => {},
+    //   ()=>{
+    //
+    //   });
   }
 
 }

@@ -28,6 +28,7 @@ export class BlockCreateComponent implements OnInit {
   getAllProduct() {
     this.productService.getAll().subscribe(data => {
       this.productList = data;
+      console.log(this.productList)
       this.getForm();
     })
   }
@@ -44,22 +45,22 @@ export class BlockCreateComponent implements OnInit {
   }
 
   submit() {
-    // if (this.blockForm.valid) {
-    //   this.submitted = true;
-    //   const block = this.blockForm.value
-    //   this.blockService.saveBlock(block).subscribe(cs => {
-    //       this.submitted = false;
-    //       this.router.navigateByUrl("block-list")
-    //       this.toast.success('Create success', 'Create New')
-    //       // this.ngOnInit();
-    //     }, error => {
-    //     },
-    //     () => {
-    //
-    //     })
-    // } else {
-    //   this.submitted = true;
-    // }
+    if (this.blockForm.valid) {
+      this.submitted = true;
+      const block = this.blockForm.value
+      this.blockService.saveBlock(block).subscribe(cs => {
+          this.submitted = false;
+          this.router.navigateByUrl("block-list")
+          this.toast.success('Create success', 'Create New')
+          // this.ngOnInit();
+        }, error => {
+        },
+        () => {
+
+        })
+    } else {
+      this.submitted = true;
+    }
   }
   getCodeBlock(){
     return this.blockForm.controls.codeBlock;

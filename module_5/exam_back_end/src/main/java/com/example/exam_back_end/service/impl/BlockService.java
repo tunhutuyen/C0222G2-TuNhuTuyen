@@ -21,4 +21,9 @@ public class BlockService implements IBlockService {
     public void delete(Integer idDelete) {
         this.iBlockRepository.deleteById(idDelete);
     }
+
+    @Override
+    public void saveBlock(Block block) {
+        this.iBlockRepository.save(block);
+    }
 }

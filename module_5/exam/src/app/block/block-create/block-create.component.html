@@ -43,7 +43,7 @@
             <input class="form-control" id="birthday" type="date" placeholder="Enter your date..." formControlName="dateImport"
                    name="dateImport"/>
             <small style="color: red" *ngIf="getDateImport().hasError('required') &&
-            getDateImport().touched || submitted"> Date not empty</small>
+            (getDateImport().touched&&getDateImport().pristine) || submitted"> Date not empty</small>
           </div>
 
           <div class="form-floating mb-3">
@@ -51,7 +51,7 @@
             <input class="form-control" id="idCard" type="date" placeholder="Enter your date..."
                    formControlName="dateStart" name="dateStart"/>
             <small style="color: red" *ngIf="getDateStart().hasError('required') &&
-            getDateStart().touched || submitted"> Date not empty</small>
+            (getDateStart().touched&&getDateStart().pristine) || submitted"> Date not empty</small>
           </div>
           <!-- phoneNumber input-->
           <div class="form-floating mb-3">
@@ -59,7 +59,7 @@
             <input class="form-control" id="phoneNumber" type="date" placeholder="Enter your date..."
                    formControlName="dateEnd" name="dateEnd"/>
             <small style="color: red" *ngIf="getDateEnd().hasError('required') &&
-            getDateEnd().touched || submitted"> Date End not empty</small>
+            (getDateEnd().touched&&getDateEnd().pristine) || submitted"> Date End not empty</small>
           </div>
           <!-- email input-->
           <div class="form-floating mb-3">
@@ -67,7 +67,7 @@
             <input class="form-control" id="email" type="number" placeholder="Enter your quantity..." formControlName="quantity"
                    name="quantity"/>
             <small style="color: red" *ngIf="getQuantity().hasError('required') &&
-            getQuantity().touched || submitted"> Quantity not empty</small>
+            (getQuantity().touched&&getQuantity().pristine) || submitted"> Quantity not empty</small>
           </div>
           <!-- address input-->
 
@@ -80,7 +80,7 @@
               <option *ngFor="let c of productList" [ngValue]="c">{{c.name}}</option>
             </select>
             <small style="color: red" *ngIf="getProduct().hasError('required') &&
-            getProduct().touched || submitted" > Product Type not empty</small>
+            (getProduct().touched&&getProduct().pristine) || submitted" > Product Type not empty</small>
           </div>
 
           <!-- Submit Button-->

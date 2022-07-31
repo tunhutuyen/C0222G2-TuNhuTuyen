@@ -8,4 +8,6 @@ public interface IBlockService {
     Page<Block> getAllBlock(Pageable pageable, String productName);
 
     void delete(Integer idDelete);
+
+    void saveBlock(Block block);
 }

@@ -37,6 +37,13 @@ public class BlockRestController {
         return new ResponseEntity<>(blockPage, HttpStatus.OK);
 
     }
+
+    @PostMapping("/block-create")
+    public ResponseEntity<Block> saveBlock(@RequestBody Block block){
+        this.iBlockService.saveBlock(block);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @DeleteMapping("/block-delete/{idDelete}")
     public ResponseEntity<Void> deleteBlock(@PathVariable Integer idDelete){
         System.out.println(idDelete);

@@ -8,13 +8,13 @@ import {Product} from "../model/product";
 })
 export class ProductService {
 
-  private URL_PRODUCT = "http://localhost:3000/product"
-
+  // private URL_PRODUCT = "http://localhost:3000/product"
+  private URL_PRODUCT = "http://localhost:8080/rest";
   constructor(private httpClient: HttpClient) {
   }
 
   getAll(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.URL_PRODUCT);
+    return this.httpClient.get<Product[]>(this.URL_PRODUCT +"/product-list");
   }
 
   // saveCustomer(product: Product): Observable<Product> {
