@@ -36,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../demo_jwt/angular7-jwt" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="ts.external.directory.path" value="D:\tuyen\code-gym\project_2\shop-online-pe\node_modules\typescript\lib" />
@@ -96,7 +96,7 @@
       <workItem from="1662278454531" duration="1198000" />
       <workItem from="1662304614330" duration="17450000" />
       <workItem from="1662341506628" duration="21297000" />
-      <workItem from="1662369180058" duration="1030000" />
+      <workItem from="1662369180058" duration="3119000" />
     </task>
     <servers />
   </component>
@@ -120,26 +120,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="431" y="165" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1662362817533" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1662351899811">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1662371788391">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1662351899811" />
-    <state width="672" height="179" key="GridCell.Tab.0.bottom" timestamp="1662369366585">
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1662371788391" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1662373614321">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="672" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1662369366585" />
-    <state width="672" height="179" key="GridCell.Tab.0.center" timestamp="1662369366585">
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1662373614321" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1662373614320">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="672" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1662369366585" />
-    <state width="672" height="179" key="GridCell.Tab.0.left" timestamp="1662369366585">
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1662373614320" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1662373614320">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="672" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1662369366585" />
-    <state width="672" height="179" key="GridCell.Tab.0.right" timestamp="1662369366585">
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1662373614320" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1662373614320">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="672" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1662369366585" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1662373614320" />
     <state x="492" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1662315895094">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
