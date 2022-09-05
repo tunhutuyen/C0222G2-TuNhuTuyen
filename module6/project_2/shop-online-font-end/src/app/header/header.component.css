@@ -1,0 +1,10 @@
+.image{
+  width: 250px;
+  height: 48px;
+  display: inline-block;
+}
+.image img{
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+}
