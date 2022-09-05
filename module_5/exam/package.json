@@ -11,6 +11,8 @@
   },
   "private": true,
   "dependencies": {
+    "firebase": "^8.4.2",
+    "@angular/fire": "^6.1.4",
     "@angular/animations": "^9.0.7",
     "@angular/common": "~9.0.7",
     "@angular/compiler": "~9.0.7",

@@ -15,6 +15,10 @@ import {ToastrModule} from "ngx-toastr";
 import { BlockListComponent } from './block/block-list/block-list.component';
 import { BlockCreateComponent } from './block/block-create/block-create.component';
 import { BlockEditComponent } from './block/block-edit/block-edit.component';
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire";
+
+
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import { BlockEditComponent } from './block/block-edit/block-edit.component';
     HttpClientModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
     ToastrModule.forRoot()
   ],
   providers: [],

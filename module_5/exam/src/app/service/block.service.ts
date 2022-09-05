@@ -14,17 +14,17 @@ export class BlockService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAll(): Observable<Block[]> {
-    return this.httpClient.get<Block[]>(this.URL_BLOCK + "/block-list");
+  getAllBlock(page:number): Observable<Block[]> {
+    return this.httpClient.get<Block[]>(this.URL_BLOCK + "/block-list?page="+page);
   }
 
   findById(id: number): Observable<Block> {
-    return this.httpClient.get<Block>(this.URL_BLOCK + "/" + id);
+    return this.httpClient.get<Block>(this.URL_BLOCK + "/block-find-by-id/" + id);
   }
 
-  // editBlock(block: Block): Observable<Block> {
-  //   return this.httpClient.patch<Block>(this.URL_BLOCK, block)
-  // }
+  editBlock(block: Block): Observable<Block> {
+    return this.httpClient.patch<Block>(this.URL_BLOCK + "/block-edit/"+block.id, block)
+  }
   //
   saveBlock(block: Block): Observable<Block> {
     return this.httpClient.post<Block>(this.URL_BLOCK+"/block-create", block);
@@ -35,6 +35,6 @@ export class BlockService {
   }
 
   searchFormBlock(searchName: string): Observable<Block[]> {
-    return this.httpClient.get<Block[]>(this.URL_BLOCK + "?product.name_like=" + searchName);
+    return this.httpClient.get<Block[]>(this.URL_BLOCK + "/block-list?name=" + searchName);
   }
 }

@@ -27,16 +27,25 @@
         <form [formGroup]="blockForm" (ngSubmit)="submit()" *ngIf="blockForm">
           <!-- name input-->
           <div class="form-floating mb-3">
+            <label for="imageProduct">Image</label>
+            <input class="form-control-file" id="imageProduct" type="file" (change)="showPreview($event)"
+                   name="codeBlock"/>
+            <small style="color: red" *ngIf="getCodeBlock().hasError('pattern') &&
+            getCodeBlock().touched"> Code not invalid</small>
+            <small style="color: red" *ngIf="getCodeBlock().hasError('required') &&
+            (getCodeBlock().touched) || submitted"> Code not empty</small>
+
+          </div>
+          <div class="form-floating mb-3">
             <label for="name">Code</label>
             <input class="form-control" id="name" type="text" placeholder="Enter your code..." formControlName="codeBlock"
                    name="codeBlock"/>
             <small style="color: red" *ngIf="getCodeBlock().hasError('pattern') &&
             getCodeBlock().touched"> Code not invalid</small>
             <small style="color: red" *ngIf="getCodeBlock().hasError('required') &&
-            (getCodeBlock().touched&&getCodeBlock().pristine) || submitted"> Code not empty</small>
+            (getCodeBlock().touched) || submitted"> Code not empty</small>
 
           </div>
-
           <!-- birthday input-->
           <div class="form-floating mb-3">
             <label for="birthday">Date Import</label>

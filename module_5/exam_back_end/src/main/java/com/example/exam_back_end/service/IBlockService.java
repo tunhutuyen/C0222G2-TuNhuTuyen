@@ -10,4 +10,8 @@ public interface IBlockService {
     void delete(Integer idDelete);
 
     void saveBlock(Block block);
+
+    Block findById(Integer id);
+
+    void save(Block block);
 }

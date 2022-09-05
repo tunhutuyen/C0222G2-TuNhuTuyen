@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Block} from "../../model/block";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -14,27 +14,38 @@ import {ProductService} from "../../service/product.service";
 export class BlockListComponent implements OnInit {
 
   blockList: Block[] = [];
-  blockProduct: Block ={}
+  blockProduct: Block = {}
   p: number = 1;
   searchAddress: string = '';
   searchName: string = '';
   formSearch: FormGroup;
+  number: number;
+  totalPages: number;
+  countTotalPages: number[];
 
-  constructor(private toast:ToastrService,private blockProService: BlockService) {
+  constructor(private toast: ToastrService, private blockProService: BlockService) {
   }
 
 
   ngOnInit(): void {
-    this.getAll();
+    this.getAll(0);
     this.searchBlock();
   }
-  getAll(){
-    this.blockProService.getAll().subscribe(data => {
+
+  getAll(page: number) {
+    this.blockProService.getAllBlock(page).subscribe(data => {
       // @ts-ignore
       this.blockList = data.content;
+      // @ts-ignore
+        this.number = data.number;
+      // @ts-ignore
+      this.countTotalPages = new Array(data.totalPages);
+      // @ts-ignore
+      this.totalPages = data.totalPages;
     })
   }
-  searchBlock(){
+
+  searchBlock() {
     this.formSearch = new FormGroup({
       searchByName: new FormControl()
     });
@@ -46,28 +57,54 @@ export class BlockListComponent implements OnInit {
   }
 
   deleteBlock(id: number) {
-    this.blockProService.deleteBlock(id).subscribe(ct =>{
-      this.toast.success('Delete success','Delete')
+    this.blockProService.deleteBlock(id).subscribe(ct => {
+      this.toast.success('Delete success', 'Delete employee')
       this.ngOnInit();
-    },error => {
-    },()=>{
+    }, error => {
+    }, () => {
 
     })
   }
 
   searchFormBlock() {
-    // this.searchName = this.formSearch.value.searchByName;
-    // if (this.searchName == null) {
-    //   this.searchName = '';
-    // }
-    // this.blockProService.searchFormBlock(this.searchName).subscribe(da=>{
-    //     // @ts-ignore
-    //     this.blockList = da.content;
-    //     console.log(da)
-    //   },error => {},
-    //   ()=>{
-    //
-    //   });
+    this.searchName = this.formSearch.value.searchByName;
+    console.log(this.searchName)
+    if (this.searchName == null) {
+      this.searchName = '';
+    }
+    this.blockProService.searchFormBlock(this.searchName).subscribe(da => {
+        if (da == null) {
+          this.blockList = [];
+        } else {
+          // @ts-ignore
+          this.blockList = da.content;
+        }
+        console.log(da)
+      }, error => {
+      },
+      () => {
+
+      });
+  }
+
+  goPrevious() {
+    let numberPage: number = this.number;
+    if (numberPage > 0) {
+      numberPage--;
+      this.getAll(numberPage);
+    }
+  }
+
+  goNext() {
+    let numberPage: number = this.number;
+    if (numberPage < this.totalPages - 1) {
+      numberPage++;
+      this.getAll(numberPage);
+    }
+  }
+
+  goItem(i: number) {
+    this.getAll(i);
   }
 
 }

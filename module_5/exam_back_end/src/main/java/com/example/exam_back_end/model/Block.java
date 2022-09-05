@@ -16,11 +16,12 @@ public class Block {
     private Date dateImport;
     private Date dateStart;
     private Date dateEnd;
+    private String imgProduct;
 
     public Block() {
     }
 
-    public Block(Integer id, String codeBlock, Product product, Double quantity, Date dateImport, Date dateStart, Date dateEnd) {
+    public Block(Integer id, String codeBlock, Product product, Double quantity, Date dateImport, Date dateStart, Date dateEnd,String imgProduct) {
         this.id = id;
         this.codeBlock = codeBlock;
         this.product = product;
@@ -28,6 +29,7 @@ public class Block {
         this.dateImport = dateImport;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
+        this.imgProduct = imgProduct;
     }
 
     public Integer getId() {
@@ -84,5 +86,13 @@ public class Block {
 
     public void setDateEnd(Date dateEnd) {
         this.dateEnd = dateEnd;
+    }
+
+    public String getImgProduct() {
+        return imgProduct;
+    }
+
+    public void setImgProduct(String imgProduct) {
+        this.imgProduct = imgProduct;
     }
 }

@@ -23,9 +23,8 @@ public class BlockRestController {
     private IBlockService iBlockService;
 
     @GetMapping("/block-list")
-    public ResponseEntity<Page<Block>> getAllBlock(@PageableDefault(value=5)Pageable pageable, Optional<String>
-                                                   productNameSearch) {
-        String productName = productNameSearch.orElse("");
+    public ResponseEntity<Page<Block>> getAllBlock(@PageableDefault(value=2)Pageable pageable, Optional<String> name) {
+        String productName = name.orElse("");
         if (productName.equals("null")){
             productName = "";
         }
@@ -38,6 +37,12 @@ public class BlockRestController {
 
     }
 
+    @GetMapping("/block-find-by-id/{id}")
+    public ResponseEntity<Block> findBlockById(@PathVariable Integer id){
+        Block block= this.iBlockService.findById(id);
+        return new ResponseEntity<>(block,HttpStatus.OK);
+    }
+
     @PostMapping("/block-create")
     public ResponseEntity<Block> saveBlock(@RequestBody Block block){
         this.iBlockService.saveBlock(block);
@@ -48,6 +53,12 @@ public class BlockRestController {
     public ResponseEntity<Void> deleteBlock(@PathVariable Integer idDelete){
         System.out.println(idDelete);
         this.iBlockService.delete(idDelete);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @PatchMapping("/block-edit/{id}")
+    public ResponseEntity<Void> editBlock(@RequestBody Block block){
+        System.out.println(block);
+        this.iBlockService.save(block);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

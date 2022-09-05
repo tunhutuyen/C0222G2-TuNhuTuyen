@@ -43,24 +43,36 @@ export class BlockEditComponent implements OnInit {
   }
 
   submitEdit() {
-    // if (this.blockFormEdit.valid) {
-    //   this.submitted = true;
-    //   const block = this.blockFormEdit.value
-    //   this.blockService.editBlock(block).subscribe(cs => {
-    //       this.submitted = false;
-    //       this.router.navigateByUrl("block-list")
-    //       this.toast.success('Edit success', 'Edit')
-    //       // this.ngOnInit();
-    //     }, error => {
-    //     },
-    //     () => {
-    //
-    //     })
-    // } else {
-    //   this.submitted = true;
-    // }
-  }
+    if (this.blockFormEdit.valid) {
+      const block = this.blockFormEdit.value
+      this.blockService.editBlock(block).subscribe(cs => {
+          this.submitted = false;
+          this.router.navigateByUrl("block-list")
+          this.showToast();
+          // this.ngOnInit();
+        }, error => {
+        },
+        () => {
 
+        })
+    } else {
+      this.submitted = true;
+      this.showToast()
+    }
+  }
+  showToast(){
+    if(this.blockFormEdit.valid){
+      this.toast.success('Edit success!!!','Edit',{
+        timeOut:1000,
+        progressBar:true
+      })
+    }else {
+      this.toast.error('Edit fail!!!','Edit',{
+        timeOut:1000,
+        progressBar:true
+      })
+    }
+  }
   compareWithEdit(o1:Product,o2:Product){
     if( o1.id === o2.id ){
       return true;

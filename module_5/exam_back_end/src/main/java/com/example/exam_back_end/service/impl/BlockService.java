@@ -26,4 +26,14 @@ public class BlockService implements IBlockService {
     public void saveBlock(Block block) {
         this.iBlockRepository.save(block);
     }
+
+    @Override
+    public Block findById(Integer id) {
+        return this.iBlockRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void save(Block block) {
+        this.iBlockRepository.save(block);
+    }
 }
