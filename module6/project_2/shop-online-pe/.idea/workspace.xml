@@ -10,7 +10,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc761553-6a37-4e12-bae2-24dd1c4fb5f1" name="Default Changelist" comment="" />
+    <list default="true" id="cc761553-6a37-4e12-bae2-24dd1c4fb5f1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../demo_jwt/ang-spring-boot-jwt/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../demo_jwt/ang-spring-boot-jwt/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo_jwt/ang-spring-boot-jwt/src/main/java/com/javainuse/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../demo_jwt/ang-spring-boot-jwt/src/main/java/com/javainuse/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo_jwt/ang-spring-boot-jwt/target/classes/com/javainuse/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../demo_jwt/ang-spring-boot-jwt/target/classes/com/javainuse/config/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../demo_jwt/angular7-jwt-demo/src/app/service/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../demo_jwt/angular7-jwt-demo/src/app/service/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,6 +103,8 @@
       <workItem from="1662304614330" duration="17450000" />
       <workItem from="1662341506628" duration="21297000" />
       <workItem from="1662369180058" duration="3119000" />
+      <workItem from="1662600512623" duration="574000" />
+      <workItem from="1662602201743" duration="1820000" />
     </task>
     <servers />
   </component>

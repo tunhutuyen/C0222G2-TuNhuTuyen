@@ -1,0 +1,162 @@
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+  <div class="row px-xl-5">
+    <div class="col-12">
+      <nav class="breadcrumb bg-light mb-30">
+        <a class="breadcrumb-item text-dark" href="#">Trang chủ</a>
+        <!--        <a class="breadcrumb-item text-dark" href="#">Shop</a>-->
+        <span class="breadcrumb-item active">Giỏ hàng</span>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- Breadcrumb End -->
+
+
+<!-- Cart Start -->
+<div class="container-fluid">
+  <div class="row px-xl-5">
+    <div class="col-lg-8 table-responsive mb-5">
+      <table class="table table-light table-borderless table-hover text-center mb-0">
+        <thead class="thead-dark">
+        <tr>
+          <th>Tên sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Tổng tiền</th>
+          <th>Xóa</th>
+        </tr>
+        </thead>
+        <tbody class="align-middle">
+        <tr *ngFor="let po of productOrders; index as i">
+          <td class="align-middle" style="text-align: left!important;"><img src="{{po.product.image}}" alt=""
+                                                                            style="width: 50px;">{{po.product.name}}
+          </td>
+          <td
+            class="align-middle">{{po.product.price - (po.product.price * po.product.discount / 100) | currency: 'VND': ''}}
+            <sup>đ</sup></td>
+          <td class="align-middle">
+            <div class="input-group quantity mx-auto" style="width: 100px;">
+              <div class="input-group-btn">
+                <button class="btn btn-sm btn-primary btn-minus" (click)="minusQuantity(po)" *ngIf="po.quantity > 1">
+                  <i class="fa fa-minus"></i>
+                </button>
+                <button class="btn btn-sm btn-primary btn-minus" data-toggle="modal"
+                        [attr.data-target]="'#deleteMinusModal' + po.product.id" *ngIf="po.quantity <= 1">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <input type="text" class="form-control form-control-sm bg-secondary text-center" [value]="po.quantity">
+              <div class="input-group-btn">
+                <button class="btn btn-sm btn-primary btn-plus" (click)="plusQuantity(po)"
+                        *ngIf="po.quantity < po.product.quantity">
+                  <i class="fa fa-plus"></i>
+                </button>
+                <button class="btn btn-sm btn-primary btn-plus" (click)="maximumQuantity()"
+                        *ngIf="po.quantity >= po.product.quantity">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </td>
+          <td
+            class="align-middle">{{(po.product.price - (po.product.price * po.product.discount / 100)) * po.quantity | currency: 'VND': ''}}
+            <sup>đ</sup></td>
+          <td class="align-middle">
+            <button style="border: none ; background-color: #090303" data-toggle="modal"
+                    [attr.data-target]="'#exampleModalDeleteButton' + po.product.id">
+              <i class="fa-solid fa-trash" style="color: #a0a00a"></i>
+            </button>
+          </td>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalDeleteButton{{po.product.id}}" tabindex="-1" role="dialog"
+               aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title font-weight-bold text-uppercase text-danger" id="exampleModalLabelDelete">Xóa
+                    sản phẩm?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p style="font-size: 20px">Bạn có muốn xóa sản phẩm <span
+                    class="text-danger">{{po.product.name}}</span> khỏi giỏ hàng không?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" (click)="deleteProductInCart(po)">Xóa</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tr>
+        <tr>
+          <th colspan="5" class="text-center m-auto" *ngIf="productOrders.length <= 0">
+            Hiện tại không có sản phẩm nào trong giỏ hàng.
+            <a [routerLink]="['/product/all']"> Xem thêm các sản phẩm.</a>
+          </th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-4">
+<!--      <form class="mb-30" action="">-->
+<!--        <div class="input-group">-->
+<!--          <input type="text" class="form-control border-0 p-4" placeholder="Mã giảm giá">-->
+<!--          <div class="input-group-append">-->
+<!--            <button class="btn btn-primary">Thêm mã</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
+      <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Tổng tiền</span>
+      </h5>
+      <div class="bg-light p-30 mb-5">
+        <div class="border-bottom pb-2">
+          <div class="d-flex justify-content-between mb-3">
+            <h6>Giá cả</h6>
+            <h6>{{totalMoney | currency: 'VND':''}}<sup>đ</sup></h6>
+          </div>
+          <div class="d-flex justify-content-between">
+            <h6 class="font-weight-medium">Phí vận chuyển</h6>
+            <h6 class="font-weight-medium" *ngIf="productOrders.length > 0">30.000 <sup>đ</sup></h6>
+            <h6 class="font-weight-medium" *ngIf="productOrders.length <= 0">0<sup>đ</sup></h6>
+          </div>
+        </div>
+        <div class="pt-2">
+          <div class="d-flex justify-content-between mt-2">
+            <h5>Tổng</h5>
+            <h5 class="font-weight-bold" *ngIf="productOrders.length > 0">
+            {{totalMoney + 30000 | currency: 'VND': ''}}<sup>đ</sup>
+             ( {{(totalMoney + 30000) / 23000 | currency: 'USD'}} )</h5>
+            <h5 class="font-weight-bold" *ngIf="productOrders.length <= 0">0<sup>đ</sup></h5>
+          </div>
+          <button class="btn btn-block btn-primary font-weight-bold my-3 py-3" data-toggle="modal"
+                  data-target="#exampleModalPayment"><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Thanh toán</button>
+<!--          Modal-->
+          <div class="modal fade" id="exampleModalPayment" tabindex="-1" role="dialog"
+               aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabelPayment">CHỌN PHƯƠNG THỨC THANH TOÁN</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="paymentsBtn">
+                  <div id="payments" *ngIf="totalMoney >= 0"></div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Cart End -->

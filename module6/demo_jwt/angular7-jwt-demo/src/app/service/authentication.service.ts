@@ -6,7 +6,7 @@ export class User{
   constructor(
     public status:string,
      ) {}
-  
+
 }
 
 @Injectable({
@@ -15,8 +15,9 @@ export class User{
 export class AuthenticationService {
 
   constructor(
+    // private httpClient:HttpClient
     private httpClient:HttpClient
-  ) { 
+  ) {
      }
 
      authenticate(username, password) {
@@ -28,10 +29,9 @@ export class AuthenticationService {
           return userData;
          }
        )
-  
       );
     }
-  
+
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username')

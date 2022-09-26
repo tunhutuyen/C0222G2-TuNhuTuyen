@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="96d3e0c8-c52d-4d5b-b0d5-e728a1c855b1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/authentication/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/controller/LogoutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/controller/jwt/JwtAuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/filter/JwtRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/model/account/AppRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/model/account/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/model/account/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/model/jwt/JwtRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/model/jwt/JwtResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/repository/IAppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/repository/account/IUserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/service/account/IAppUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/service/account/impl/AppUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/service/jwt/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/service/util/EncrytedPasswordUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/service/util/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/service/util/LoginUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/util/EncrytedPasswordUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/util/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/java/com/example/shop_online_be/util/LoginUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module6/project_2/shop_online_be/src/main/resources/local.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module6/demo_jwt/ang-spring-boot-jwt/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../module6/demo_jwt/ang-spring-boot-jwt/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module6/demo_jwt/ang-spring-boot-jwt/src/main/java/com/javainuse/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module6/demo_jwt/ang-spring-boot-jwt/src/main/java/com/javainuse/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module6/demo_jwt/ang-spring-boot-jwt/target/classes/com/javainuse/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module6/demo_jwt/ang-spring-boot-jwt/target/classes/com/javainuse/config/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module6/demo_jwt/angular7-jwt-demo/src/app/service/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../module6/demo_jwt/angular7-jwt-demo/src/app/service/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module6/project_2/shop-online-pe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../module6/project_2/shop-online-pe/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2EVnBraSnryuWEbTTeMQijQq2rf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96d3e0c8-c52d-4d5b-b0d5-e728a1c855b1" name="Changes" comment="" />
+      <created>1662689489991</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662689489991</updated>
+      <workItem from="1662689493411" duration="103000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

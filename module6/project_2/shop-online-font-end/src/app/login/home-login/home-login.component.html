@@ -1,6 +1,6 @@
 <div class="container" id="container">
   <div class="form-container sign-up-container">
-    <form action="#">
+    <form [formGroup]="">
       <h1>Đăng ký</h1>
       <div class="social-container">
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -15,7 +15,7 @@
     </form>
   </div>
   <div class="form-container sign-in-container">
-    <form action="#">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <h1>Đăng nhập</h1>
       <div class="social-container">
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -23,10 +23,35 @@
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <span>hoặc tài khoản của bạn</span>
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Password" />
+      <input type="text" placeholder="Account" formControlName="username"/>
+      <span class="text-danger fs-10"
+            *ngIf="loginForm.controls.username.hasError('required') && loginForm.controls.username.touched">Vui lòng
+                  nhập tên tài khoản.
+                </span>
+      <input type="password" placeholder="Password" formControlName="password"/>
+      <span class="text-danger fs-10"
+            *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">Vui lòng
+                  nhập mật khẩu.
+                </span>
       <a href="#">Quên mật khẩu?</a>
-      <button>Đăng nhập</button>
+
+      <div *ngIf="activeLogin">
+        <button>Đăng nhập</button>
+      </div>
+      <div *ngIf="!activeLogin">
+        <div *ngIf="realTimeSecond < 10">
+          <div class="col-12 mb-3 w-100">
+            <button class="btn btn-lg w-100 fs-6 btn-secondary disabled" type="button">0{{realTimeMinute}} :
+              0{{realTimeSecond}}</button>
+          </div>
+        </div>
+        <div *ngIf="realTimeSecond >= 10">
+          <div class="col-12 mb-3 w-100">
+            <button class="btn btn-lg w-100 fs-6 btn-secondary disabled" type="button">0{{realTimeMinute}}
+              : {{realTimeSecond}}</button>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
   <div class="overlay-container">
@@ -34,7 +59,7 @@
       <div class="overlay-panel overlay-left">
         <h1>Mừng sự trở lại của bạn!</h1>
         <p>Để giữ kết nối với chúng tôi, vui lòng đăng nhập bằng thông tin cá nhân của bạn</p>
-        <button class="ghost" id="signIn">Đăng nhập</button>
+        <button class="ghost" id="signIn" (click)="openSign()">Đăng nhập</button>
       </div>
       <div class="overlay-panel overlay-right">
         <h1>Xin chào, bạn!</h1>

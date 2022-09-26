@@ -1,0 +1,15 @@
+.test-one{
+  /*padding: .5em;*/
+  /*font-family: sans-serif; !* IE - make input text/password fields same size *!*/
+
+  /*-webkit-box-sizing: border-box;*/
+  /*-moz-box-sizing:    border-box;*/
+  /*box-sizing:         border-box;*/
+  /*width:100%;*/
+}
+.form-icon{
+  padding-top: 4px
+}
+.form-search{
+  padding-left: 7px;
+}

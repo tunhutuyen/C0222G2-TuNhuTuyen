@@ -1,0 +1,12 @@
+
+7
+java:S1643"Use a StringBuilder instead.(ÅˆÎûþÿÿÿÿ
+0
+java:S1220""Move this file to a named package.
+z
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ì­ŠÜúÿÿÿÿ
+C
+java:S1481"(Remove this unused "str" local variable.(ûÍÇÉøÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(å¥€›
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÏÉÝ¦
+M	java:S106"9Replace this use of System.out or System.err by a logger.(×•±L
